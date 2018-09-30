@@ -1,0 +1,46 @@
+body
+{
+    background: #04CD31;
+}
+
+#DocPlan
+{
+    background: white;
+    width: 1063px;
+}
+
+table
+{
+    width: 957px;
+}
+
+table, td
+{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+td
+{
+    padding: 0in 5.4pt 0in 5.4pt;
+}
+
+p
+{
+    font-family: 'Arial',sans-serif;
+    font-size: "10pt";
+}
+
+.Requerimiento
+{
+    background: #BFBFBF;
+    text-align: center;
+    font-weight: bold;
+}
+
+.TituloSeccion
+{
+    background: #92CDDC;
+    text-align: center;
+    font-weight: bold;
+}
