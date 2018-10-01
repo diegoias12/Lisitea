@@ -4,6 +4,7 @@
 <head>
     <title>Creacion - CECyTEM Tequixquiac</title>
     <link rel="stylesheet" href="Estilo.css">
+    <script type="text/javascript" src="Funciones.js"></script>
 </head>
 
 <body>
@@ -13,9 +14,8 @@
         <br>
 
         <table id="SeccionA" align="center">
-        <tbody>
         <tr style="height: 69.5pt;">
-            <td style="width: 100.0%;" colspan="7">
+            <td colspan="100%">
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
@@ -32,7 +32,7 @@
             </td>
         </tr>
         <tr style="height: 23.75pt;">
-            <td class="Requerimiento" style="width: 20%;">
+            <td class="Requerimiento" width="20%">
                 <p style="margin-right: 8.75pt; text-align: right;"><span>Instituci&oacute;n:</span></p>
             </td>
             <td colspan="6">
@@ -51,13 +51,13 @@
             <td class="Requerimiento">
                 <p style="margin-right: 8.75pt; text-align: right;"><span>CCT:</span></p>
             </td>
-            <td style="width: 25%;">
+            <td width="25%">
                 <p><span>&nbsp;</span></p>
             </td>
-            <td class="Requerimiento" style="width: 15%;">
+            <td class="Requerimiento" width="15%">
                 <p><span>Docente:</span></p>
             </td>
-            <td style="width: 40%;" colspan="4">
+            <td width="40%" colspan="4">
                 <p><span>&nbsp;</span></p>
             </td>
         </tr>
@@ -71,13 +71,13 @@
             <td class="Requerimiento">
                 <p><span>Especialidad:</span></p>
             </td>
-            <td class="Requerimiento" style="width: 14%;">
+            <td class="Requerimiento" width="14%">
                 <p><span>Semestre:</span></p>
             </td>
-            <td class="Requerimiento" style="width: 14%;" colspan="2">
+            <td class="Requerimiento" width="14%" colspan="2">
                 <p><span>N&uacute;mero de parcial donde aplicar&aacute;:</span></p>
             </td>
-            <td class="Requerimiento" style="width: 12%;">
+            <td class="Requerimiento" width="12%">
                 <p><span>N&uacute;mero de planeaci&oacute;n:</span></p>
             </td>
         </tr>
@@ -105,20 +105,18 @@
             <td colspan="2">
                 <p><span>&nbsp;</span></p>
             </td>
-            <td class="Requerimiento" style="width: 20%;" colspan="2">
+            <td class="Requerimiento" width="20%" colspan="2">
                 <p><span>% de la PE en la evaluaci&oacute;n formativa del parcial</span></p>
             </td>
-            <td style="width: 20%;" colspan="2">
+            <td width="20%" colspan="2">
                 <p><span>&nbsp;</span></p>
             </td>
         </tr>
-        </tbody>
         </table>
 
         <br>
 
         <table id="SeccionB" align="center">
-        <tbody>
         <tr>
             <td class="TituloSeccion" colspan="100%">
                 <p>B) INTENCIONES FORMATIVAS</p>
@@ -135,16 +133,16 @@
             </td>
         </tr>
         <tr style="page-break-inside: avoid;">
-            <td class="Requerimiento" style="width: 9.72%;">
+            <td class="Requerimiento" width="10%">
                 <p><span>Eje:</span></p>
             </td>
-            <td style="width: 34.0%;">
+            <td width="34%">
                 <p><span>&nbsp;</span></p>
             </td>
-            <td class="Requerimiento" style="width: 13.56%;" colspan="2">
+            <td class="Requerimiento" width="14%" colspan="2">
                 <p><span>Componentes:</span></p>
             </td>
-            <td style="width: 42.72%;">
+            <td>
                 <p><span>&nbsp;</span></p>
             </td>
         </tr>
@@ -159,18 +157,18 @@
             </td>
         </tr>
         <tr>
-            <td class="Requerimiento" style="width: 50%;" colspan="3">
+            <td class="Requerimiento" width="50%" colspan="3">
                 <p><span>Contenidos especificos:</span></p>
             </td>
-            <td class="Requerimiento" style="width: 50%;" colspan="2">
+            <td class="Requerimiento" width="50%" colspan="2">
                 <p><span>Aprendizajes esperados:</span></p>
             </td>
         </tr>
         <tr>
-            <td style="width: 50%;" colspan="3">
+            <td width="50%" colspan="3">
                 <p><span>&nbsp;</span></p>
             </td>
-            <td style="width: 50%;" colspan="2">
+            <td width="50%" colspan="2">
                 <p><span>&nbsp;</span></p>
             </td>
         </tr>
@@ -224,8 +222,129 @@
                 <p><span>&nbsp;</span></p>
             </td>
         </tr>
-        </tbody>
         </table>
+
+        <br>
+
+        <table id="SeccionC" align="center">
+        <tr>
+            <td class="TituloSeccion" colspan="100%">
+                <p>C) ACTIVIDADES DE APRENDIZAJE</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="Requerimiento" colspan="100%">
+                <p>Apertura</p>
+            </td>
+        </tr>
+        <tbody class="Apartados"></tbody>
+        <tr class="LlenadoC"></tr>
+        <tr class="LlenadoC"></tr>
+        <tr class="LlenadoC"></tr>
+        <tr>
+            <td class="Requerimiento" colspan="100%">
+                <p>Desarrollo</p>
+            </td>
+        </tr>
+        <tbody class="Apartados"></tbody>
+        <tr class="LlenadoC"></tr>
+        <tr class="LlenadoC"></tr>
+        <tr class="LlenadoC"></tr>
+        <tr>
+            <td class="Requerimiento" colspan="100%">
+                <p>Cierre</p>
+            </td>
+        </tr>
+        <tbody class="Apartados"></tbody>
+        <tr class="LlenadoC"></tr>
+        <tr class="LlenadoC"></tr>
+        <tr class="LlenadoC"></tr>
+        </table>
+
+        <br>
+
+        <table id="SeccionD" align="center">
+        <tr>
+            <td class="TituloSeccion" colspan="100%">
+                <p>D) RECURSOS</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="Requerimiento" width="21%">
+                <p>Equipo</p>
+            </td>
+            <td class="Requerimiento" width="16%">
+                <p>Material</p>
+            </td>
+            <td class="Requerimiento" width="16%">
+                <p>Espacios f&iacute;sicos</p>
+            </td>
+            <td class="Requerimiento">
+                <p>Fuentes de informaci&oacute;n</p>
+            </td>
+        </tr>
+        <tr class="LlenadoD"></tr>
+        <tr class="LlenadoD"></tr>
+        <tr class="LlenadoD"></tr>
+        </table>
+
+        <br>
+
+        <table id="SeccionE" align="center">
+        <tr>
+            <td class="TituloSeccion" colspan="100%">
+                <p>E) INSTRUMENTOS</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="Requerimiento" width="11%">
+                <p>No. de anexo</p>
+            </td>
+            <td class="Requerimiento" width="40%">
+                <p>Instrumento</p>
+            </td>
+            <td class="Requerimiento" width="28%">
+                <p>T&iacute;tulo</p>
+            </td>
+            <td class="Requerimiento">
+                <p>Porcentaje de la evaluaci&oacute;n que se obtiene con cada instrumento</p>
+            </td>
+        </tr>
+        <tr class="LlenadoE"></tr>
+        <tr class="LlenadoE"></tr>
+        <tr class="LlenadoE"></tr>
+        </table>
+
+        <br>
+
+        <table id="SeccionF" align="center">
+        <tr>
+            <td class="TituloSeccion" colspan="100%">
+                <p>F) RUBRICAS</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="Requerimiento" width="25%">
+                <p>Realiz&oacute;</p>
+            </td>
+            <td class="Requerimiento" width="25%">
+                <p>Revisi&oacute;n t&eacute;cnica-pedag&oacute;gica</p>
+            </td>
+            <td class="Requerimiento" width="25%">
+                <p>Revisi&oacute;n de pertinencia escolar</p>
+            </td>
+            <td class="Requerimiento">
+                <p>Sello escolar</p>
+            </td>
+        </tr>
+        <tr class="LlenadoF"></tr>
+        </table>
+
+        <br>
     </div>
+
+    <script>
+        AgregarCodigo();
+    </script>
 </body>
 </html>
