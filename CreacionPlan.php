@@ -8,22 +8,30 @@
 </head>
 
 <body>
+    <div>
+        <button type="button">Guardar</button>
+        <button type="button">Enviar</button>
+        <button type="button">PDF</button>
+    </div>
+
     <div id="DocPlan" align="center">
         <p style="text-align: center; font-family: 'Times New Roman'"><strong>INSTRUMENTO PARA LA PLANEACI&Oacute;N ESTRAT&Eacute;GICA</strong></p>
 
         <br>
 
         <table id="SeccionA" align="center">
-        <tr style="height: 69.5pt;">
+        <tr style="border-bottom-style: hidden;">
+            <td colspan="2" style="border-right-style: hidden;">
+                <img src="Imagenes\GobEdoMex.jpg" height="60%">
+            </td>
+            <td colspan="4" style="border-right-style: hidden;"></td>
+            <td>
+                <img src="Imagenes\CECyTEM.png"
+            </td>
+        </tr>
+        <tr>
             <td colspan="100%">
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
                 <p style="text-align: center;"><strong><span style="font-size: 11.0pt;  ">PLANEACI&Oacute;N ESTRATEGICA</span></strong></p>
-                <p>&nbsp;</p>
             </td>
         </tr>
         <tr style="height: 15.3pt;">
