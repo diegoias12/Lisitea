@@ -3,6 +3,33 @@ body
     background: #26FFD4;
 }
 
+.MenuIcono
+{
+    font-size: 30px;
+    height: 100%;
+    width: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 10px;
+    padding-left: 8px;
+}
+
+.MenuIcono img
+{
+    width: 32px;
+    height: 32px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.MenuIcono img:hover
+{
+    filter: invert(100%);
+}
+
 .MenuLateral
 {
     height: 100%;
@@ -19,7 +46,7 @@ body
 
 .MenuLateral a
 {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 8px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
@@ -27,9 +54,18 @@ body
     transition: 0.3s;
 }
 
+.MenuLateral img
+{
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    vertical-align: sub;
+}
+
 .MenuLateral a:hover
 {
-    color: #f1f1f1;
+    filter: invert(100%);
+    color: black;
 }
 
 .MenuLateral .CerrarBtn
@@ -45,4 +81,54 @@ body
 {
     transition: margin-left .5s;
     padding: 16px;
+    margin-left: 40px;
+}
+
+#DocPlan
+{
+    background: white;
+    width: 1063px;
+}
+
+table
+{
+    width: 957px;
+}
+
+table, td
+{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+td
+{
+    padding: 0in 5.4pt 0in 5.4pt;
+}
+
+p
+{
+    font-family: 'Arial',sans-serif;
+    font-size: "10pt";
+}
+
+.Requerimiento
+{
+    background: #BFBFBF;
+    text-align: center;
+    font-weight: bold;
+}
+
+.Subrequerimiento
+{
+    background: #E6E6E6;
+    text-align: center;
+    font-weight: bold;
+}
+
+.TituloSeccion
+{
+    background: #92CDDC;
+    text-align: center;
+    font-weight: bold;
 }
