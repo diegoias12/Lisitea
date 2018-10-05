@@ -6,10 +6,14 @@ function AbrirMenu() {
 
 function CerrarMenu() {
     document.getElementById('MenuLateral').style.width = "0";
-    document.getElementById('Contenido').style.marginLeft = "0";
+    document.getElementById('Contenido').style.marginLeft = "40px";
     document.body.style.backgroundColor = "rgb(38,255,212)";
 }
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> 2371be00e6f6b08c1fe20945b604d273fddf9acf
 var espacioVacio
 = '<td>'
 +   '<p><span>&nbsp;</span></p>'
