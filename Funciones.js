@@ -9,11 +9,7 @@ function CerrarMenu() {
     document.getElementById('Contenido').style.marginLeft = "40px";
     document.body.style.backgroundColor = "rgb(38,255,212)";
 }
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 2371be00e6f6b08c1fe20945b604d273fddf9acf
 var espacioVacio
 = '<td>'
 +   '<p><span>&nbsp;</span></p>'
@@ -70,4 +66,22 @@ function AgregarCodigo()
     {
         apartados[i].innerHTML = apartadosC;
     }
+}
+
+function AgregarMenuDesplegable()
+{
+    var menu
+    = '<div id="MenuLateral" class="MenuLateral">'
+    +     '<a href="javascript:void(0)" class="CerrarBtn" onclick="CerrarMenu()">&times;</a>'
+    +     '<a href="Menu.php"> <img src="Imagenes\\Inicio.png"> Inicio</a>'
+    +     '<a href="#"> <img src="Imagenes\\Buscar.png"> Buscar</a>'
+    +     '<a href="#"> <img src="Imagenes\\Perfil.png"> Mi Perfil</a>'
+    + '</div>'
+    + '<div class="MenuIcono">'
+    +     '<span style="cursor: pointer;" onclick="AbrirMenu()">&#9776;</span>'
+    +     '<a href="Menu.php"> <img src="Imagenes\\Inicio.png"> </a>'
+    +     '<a href="#"> <img src="Imagenes\\Buscar.png"> </a>'
+    +     '<a href="#"> <img src="Imagenes\\Perfil.png"> </a>'
+    + '</div>';
+    document.getElementById("Menu").innerHTML = menu;
 }
