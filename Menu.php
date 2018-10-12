@@ -13,7 +13,15 @@
     <script> AgregarMenuDesplegable(); </script>
 
     <div id="Contenido">
-        <h1>Hola Mundo</h1>
+        <h3>Planeaciones en curso</h3>
+        <a href="CreacionPlan.php"><button type="button">Crear</button></a>
+        <hr>
+
+        <h3>Planeaciones aprobadas</h3>
+        <hr>
+
+        <h3>Planeaciones anteriores</h3>
+        <hr>
     </div>
 </body>
 
