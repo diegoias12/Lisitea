@@ -5,6 +5,7 @@
     <title>Creacion - CECyTEM Tequixquiac</title>
     <link rel="stylesheet" href="Estilo.css">
     <script type="text/javascript" src="Funciones.js"></script>
+    <script type="text/javascript" src="HtmlAPdfFunc.js"></script>
 </head>
 
 <body>
@@ -16,10 +17,10 @@
         <div>
             <button type="button">Guardar</button>
             <button type="button">Enviar</button>
-            <button type="button">PDF</button>
+            <button type="button" onclick="CrearPdf()">PDF</button>
         </div>
 
-        <div id="DocPlan" align="center">
+        <div id="DocPlan">
             <p style="text-align: center; font-family: 'Times New Roman'"><strong>INSTRUMENTO PARA LA PLANEACI&Oacute;N ESTRAT&Eacute;GICA</strong></p>
 
             <br>
@@ -100,6 +101,8 @@
                 <td>
                     <select id="cbAsignatura">
                         <option>-- Asignatura --</option>
+                        <option value="Matematicas">Matem&aacute;ticas</option>
+                        <option value="Historia">Historia</option>
                     </select>
                 </td>
                 <td>
@@ -110,6 +113,10 @@
                 <td>
                     <select id="cbSemestre">
                         <option>-- Semestre --</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
                     </select>
                 </td>
                 <td colspan="2">

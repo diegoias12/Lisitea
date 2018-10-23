@@ -1,10 +1,11 @@
 <?php
 $servername = "localhost";
-$username = "username";
-$password = "password";
+$username = "zxero2_LisiteaUsuario";
+$password = "Z6e!e5~N2$@@";
+$databasename = "zxero2_LisiteaBD";
 
 // Crear conexion
-$conexion = new mysqli($servername, $username, $password);
+$conexion = new mysqli($servername, $username, $password, $databasename);
 
 // Checar conexion
 if($conexion->connect_error)
