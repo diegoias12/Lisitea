@@ -2,22 +2,28 @@
 
 <html>
 <head>
+    <?php /*require 'PHPInclude\\Head.php';*/ ?>
+    <?php /*include 'PHPInclude\\Head.php';*/ ?>
     <title>Creacion - CECyTEM Tequixquiac</title>
-    <link rel="stylesheet" href="Estilo.css">
-    <script type="text/javascript" src="Funciones.js"></script>
-    <script type="text/javascript" src="HtmlAPdfFunc.js"></script>
+    <link rel="stylesheet" type="text/css" href="../CSSEstilos/General.css"/>
+    <link rel="stylesheet" type="text/css" href="../CSSEstilos/Menu.css"/>
+    <link rel="stylesheet" type="text/css" href="../CSSEstilos/Planeacion.css"/>
+    <script type="text/javascript" src="../JavaScriptFunciones/Menu.js"></script>
+    <script type="text/javascript" src="../JavaScriptFunciones/Planeacion.js"></script>
 </head>
 
 <body>
-    <div id="Menu"></div>
-    <script> AgregarMenuDesplegable(); </script>
+    <div id="Menu">
+        <?php require '../PHPInclude/Menu.php'; ?>
+        <?php /*include 'PHPInclude\\Menu.php';*/ ?>
+    </div>
 
     <div id="Contenido">
 
         <div>
             <button type="button">Guardar</button>
             <button type="button">Enviar</button>
-            <button type="button" onclick="CrearPdf()">PDF</button>
+            <!-- <button type="button" onclick="CrearPdf()">PDF</button> -->
         </div>
 
         <div id="DocPlan">
@@ -375,7 +381,7 @@
     </div>
 
     <script>
-        AgregarCodigo();
+        //AgregarCodigo();
     </script>
 </body>
 </html>

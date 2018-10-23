@@ -1,0 +1,72 @@
+/* The side navigation menu */
+#Menu .MenuLateralAbierto, .MenuLateralCerrado
+{
+    height: 100%;
+    position: fixed; /* Stay in place */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-y: hidden;;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.MenuLateralAbierto
+{
+    width: 0; /* 0 width - change this with JavaScript */
+    z-index: 1; /* Stay on top */
+    padding-top: 60px; /* Place content 60px from the top */
+}
+
+.MenuLateralCerrado
+{
+    width: 40px; /* 0 width - change this with JavaScript */
+}
+
+.MenuLateralAbierto a, .MenuLateralCerrado a
+{
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    padding: 4px 0px 4px 4px;
+}
+
+/* When you mouse over the navigation links, change their color */
+.MenuLateralAbierto a:hover, .MenuLateralCerrado a:hover
+{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.MenuLateralAbierto .closebtn
+{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.MenuLateralCerrado .openbtn
+{
+    position: absolute;
+    top: 0;
+    font-size: 36px;
+}
+
+img
+{
+    width: 32px;
+    height: 32px;
+    filter: invert(100%);
+    padding: 8px 4px 0px 0px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#Contenido
+{
+    transition: margin-left .5s;
+    padding: 20px;
+}
