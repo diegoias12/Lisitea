@@ -1,4 +1,10 @@
 <?php
+/*
+$servername = "localhost";
+$username = "zxero2_LisiteaUsuario";
+$password = "Z6e!e5~N2$@@";
+$databasename = "zxero2_LisiteaBD";
+*/
 $servername = "localhost";
 $username = "zxero2_LisiteaUsuario";
 $password = "Z6e!e5~N2$@@";
