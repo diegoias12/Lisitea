@@ -5,16 +5,16 @@
     <?php /*require 'PHPInclude\\Head.php';*/ ?>
     <?php /*include 'PHPInclude\\Head.php';*/ ?>
     <title>Creacion - CECyTEM Tequixquiac</title>
-    <link rel="stylesheet" type="text/css" href="../CSSEstilos/General.css"/>
-    <link rel="stylesheet" type="text/css" href="../CSSEstilos/Menu.css"/>
-    <link rel="stylesheet" type="text/css" href="../CSSEstilos/Planeacion.css"/>
-    <script type="text/javascript" src="../JavaScriptFunciones/Menu.js"></script>
-    <script type="text/javascript" src="../JavaScriptFunciones/Planeacion.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/General.css"/>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/Menu.css"/>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/Planeacion.css"/>
+    <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
+    <script type="text/javascript" src="JavaScriptFunciones/Planeacion.js"></script>
 </head>
 
 <body>
     <div id="Menu">
-        <?php require '../PHPInclude/Menu.php'; ?>
+        <?php require 'PHPInclude/Menu.php'; ?>
         <?php /*include 'PHPInclude\\Menu.php';*/ ?>
     </div>
 
@@ -32,13 +32,14 @@
             <br>
 
             <table id="SeccionA" align="center">
+            <form action="PHPFunciones/Planeacion.php" method="post">
             <tr style="border-bottom-style: hidden;">
                 <td colspan="2" style="border-right-style: hidden;">
-                    <img src="Imagenes\GobEdoMex.jpg" height="60%">
+                    <img src="Imagenes/GobEdoMex.jpg" height="60%">
                 </td>
                 <td colspan="4" style="border-right-style: hidden;"></td>
                 <td>
-                    <img src="Imagenes\CECyTEM.png"
+                    <img src="Imagenes/CECyTEM.png"
                 </td>
             </tr>
             <tr>
@@ -148,6 +149,7 @@
                     <textarea name="tb%PE" maxlength="3" rows="1" cols="4"></textarea>
                 </td>
             </tr>
+            </form>
             </table>
 
             <br>
@@ -381,7 +383,7 @@
     </div>
 
     <script>
-        //AgregarCodigo();
+        AgregarCodigo();
     </script>
 </body>
 </html>

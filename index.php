@@ -7,14 +7,14 @@
     $psw = "pass";
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     {
-        header("Location: /Lisitea/HTMLVentanas/Inicio.php");
+        header("Location: /Lisitea/Inicio.php");
     }
     if(isset($_POST['email']) && isset($_POST['psw']))
     {
         if($_POST['email'] == $email && $_POST['psw'] == $psw )
         {
             $_SESSION['loggedin'] = true;
-            header("Location: /Lisitea/HTMLVentanas/Inicio.php");
+            header("Location: /Lisitea/Inicio.php");
         }
     }
 ?>
@@ -33,7 +33,7 @@
         <br>
         <br>
         <input type="submit" value="Iniciar sesi&oacute;n">
-        <a href="../HTMLVentanas/RecuperarContrasena.php">&iquest;Olvidaste tu contrase&ntilde;a?</a>
+        <a href="RecuperarContrasena.php">&iquest;Olvidaste tu contrase&ntilde;a?</a>
     </form>
 </body>
 </html>
