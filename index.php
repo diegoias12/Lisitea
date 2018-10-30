@@ -3,18 +3,20 @@
 <?php
     session_start();
     // Se deben buscar las cuentas en la BD
-    $email = "mail@mail.com";
-    $psw = "pass";
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     {
-        header("Location: /Lisitea/Inicio.php");
+        header("Location: Inicio.php");
     }
+    $_SESSION['loggedin'] = false;
     if(isset($_POST['email']) && isset($_POST['psw']))
     {
+        // Base de datos
+        $email = "mail@mail.com";
+        $psw = "pass";
         if($_POST['email'] == $email && $_POST['psw'] == $psw )
         {
             $_SESSION['loggedin'] = true;
-            header("Location: /Lisitea/Inicio.php");
+            header("Location: Inicio.php");
         }
     }
 ?>

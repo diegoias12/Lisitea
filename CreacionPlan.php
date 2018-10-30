@@ -44,7 +44,7 @@
             </tr>
             <tr>
                 <td colspan="100%">
-                    <p style="text-align: center;"><strong><span style="font-size: 11.0pt;  ">PLANEACI&Oacute;N ESTRATEGICA</span></strong></p>
+                    <p style="text-align: center;"><strong><span style="font-size: 11.0pt;">PLANEACI&Oacute;N ESTRATEGICA</span></strong></p>
                 </td>
             </tr>
             <tr>
@@ -87,7 +87,7 @@
                     <p style="margin-right: 9.7pt; text-align: right;"><span>Asignatura o M&oacute;dulo:</span></p>
                 </td>
                 <td>
-                    <select id="cbCampoDisciplinar">
+                    <select id="cbCamDis">
                         <option>-- Campo Disciplinar --</option>
                     </select>
                 </td>
@@ -106,19 +106,19 @@
             </tr>
             <tr>
                 <td>
-                    <select id="cbAsignatura">
+                    <select id="cbAsig">
                         <option>-- Asignatura --</option>
                         <option value="Matematicas">Matem&aacute;ticas</option>
                         <option value="Historia">Historia</option>
                     </select>
                 </td>
                 <td>
-                    <select id="cbEspecialidad">
+                    <select id="cbEspec">
                         <option>-- Especialidad --</option>
                     </select>
                 </td>
                 <td>
-                    <select id="cbSemestre">
+                    <select id="cbSem">
                         <option>-- Semestre --</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -127,12 +127,10 @@
                     </select>
                 </td>
                 <td colspan="2">
-                    <select id="cbNoParcial">
-                        <option>-- Parcial --</option>
-                    </select>
+
                 </td>
                 <td>
-                    <var id="noPlan"></var> de <var id="totalPlan"></var>
+                    <var id="noPlan"></var> de <var id="totPlan"></var>
                 </td>
             </tr>
             <tr>
