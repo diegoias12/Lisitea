@@ -16,18 +16,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         try
         {
             //Server settings
-            $mail->SMTPDebug = 2;                                 // Enable verbose debug output
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'gmail-smtp-in.l.google.com';                       // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'asistencia.lisitea@gmail.com';     // SMTP username
-            $mail->Password = '9y4%Jkt/';                         // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;                                    // TCP port to connect to
+            // Avast -> Settings -> Components -> Mail Shield (Customize) -> SMTP = false
+            //$mail->SMTPDebug = 2;
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'asistencia.lisitea@gmail.com';
+            $mail->Password = '9y4%Jkt/';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
 
             //Recipients
             $mail->setFrom('asistencia.lisitea@gmail.com', 'Lisitea');
-            $mail->addAddress('diegoias.dias@gmail.com');
+            $mail->addAddress($email);
 
             //Content
             $mail->isHTML(true);                                  // Set email format to HTML
