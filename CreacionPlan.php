@@ -26,6 +26,24 @@
             <!-- <button type="button" onclick="CrearPdf()">PDF</button> -->
         </div>
 
+        <!-- @@@@@@@@@ Programador @@@@@@@@@ -->
+        <!--
+            Dar el formato a HTML y capturar en PHP
+
+            Capturar las queries
+        -->
+        <!-- @@@@@@@@@ Diseño @@@@@@@@@ -->
+        <!--
+            Ayudar con la altura de las filas
+
+            Añadir nuevas filas en C, D y E
+
+            Convertir secciones a acordeones o diseñar alguna forma de navagación rápida
+        -->
+        <!-- @@@@@@@@@ BD @@@@@@@@@ -->
+        <!--
+            Crear todas las queries para llenar la planeación
+        -->
         <div id="DocPlan">
             <p style="text-align: center; font-family: 'Times New Roman'"><strong>INSTRUMENTO PARA LA PLANEACI&Oacute;N ESTRAT&Eacute;GICA</strong></p>
 
@@ -79,7 +97,7 @@
                     <p><span>Docente:</span></p>
                 </td>
                 <td width="40%" colspan="4">
-                    <p><span id="NombreDocente">&nbsp;</span></p>
+                    <?php // echo 'Nombre completo del docente' ?>
                 </td>
             </tr>
             <tr>
@@ -88,7 +106,7 @@
                 </td>
                 <td>
                     <select id="cbCamDis">
-                        <option>-- Campo Disciplinar --</option>
+                        <?php // echo 'Elementos de ASIGNATURA' ?>
                     </select>
                 </td>
                 <td class="Requerimiento">

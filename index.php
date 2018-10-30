@@ -2,7 +2,16 @@
 
 <?php
     session_start();
-    // Se deben buscar las cuentas en la BD
+    /* @@@@@@@@@@@@@@@@@@@ BD @@@@@@@@@@@@@@@@@@
+        Obtener la contraseña correspondiente
+        al correo ingresado
+        tbl_usuario
+            VCH_correo_electronico
+            VCH_contrasenia
+
+        @@@@@@@@@@@@@@@@@@@ Diseño @@@@@@@@@@@@@@@@@@
+        Usar logos, crear un inicio de sesión amigable
+    */
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     {
         header("Location: Inicio.php");

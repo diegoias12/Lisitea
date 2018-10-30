@@ -11,6 +11,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $email = filter_var($_POST['mail'], FILTER_SANITIZE_EMAIL);
     if(!filter_var($email, FILTER_VALIDATE_EMAIL) === false)
     {
+        /* @@@@@@@@@@@@@@@@@@@ BD @@@@@@@@@@@@@@@@@@
+            Obtener la contraseña correspondiente
+            al correo ingresado
+            tbl_usuario
+                VCH_correo_electronico
+                VCH_contrasenia
+
+            @@@@@@@@@@@@@@@@@@@ Diseño @@@@@@@@@@@@@@@@@@
+            Usar el mismo estilo que en index.php
+        */
         $pss = 'pass';
         $mail = new PHPMailer;
         try
@@ -46,7 +56,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     }
     // Se muestra el mensaje de que el correo ha sido enviado sea o no email
     // Esto se hace para proteger la BD
-
 }
 ?>
 
@@ -63,5 +72,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         <input type="submit" value="Recuperar Contrase&ntilde;a">
     </form>
     <?php echo '<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'; ?>
+    <!-- Regresar a index.php -->
 </body>
 </html>
