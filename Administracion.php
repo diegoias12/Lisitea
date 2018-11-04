@@ -1,5 +1,13 @@
 <!doctype html>
 
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false)
+    {
+        header("Location: index.php");
+    }
+?>
+
 <html>
 <head>
     <?php /*require 'PHPInclude\\Head.php';*/ ?>

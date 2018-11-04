@@ -2,31 +2,33 @@
 
 <?php
     session_start();
-    /* @@@@@@@@@@@@@@@@@@@ BD @@@@@@@@@@@@@@@@@@
-        Obtener la contraseña correspondiente
-        al correo ingresado
-        tbl_usuario
-            VCH_correo_electronico
-            VCH_contrasenia
-
+    /*
         @@@@@@@@@@@@@@@@@@@ Diseño @@@@@@@@@@@@@@@@@@
         Usar logos, crear un inicio de sesión amigable
     */
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     {
-        header("Location: Inicio.php");
+        header('Location: Inicio.php');
     }
     $_SESSION['loggedin'] = false;
     if(isset($_POST['email']) && isset($_POST['psw']))
     {
-        // Base de datos
-        $email = "mail@mail.com";
-        $psw = "pass";
-        if($_POST['email'] == $email && $_POST['psw'] == $psw )
-        {
-            $_SESSION['loggedin'] = true;
+        $email = $_POST['email'];
+        $psw = $_POST['psw'];
+        $conn = mysqli_connect("localhost", "root", "", "base_de_datos");
+		if (!$conn)
+		{
+			die("Conexion Fallida: " . mysqli_connect_error());
+		}
+        //mysqli_query($conn, 'INSERT INTO tbl_usuario(VCH_correo_electronico, VCH_contrasenia) VALUES ("mail@mail.com", "pass")');
+        $sql = 'SELECT VCH_correo_electronico, VCH_contrasenia FROM tbl_usuario WHERE VCH_correo_electronico = "' . $email . '" AND VCH_contrasenia = "' . $psw . '"';
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result))
+		{
+			$_SESSION['loggedin'] = true;
             header("Location: Inicio.php");
-        }
+		}
+		mysqli_close($conn);
     }
 ?>
 

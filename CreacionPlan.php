@@ -1,5 +1,13 @@
 <!doctype html>
 
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false)
+    {
+        header("Location: index.php");
+    }
+?>
+
 <html>
 <head>
     <?php /*require 'PHPInclude\\Head.php';*/ ?>
@@ -125,23 +133,17 @@
             <tr>
                 <td>
                     <select id="cbAsig">
-                        <option>-- Asignatura --</option>
-                        <option value="Matematicas">Matem&aacute;ticas</option>
-                        <option value="Historia">Historia</option>
+                        <?php // echo 'Elementos de ASIGNATURA' ?>
                     </select>
                 </td>
                 <td>
                     <select id="cbEspec">
-                        <option>-- Especialidad --</option>
+                        <?php // echo 'Elementos de ESPECIALIDAD' ?>
                     </select>
                 </td>
                 <td>
                     <select id="cbSem">
-                        <option>-- Semestre --</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                        <?php // echo 'Elementos de SEMESTRE' ?>
                     </select>
                 </td>
                 <td colspan="2">
