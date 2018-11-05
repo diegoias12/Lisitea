@@ -19,9 +19,10 @@
 		if (!$conn)
 		{
 			die("Conexion Fallida: " . mysqli_connect_error());
-		}
-        //mysqli_query($conn, 'INSERT INTO tbl_usuario(VCH_correo_electronico, VCH_contrasenia) VALUES ("mail@mail.com", "pass")');
-        $sql = 'SELECT VCH_correo_electronico, VCH_contrasenia FROM tbl_usuario WHERE VCH_correo_electronico = "' . $email . '" AND VCH_contrasenia = "' . $psw . '"';
+		} 
+        $sql = 'SELECT VCH_correo_electronico, VCH_contrasenia '
+             . 'FROM tbl_usuario '
+             . 'WHERE VCH_correo_electronico = "' . $email . '" AND VCH_contrasenia = "' . $psw . '"';
 		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result))
 		{
