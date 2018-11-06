@@ -57,6 +57,15 @@
 
             <br>
 
+            <select name="TBL_TipoPlaneacion">
+                <option>-- Tipo de planeaci&oacute;n --</option>
+                <option value="Disciplinar">Disciplinar</option>
+                <option value="Profesional">Profesional</option>
+            </select>
+
+            <br>
+            <br>
+
             <table id="SeccionA" align="center">
             <form action="PHPFunciones/Planeacion.php" method="post">
             <tr style="border-bottom-style: hidden;">

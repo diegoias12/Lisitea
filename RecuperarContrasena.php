@@ -1,10 +1,6 @@
 <!doctype html>
 
 <?php
-/*
-    @@@@@@@@@@@@@@@@@@@ Diseño @@@@@@@@@@@@@@@@@@
-    Usar el mismo estilo que en index.php
-*/
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

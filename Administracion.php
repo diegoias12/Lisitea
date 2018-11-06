@@ -34,12 +34,23 @@
             ***********************
             Se tendrá este formato para todos los catalogos
         -->
-        <!-- @@@@@@@@@@@@@@ BD @@@@@@@@@@@@@ -->
-        <!--
-            Mostrar contenido de todos los catalogos
-            Añadir, eliminar y modificar elementos
-            __Nombrar la direccion en la BD de todos los catalogos__
-        -->
+        <table bgcolor="#00FF00">
+            <tr>
+                <td colspan="100%">Nombre<td>
+            </tr>
+            <tr>
+                <td><img src="Imagenes\Eliminar.png" height="40" width="40"></td>
+                <td><img src="Imagenes\Anadir.png" height="40" width="40"></td>
+                <td><img src="Imagenes\Todo.png" height="40" width="40"></td>
+            </tr>
+            <tr>
+                <td colspan="100%">
+                    <form method="get">
+                        <a href='PHPFunciones\Administracion.php?tabla=TBL_Campo_disciplinar'>Descargar</a>
+                    </form>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
