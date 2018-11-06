@@ -35,6 +35,7 @@
             Se tendrá este formato para todos los catalogos
         -->
         <div class="contenido">
+            
         <table bgcolor="#00FF00">
             <tr>
                 <td colspan="100%">tbl_campo_disciplinar<td>
