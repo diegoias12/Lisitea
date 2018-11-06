@@ -20,8 +20,9 @@
 		{
 			die("Conexion Fallida: " . mysqli_connect_error());
 		}
-        //mysqli_query($conn, 'INSERT INTO tbl_usuario(VCH_correo_electronico, VCH_contrasenia) VALUES ("mail@mail.com", "pass")');
-        $sql = 'SELECT VCH_correo_electronico, VCH_contrasenia FROM tbl_usuario WHERE VCH_correo_electronico = "' . $email . '" AND VCH_contrasenia = "' . $psw . '"';
+        $sql = 'SELECT VCH_correo_electronico, VCH_contrasenia '
+             . 'FROM tbl_usuario '
+             . 'WHERE VCH_correo_electronico = "' . $email . '" AND VCH_contrasenia = "' . $psw . '"';
 		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result))
 		{
@@ -34,19 +35,71 @@
 
 <html>
 <head>
-    <title>Creacion - CECyTEM Tequixquiac</title>
+    <title>Lisitea</title>
+    <meta content="width=device-width, initial-sacale=1">
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/Index.css"/>
 </head>
 
 <body>
-    <form method="post" action="index.php">
-        <input name="email" type="email" maxlength="40" placeholder="Correo electr&oacute;nico">
-        <br>
-        <br>
-        <input name="psw" type="text" maxlength="10" placeholder="Contrase&ntilde;a">
-        <br>
-        <br>
-        <input type="submit" value="Iniciar sesi&oacute;n">
-        <a href="RecuperarContrasena.php">&iquest;Olvidaste tu contrase&ntilde;a?</a>
+    <div class="header">
+        <img src="Imagenes/GobEdoMex.jpg" style="height:100px;width:300px;float:left;">
+        <img src="Imagenes/CECyTEM.png" style="height:100px;width:100px;float:right;">
+    </div>
+  <div class="aplicacion-main">
+    <div class="contenedor">
+    <div class="item">
+      <div class="informacion">
+        <h1 class="texto1">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">
+              Lisitea
+            </font>
+          </font>
+        </h1>
+        <p>
+        Lisitea es una plataforma que
+        automatiza  el  llenado  de  la  planeación estrategica
+        realizada  por  los  profesores  del  CECyTEM  Tequixquiac
+        </p>
+      </div>
+      <div class="iniciar">
+        <div class="formato">
+          <form method="post" action="index.php">
+            <dl class="grupoconformato">
+              <dt class="imput-label">
+                <label class="formato-label1">
+                  <font style="vertical-aling:inherit;">
+                    Email
+                  </font>
+                </label>
+              </dt>
+              <dd style="margin:0;width:90%;">
+                  <input name="email" type="email" maxlength="40" placeholder="Correo electr&oacute;nico" class="formato-imput">
+              </dd>
+            </dl>
+            <dl class="grupoconformato">
+              <dt class="imput-label">
+                  <label class="formato-label1">
+                    <font style="vertical-align:inherit;">
+                      Constraseña
+                      <a class="recuperar" href="RecuperarContrasena.php">&iquest;Olvidaste tu contrase&ntilde;a?</a>
+                    </font>
+                  </label>
+              </dt>
+              <dd style="margin:0;width:90%;">
+                <input name="psw" type="text" maxlength="10" placeholder="Contrase&ntilde;a" class="formato-imput">
+              </dd>
+            </dl>
+            <button class="block" type="submit" value="Iniciar sesi&oacute;n">
+              <font style="vertical-align:inherit";>
+                iniciar sesion
+              </font>
+            </button>
     </form>
+  </div>
+  </div>
+  </div>
+</div>
+</div>
 </body>
 </html>
