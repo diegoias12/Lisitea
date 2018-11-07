@@ -13,10 +13,12 @@
     <?php /*require 'PHPInclude\\Head.php';*/ ?>
     <?php /*include 'PHPInclude\\Head.php';*/ ?>
     <title>Creacion - CECyTEM Tequixquiac</title>
-    <link rel="stylesheet" type="text/css" href="CSSEstilos/General.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="CSSEstilos/General.css"/> -->
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Administracion.css"/>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Menu.css"/>
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
+    <script type="text/javascript" src="JavaScriptFunciones/Catalogo.js"></script>
+    <?php include_once 'PHPFunciones\Administracion.php'; ?>
 </head>
 
 <body>
@@ -29,7 +31,7 @@
             <p class="encabezado">
               Plan de estudios vigente
             </p>
-            <button class="accordion">Tipo de campo</button>
+            <button class="accordion" onclick="Acordeon()">Tipo de campo</button>
             <div class="panel">
                 <form>
                     <div class="label">
@@ -40,80 +42,74 @@
                     </div>
                 </form>
             </div>
+
             <div class="espacio"></div>
-            <button class="accordion">Especialidad</button>
+
+            <button class="accordion" onclick="Acordeon()">Especialidad</button>
             <div class="panel">
                 <td colspan="100%">
                     <form method="get">
-                            <?php
-                                include_once 'PHPFunciones\Administracion.php';
-                                CrearTabla('tbl_especialidad','vch_nombre');
-                              ?>
+                            <?php CrearTabla('tbl_especialidad'); ?>
                       </form>
                 </td>
                 <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
             </div>
+
             <div class="espacio"></div>
-            <button class="accordion">Disciplina/Modulo</button>
+
+            <button class="accordion" onclick="Acordeon()">Disciplina/Modulo</button>
             <div class="panel">
                 <td colspan="100%">
                     <form>
-                        <?php
-                        include_once 'PHPFunciones\Administracion.php';
-                        CrearTabla('tbl_campo_disciplinar','vch_nombre');
-                        ?>
+                        <?php CrearTabla('tbl_campo_disciplinar'); ?>
                     </form>
                 </td>
                 <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
             </div>
+
             <div class="espacio"></div>
-      			<button class="accordion">Asignatura/SubModulo</button>
+
+      		<button class="accordion" onclick="Acordeon()">Asignatura/SubModulo</button>
             <div class="panel">
                 <td colspan="100%">
                     <form method="get">
-                              <?php
-                              include_once 'PHPFunciones\Administracion.php';
-                              CrearTabla('tbl_modulo','vch_nombre');
-                              ?>
+                              <?php CrearTabla('tbl_modulo'); ?>
                     </form>
                   </td>
                   <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
             </div>
+
             <div class="espacio"></div>
-      			<button class="accordion">Eje</button>
+
+      		<button class="accordion" onclick="Acordeon()">Eje</button>
             <div class="panel">
                 <td colspan="100%">
                     <form method="get">
-                              <?php
-                              include_once 'PHPFunciones\Administracion.php';
-                              CrearTabla('tbl_submodulo','vch_nombre');
-                              ?>
+                              <?php CrearTabla('tbl_submodulo'); ?>
                       </form>
                   </td>
                   <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
             </div>
+
             <div class="espacio"></div>
-      			<button class="accordion">Componentes</button>
+
+      		<button class="accordion" onclick="Acordeon()">Componentes</button>
             <div class="panel">
                 <td colspan="100%">
                     <form method="get">
-                              <?php
-                              include_once 'PHPFunciones\Administracion.php';
-                              CrearTabla('tbl_eje','vch_descripcion');
-                              ?>
+                              <?php CrearTabla('tbl_eje'); ?>
                     </form>
                 </td>
                 <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
             </div>
+
             <div class="espacio"></div>
-      			<button class="accordion">Contenido central</button>
+
+      		<button class="accordion" onclick="Acordeon()">Contenido central</button>
             <div class="panel">
                 <td colspan="100%">
                     <form method="get">
-                              <?php
-                              include_once 'PHPFunciones\Administracion.php';
-                              CrearTabla('tbl_componente','vch_descripcion');
-                              ?>
+                        <?php CrearTabla('tbl_componente'); ?>
                     </form>
                 </td>
                 <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
@@ -122,20 +118,3 @@
     </div>
 </body>
 </html>
-
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
-</script>
