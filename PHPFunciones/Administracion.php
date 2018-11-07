@@ -1,5 +1,5 @@
 <?php
-function CrearTabla($tabla)
+function CrearTabla($tabla,$campo)
 {
     echo "<table style='border: solid 1px black;'>";
     class TableRows extends RecursiveIteratorIterator
