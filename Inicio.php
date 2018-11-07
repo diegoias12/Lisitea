@@ -13,6 +13,7 @@
     <title>Creacion - CECyTEM Tequixquiac</title>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/General.css"/>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Menu.css"/>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/InicioPE.css"/>
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
     <script type="text/javascript" src="JavaScriptFunciones/Planeacion.js"></script>
 </head>
@@ -45,6 +46,11 @@
             Aquellas planeaciones que no hayan sido validadas
         -->
         <hr>
+        <div class="caja">
+            <div class="caja-ancho">
+              <h3>Revisadas</h3>
+            </div>
+        </div>
         <h3>Revisadas</h3>
         <!-- @@@@@@@@@ BD @@@@@@@@@ -->
         <!--

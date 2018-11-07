@@ -43,7 +43,7 @@
 
 <body>
     <div class="header">
-        <img src="Imagenes/GobEdoMex.jpg" style="height:100px;width:300px;float:left;">
+        <img src="Imagenes/GobEdoMex.png" style="height:100px;width:300px;float:left;">
         <img src="Imagenes/CECyTEM.png" style="height:100px;width:100px;float:right;">
     </div>
   <div class="aplicacion-main">

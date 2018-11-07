@@ -24,38 +24,117 @@
         <?php /*include 'PHPInclude\\Menu.php';*/ ?>
     </div>
     <div id="Contenido" class="contenedor">
-        <!-- @@@@@@@@@@@@@@@ Diseño @@@@@@@@@@@@  -->
-        <!--
-            Nombre del catalogo                             /Despegable/
-                        /Nuevo/ /Seleccionar todo/ /Borrar seleccionados/
-            /Checkbox/ Contendio                        /Editar/ /Borrar/
-            /Checkbox/ Contendio                        /Editar/ /Borrar/
-            /Checkbox/ Contendio                        /Editar/ /Borrar/
-            ***********************
-            Se tendrá este formato para todos los catalogos
-        -->
         <div class="contenido">
-            
-        <table bgcolor="#00FF00">
-            <tr>
-                <td colspan="100%">tbl_campo_disciplinar<td>
-            </tr>
-            <tr>
-                <td><img src="Imagenes\Eliminar.png" height="40" width="40"></td>
-                <td><img src="Imagenes\Anadir.png" height="40" width="40"></td>
-                <td><img src="Imagenes\Todo.png" height="40" width="40"></td>
-            </tr>
-            <tr>
+            <p class="encabezado">
+              Plan de estudios vigente
+            </p>
+            <button class="accordion">Tipo de campo</button>
+            <div class="panel">
+                <form>
+                    <div class="label">
+                        <input type="radio" value="Disciplina" >Campo Disciplinar<br>
+                    </div>
+                    <div class="label">
+                        <input type="radio" value="Profesional">Campo Profesional<br>
+                    </div>
+                </form>
+            </div>
+            <div class="espacio"></div>
+            <button class="accordion">Especialidad</button>
+            <div class="panel">
+                <td colspan="100%">
+                    <form method="get">
+                            <?php
+                                include_once 'PHPFunciones\Administracion.php';
+                                CrearTabla('tbl_especialidad','vch_nombre');
+                              ?>
+                      </form>
+                </td>
+                <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+            </div>
+            <div class="espacio"></div>
+            <button class="accordion">Disciplina/Modulo</button>
+            <div class="panel">
                 <td colspan="100%">
                     <form method="get">
                         <?php
                         include_once 'PHPFunciones\Administracion.php';
-                        CrearTabla('tbl_campo_disciplinar');
+                        CrearTabla('tbl_campo_disciplinar','vch_nombre');
                         ?>
                     </form>
                 </td>
-            </tr>
-        </table>
+                <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+            </div>
+            <div class="espacio"></div>
+      			<button class="accordion">Asignatura/SubModulo</button>
+            <div class="panel">
+                <td colspan="100%">
+                    <form method="get">
+                              <?php
+                              include_once 'PHPFunciones\Administracion.php';
+                              CrearTabla('tbl_modulo','vch_nombre');
+                              ?>
+                    </form>
+                  </td>
+                  <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+            </div>
+            <div class="espacio"></div>
+      			<button class="accordion">Eje</button>
+            <div class="panel">
+                <td colspan="100%">
+                    <form method="get">
+                              <?php
+                              include_once 'PHPFunciones\Administracion.php';
+                              CrearTabla('tbl_submodulo','vch_nombre');
+                              ?>
+                      </form>
+                  </td>
+                  <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+            </div>
+            <div class="espacio"></div>
+      			<button class="accordion">Componentes</button>
+            <div class="panel">
+                <td colspan="100%">
+                    <form method="get">
+                              <?php
+                              include_once 'PHPFunciones\Administracion.php';
+                              CrearTabla('tbl_eje','vch_descripcion');
+                              ?>
+                    </form>
+                </td>
+                <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+            </div>
+            <div class="espacio"></div>
+      			<button class="accordion">Contenido central</button>
+            <div class="panel">
+                <td colspan="100%">
+                    <form method="get">
+                              <?php
+                              include_once 'PHPFunciones\Administracion.php';
+                              CrearTabla('tbl_componente','vch_descripcion');
+                              ?>
+                    </form>
+                </td>
+                <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+            </div>
+        </div>
     </div>
 </body>
 </html>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
