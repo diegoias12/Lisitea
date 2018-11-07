@@ -1,33 +1,52 @@
 <?php
 function CrearTabla($tabla)
 {
-    $conn = mysqli_connect("localhost", "root", "", "base_de_datos");
-    if (!$conn)
-	{
-		die("Conexion Fallida: " . mysqli_connect_error());
-	}
-    $sql = 'SELECT VCH_nombre '
-         . 'FROM ' . $tabla;
-    $result = mysqli_query($conn, $sql);
-    if(mysqli_num_rows($result) > 0)
+    echo "<table style='border: solid 1px black;'>";
+    class TableRows extends RecursiveIteratorIterator
     {
-        $elementos = '';
-        while($row = mysqli_fetch_assoc($result))
+        function __construct($it)
         {
-            $elementos .=
-              '<input type="checkbox">'
-            . $row['VCH_nombre']
-            . '<a href="PHPFunciones\Planeacion.php?editar=true">'
-            .     '<img src="Imagenes\Editar.png" height="40" width="40">'
-            . '</a>'
-            . '<a href="PHPFunciones\Planeacion.php?eliminar=true">'
-            .     '<img src="Imagenes\Eliminar.png" height="40" width="40">'
-            . '</a>'
-            . '<br>'
-            ;
+            parent::__construct($it, self::LEAVES_ONLY);
+        }
+        function current()
+        {
+            return "<td style='width: 150px; border: 1px solid black;'>" . parent::current(). "</td>";
+        }
+        function beginChildren()
+        {
+            echo "<tr>";
+        }
+        function endChildren()
+        {
+            echo "</tr>" . "\n";
         }
     }
-    echo $elementos;
-    mysqli_close($conn);
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "base_de_datos";
+
+    try
+    {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmt = $conn->prepare('SELECT * FROM ' . $tabla);
+        $stmt->execute();
+
+        // set the resulting array to associative
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v)
+        {
+            echo $v;
+        }
+    }
+    catch(PDOException $e)
+    {
+        echo "Error: " . $e->getMessage();
+    }
+    $conn = null;
+    echo "</table>";
 }
 ?>

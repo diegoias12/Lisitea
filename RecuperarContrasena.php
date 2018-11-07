@@ -11,11 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     if(!filter_var($email, FILTER_VALIDATE_EMAIL) === false)
     {
-        $conn = mysqli_connect("localhost", "root", "", "base_de_datos");
-		if (!$conn)
-		{
-			die("Conexion Fallida: " . mysqli_connect_error());
-		}
+        include 'PHPInclude\Conexion.php';
         $sql = 'SELECT VCH_contrasenia '
              . 'FROM tbl_usuario '
              . 'WHERE VCH_correo_electronico = "' . $email . '"';
@@ -73,6 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         <input type="submit" value="Recuperar Contrase&ntilde;a">
     </form>
     <?php echo '<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'; ?>
+
     <!-- Regresar a index.php -->
 </body>
 </html>
