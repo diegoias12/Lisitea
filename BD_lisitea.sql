@@ -167,8 +167,8 @@ DROP TABLE IF EXISTS `tbl_asignatura`;
 CREATE TABLE `tbl_asignatura` (
   `PK_id_asignatura` int(11) NOT NULL AUTO_INCREMENT,
   `FK_id_campo_disciplinar` int(11) NOT NULL,
-  `VCH_nombre` varchar(20) NOT NULL,
-  `VCH_clave` varchar(100) NOT NULL,
+  `VCH_nombre` varchar(100) NOT NULL,
+  `VCH_clave` varchar(20) NOT NULL,
   `TINT_semestre` tinyint(1) NOT NULL,
   PRIMARY KEY (`PK_id_asignatura`),
   KEY `FK_id_campo_disciplinar_idx` (`FK_id_campo_disciplinar`),
@@ -337,32 +337,6 @@ LOCK TABLES `tbl_componente` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbl_componente_contenido`
---
-
-DROP TABLE IF EXISTS `tbl_componente_contenido`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `tbl_componente_contenido` (
-  `PFK_id_componente` int(11) NOT NULL,
-  `PFK_id_cont_central` int(11) NOT NULL,
-  PRIMARY KEY (`PFK_id_componente`,`PFK_id_cont_central`),
-  KEY `PFK_id_cont_central_idx` (`PFK_id_cont_central`),
-  CONSTRAINT `PFK_id_componente_2` FOREIGN KEY (`PFK_id_componente`) REFERENCES `tbl_componente` (`pk_id_componente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `PFK_id_cont_central_2` FOREIGN KEY (`PFK_id_cont_central`) REFERENCES `tbl_cont_central` (`pk_id_cont_central`) ON DELETE CASCADE ON UPDATE CASCADE
-) ;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tbl_componente_contenido`
---
-
-LOCK TABLES `tbl_componente_contenido` WRITE;
-/*!40000 ALTER TABLE `tbl_componente_contenido` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbl_componente_contenido` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tbl_cont_central`
 --
 
@@ -372,8 +346,11 @@ DROP TABLE IF EXISTS `tbl_cont_central`;
 CREATE TABLE `tbl_cont_central` (
   `PK_id_cont_central` int(11) NOT NULL AUTO_INCREMENT,
   `VCH_descripcion` varchar(250) NOT NULL,
-  PRIMARY KEY (`PK_id_cont_central`)
-) ;
+  `FK_id_componente` int(11) NOT NULL,
+  PRIMARY KEY (`PK_id_cont_central`),
+  KEY `FK_id_componente_idx` (`FK_id_componente`),
+  CONSTRAINT `FK_id_componente` FOREIGN KEY (`FK_id_componente`) REFERENCES `tbl_componente` (`PK_id_componente`) ON DELETE CASCADE ON UPDATE CASCADE
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1097,8 +1074,8 @@ DROP TABLE IF EXISTS `tbl_modulo`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_modulo` (
   `PK_id_modulo` int(11) NOT NULL AUTO_INCREMENT,
-  `VCH_nombre` varchar(20) NOT NULL,
-  `VCH_clave` varchar(100) NOT NULL,
+  `VCH_nombre` varchar(100) NOT NULL,
+  `VCH_clave` varchar(20) NOT NULL,
   `FK_id_especialidad` int(11) NOT NULL,
   PRIMARY KEY (`PK_id_modulo`),
   KEY `FK_id_especialidad_idx` (`FK_id_especialidad`),
@@ -1124,8 +1101,8 @@ DROP TABLE IF EXISTS `tbl_submodulo`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_submodulo` (
   `PK_id_submodulo` int(11) NOT NULL AUTO_INCREMENT,
-  `VCH_nombre` varchar(20) NOT NULL,
-  `VCH_clave` varchar(100) NOT NULL,
+  `VCH_nombre` varchar(100) NOT NULL,
+  `VCH_clave` varchar(20) NOT NULL,
   `FK_id_modulo` int(11) NOT NULL,
   PRIMARY KEY (`PK_id_submodulo`),
   KEY `FK_id_modulo_idx` (`FK_id_modulo`),
