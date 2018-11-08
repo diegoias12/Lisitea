@@ -45,10 +45,22 @@
         <!--
             Aquellas planeaciones que no hayan sido validadas
         -->
-        <hr>
         <div class="caja">
             <div class="caja-ancho">
-              <h3>Revisadas</h3>
+                <div class="encabezado">
+                    <div class="label">
+                        Abrir una Planeacion Estrategica
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="seccion">
+                        <div class="icono">
+                            <a href="CreacionPlan.php">
+                            <img src="Imagenes/Nuevodoc.png" alt="" style="width:118px;height:150px">
+                          </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <h3>Revisadas</h3>
@@ -56,13 +68,47 @@
         <!--
             Planeaciones validadas del periodo en curso
         -->
-        <hr>
+        <div class="caja">
+            <div class="caja-ancho">
+                <div class="encabezado">
+                    <div class="label">
+                        Abrir una Planeacion Estrategica
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="seccion">
+                        <div class="icono">
+                            <a href="CreacionPlan.php">
+                            <img src="Imagenes/Nuevodoc.png" alt="" style="width:118px;height:150px">
+                          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <h3>Historial</h3>
         <!-- @@@@@@@@@ BD @@@@@@@@@ -->
         <!--
             El resto de planeaciones hechas por el usuario
         -->
-        <hr>
+        <div class="caja">
+            <div class="caja-ancho">
+                <div class="encabezado">
+                    <div class="label">
+                        Abrir una Planeacion Estrategica
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="seccion">
+                        <div class="icono">
+                            <a href="CreacionPlan.php">
+                            <img src="Imagenes/Nuevodoc.png" alt="" style="width:118px;height:150px">
+                          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
