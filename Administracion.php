@@ -34,12 +34,36 @@
             <button class="accordion" onclick="Acordeon()">Tipo de campo</button>
             <div class="panel">
                 <form>
+                    <!--
                     <div class="label">
-                        <input type="radio" value="Disciplina" >Campo Disciplinar<br>
+                        <input type="radio">Campo Disciplinar<br>
                     </div>
                     <div class="label">
-                        <input type="radio" value="Profesional">Campo Profesional<br>
+                        <input type="radio">Campo Profesional<br>
                     </div>
+                    -->
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="radio">
+                            </td>
+                            <td style="width:150px;border:1px solid black;">
+                                <div class="label">
+                                    Campo Disciplinar<br>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio">
+                            </td>
+                            <td style="width:150px;border:1px solid black;">
+                                <div class="label">
+                                    Campo Profesional<br>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </form>
             </div>
 
@@ -49,15 +73,15 @@
             <div class="panel">
                 <td colspan="100%">
                     <form method="get">
-                            <?php CrearTabla('tbl_especialidad'); ?>
-                      </form>
+                        <?php CrearTabla('tbl_especialidad'); ?>
+                    </form>
                 </td>
                 <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
             </div>
 
             <div class="espacio"></div>
 
-            <button class="accordion" onclick="Acordeon()">Disciplina/Modulo</button>
+            <button class="accordion" onclick="Acordeon()">Disciplina</button>
             <div class="panel">
                 <td colspan="100%">
                     <form>
@@ -69,11 +93,35 @@
 
             <div class="espacio"></div>
 
-      		<button class="accordion" onclick="Acordeon()">Asignatura/SubModulo</button>
+            <button class="accordion" onclick="Acordeon()">Modulo</button>
+            <div class="panel">
+                <td colspan="100%">
+                    <form>
+                        <?php CrearTabla('tbl_modulo'); ?>
+                    </form>
+                </td>
+                <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+            </div>
+
+            <div class="espacio"></div>
+
+      		<button class="accordion" onclick="Acordeon()">Asignatura</button>
             <div class="panel">
                 <td colspan="100%">
                     <form method="get">
-                              <?php CrearTabla('tbl_modulo'); ?>
+                              <?php CrearTabla('tbl_asignatura'); ?>
+                    </form>
+                  </td>
+                  <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+            </div>
+
+            <div class="espacio"></div>
+
+            <button class="accordion" onclick="Acordeon()">SubModulo</button>
+            <div class="panel">
+                <td colspan="100%">
+                    <form method="get">
+                              <?php CrearTabla('tbl_submodulo'); ?>
                     </form>
                   </td>
                   <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
