@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Menu.css"/>
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
     <script type="text/javascript" src="JavaScriptFunciones/Catalogo.js"></script>
+    <script type="text/javascript" src="JavaScriptFunciones/Administracion.js"></script>
     <?php include_once 'PHPFunciones\Administracion.php'; ?>
 </head>
 
@@ -29,139 +30,35 @@
     <div id="Contenido" class="contenedor">
         <div class="contenido">
             <p class="encabezado">
-              Plan de estudios vigente
+                Plan de estudios vigente
             </p>
-            <button class="accordion" onclick="Acordeon()">Tipo de campo</button>
-            <div class="panel">
-                <form>
-                    <!--
-                    <div class="label">
-                        <input type="radio">Campo Disciplinar<br>
-                    </div>
-                    <div class="label">
-                        <input type="radio">Campo Profesional<br>
-                    </div>
-                    -->
-                    <table>
-                        <tr>
-                            <td>
-                                <input type="radio">
-                            </td>
-                            <td style="width:150px;border:1px solid black;">
-                                <div class="label">
-                                    Campo Disciplinar<br>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="radio">
-                            </td>
-                            <td style="width:150px;border:1px solid black;">
-                                <div class="label">
-                                    Campo Profesional<br>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
+
+            <div id="tbl_especialidad">
+                <button class="accordion" onclick="Acordeon()"> tbl_especialidad </button>
+                <div class="panel">
+                    <td colspan="100%">
+                        <form>
+                            <?php CrearTabla('tbl_especialidad', 'tbl_modulo'); ?>
+                        </form>
+                    </td>
+                    <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+                </div>
+                <div class="espacio"></div>
             </div>
 
-            <div class="espacio"></div>
-
-            <button class="accordion" onclick="Acordeon()">Especialidad</button>
-            <div class="panel">
-                <td colspan="100%">
-                    <form method="get">
-                        <?php CrearTabla('tbl_especialidad'); ?>
-                    </form>
-                </td>
-                <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+            <div id="tbl_modulo" style="display: none;">
+                <button class="accordion" onclick="Acordeon()"> tbl_modulo </button>
+                <div class="panel">
+                    <td colspan="100%">
+                        <form>
+                            <?php CrearTabla('tbl_modulo', ''); ?>
+                        </form>
+                    </td>
+                    <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+                </div>
+                <div class="espacio"></div>
             </div>
 
-            <div class="espacio"></div>
-
-            <button class="accordion" onclick="Acordeon()">Disciplina</button>
-            <div class="panel">
-                <td colspan="100%">
-                    <form>
-                        <?php CrearTabla('tbl_campo_disciplinar'); ?>
-                    </form>
-                </td>
-                <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
-            </div>
-
-            <div class="espacio"></div>
-
-            <button class="accordion" onclick="Acordeon()">Modulo</button>
-            <div class="panel">
-                <td colspan="100%">
-                    <form>
-                        <?php CrearTabla('tbl_modulo'); ?>
-                    </form>
-                </td>
-                <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
-            </div>
-
-            <div class="espacio"></div>
-
-      		<button class="accordion" onclick="Acordeon()">Asignatura</button>
-            <div class="panel">
-                <td colspan="100%">
-                    <form method="get">
-                              <?php CrearTabla('tbl_asignatura'); ?>
-                    </form>
-                  </td>
-                  <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
-            </div>
-
-            <div class="espacio"></div>
-
-            <button class="accordion" onclick="Acordeon()">SubModulo</button>
-            <div class="panel">
-                <td colspan="100%">
-                    <form method="get">
-                              <?php CrearTabla('tbl_submodulo'); ?>
-                    </form>
-                  </td>
-                  <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
-            </div>
-
-            <div class="espacio"></div>
-
-      		<button class="accordion" onclick="Acordeon()">Eje</button>
-            <div class="panel">
-                <td colspan="100%">
-                    <form method="get">
-                              <?php CrearTabla('tbl_submodulo'); ?>
-                      </form>
-                  </td>
-                  <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
-            </div>
-
-            <div class="espacio"></div>
-
-      		<button class="accordion" onclick="Acordeon()">Componentes</button>
-            <div class="panel">
-                <td colspan="100%">
-                    <form method="get">
-                              <?php CrearTabla('tbl_eje'); ?>
-                    </form>
-                </td>
-                <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
-            </div>
-
-            <div class="espacio"></div>
-
-      		<button class="accordion" onclick="Acordeon()">Contenido central</button>
-            <div class="panel">
-                <td colspan="100%">
-                    <form method="get">
-                        <?php CrearTabla('tbl_componente'); ?>
-                    </form>
-                </td>
-                <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
-            </div>
         </div>
     </div>
 </body>

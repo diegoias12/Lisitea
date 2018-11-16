@@ -23,7 +23,6 @@
         <?php require 'PHPInclude/Menu.php'; ?>
     </div>
     <div id="Contenido">
-        <a href="CreacionPlan.php"><button>Nuevo</button></a>
         <!-- @@@@@@@@@ Programador @@@@@@@@ -->
         <!--
             El botón "Nuevo" debe crear una una ID para la nueva planeación

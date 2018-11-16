@@ -8,7 +8,7 @@ table
 {
     width: 957px;
 }
-0
+
 table, td
 {
     border-collapse: collapse;
@@ -46,7 +46,9 @@ p
     text-align: center;
     font-weight: bold;
 }
-.contenedor{
+
+.contenedor
+{
   background-color: #2E2E2E;
   background-position: center 10%;
   background-size: cover;
@@ -55,10 +57,11 @@ p
   padding-bottom: 40px!important;
   margin-left: 40px;
 }
-.contenido{
+
+.contenido
+{
     background-color: #ccc;
     color: #444;
-    cursor: pointer;
     padding: 18px;
     border: none;
     text-align: left;
@@ -68,7 +71,9 @@ p
     margin-left: 10px;
     margin-right: 10px;
 }
-.accordion {
+
+.accordion
+{
     background-color: #92CDDC;
     color: #111;
     cursor: pointer;
@@ -80,32 +85,43 @@ p
     font-size: 18px;
     transition: 0.4s;
 }
-.active, .accordion:hover {
+
+.active, .accordion:hover
+{
     background-color: #92CDDC;
     color: #111;
 }
 
-.panel {
+.panel
+{
     padding: 0;
     display: none;
     background-color: #FFF;
     overflow: hidden;
     font-size: 18px;
 }
-.label{
+
+.label
+{
   padding: 10px;
   height: 30px;
   font-size: 18px;
 }
-.label:hover{
+
+.label:hover
+{
   background-color: #ccc;
 }
-.encabezado{
+
+.encabezado
+{
   text-align: center;
   font-size: 30px;
   width: 100%;
   color: #111111;
 }
-.espacio{
+
+.espacio
+{
   height: 10px;
 }

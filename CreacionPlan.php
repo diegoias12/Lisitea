@@ -13,9 +13,10 @@
     <?php /*require 'PHPInclude\\Head.php';*/ ?>
     <?php /*include 'PHPInclude\\Head.php';*/ ?>
     <title>Creacion - CECyTEM Tequixquiac</title>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/General.css"/>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Menu.css"/>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Planeacion.css"/>
-    <link rel="stylesheet" type="text/css" href="CSSEstilos/General.css"/>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/VentanaEmergente.css"/>
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
     <script type="text/javascript" src="JavaScriptFunciones/Planeacion.js"></script>
     <script type="texte/javascript" src="JavaScriptFunciones/Catalogo.js"></script>
@@ -84,9 +85,7 @@
                               <p style="margin-right: 9.7pt; text-align: right;"><span>Asignatura o M&oacute;dulo:</span></p>
                           </td>
                           <td>
-                              <select id="cbCamDis">
-                                  <?php // echo 'Elementos de ASIGNATURA' ?>
-                              </select>
+                              <?php // echo 'Elementos de ASIGNATURA' ?>
                           </td>
                           <td class="Requerimiento">
                               <p><span>Especialidad:</span></p>
@@ -103,17 +102,17 @@
                       </tr>
                       <tr>
                           <td>
-                              <select id="cbAsig">
+                              <select>
                                   <?php // echo 'Elementos de ASIGNATURA' ?>
                               </select>
                           </td>
                           <td>
-                              <select id="cbEspec">
+                              <select>
                                   <?php // echo 'Elementos de ESPECIALIDAD' ?>
                               </select>
                           </td>
                           <td>
-                              <select id="cbSem">
+                              <select>
                                   <?php // echo 'Elementos de SEMESTRE' ?>
                               </select>
                           </td>
@@ -121,7 +120,7 @@
 
                           </td>
                           <td>
-                              <var id="noPlan"></var> de <var id="totPlan"></var>
+                              de
                           </td>
                       </tr>
                       <tr>
@@ -141,7 +140,9 @@
                     </form>
                 </table>
             </div>
+
             <div class="espacio"></div>
+
             <button class="accordion" onclick="Acordeon()">B) INTENCIONES FORMATIVAS</button>
             <div class="panel">
               <table id="SeccionB" align="left">
@@ -247,7 +248,9 @@
               </tr>
               </table>
             </div>
+
             <div class="espacio"></div>
+
             <button class="accordion" onclick="Acordeon()">C) ACTIVIDADES DE APRENDIZAJE</button>
             <div class="panel">
               <table id="SeccionC" align="center">
@@ -280,15 +283,12 @@
               <tr class="LlenadoC"></tr>
               </table>
             </div>
+
             <div class="espacio"></div>
+
             <button class="accordion" onclick="Acordeon()">D) RECURSOS</button>
             <div class="panel">
                 <table id="SeccionD" align="left">
-                <tr>
-                    <td class="TituloSeccion" colspan="100%">
-                        <p>D) RECURSOS</p>
-                    </td>
-                </tr>
                 <tr>
                     <td class="Requerimiento" width="21%">
                         <p>Equipo</p>
@@ -308,7 +308,9 @@
                 <tr class="LlenadoD"></tr>
                 </table>
             </div>
+
             <div class="espacio"></div>
+
             <button class="accordion" onclick="Acordeon()">E) INSTRUMENTOS</button>
             <div class="panel">
               <table id="SeccionE" align="left">
@@ -331,7 +333,9 @@
               <tr class="LlenadoE"></tr>
               </table>
             </div>
+
             <div class="espacio"></div>
+
             <button class="accordion" onclick="Acordeon()">F) RUBRICAS</button>
             <div class="panel">
               <table id="SeccionF" align="center">
