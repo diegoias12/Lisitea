@@ -44,8 +44,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 $mail->AltBody = 'Su contraseña es: ' . $password;
 
                 $mail->send();
-                echo 'Message has been sent';
-                $x = 1;
+                  echo 'Message has been sent';
+;
             }
             catch (Exception $e)
             {
@@ -62,7 +62,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <head>
     <title>Contrase&ntilde;a - CECyTEM Tequixquiac</title>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Index.css"/>
-    <link rel="stylesheet" type="text/css" href="CSSEstilos/RecuperarContraeña.css"/>
 </head>
 
 <body>
@@ -101,11 +100,35 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             </div>
         </div>
     </div>
+    <div id="myModal" class="modal" style="display:block;">
+        <div class = "modal-content">
+            <span class="close">&times;</span>
+            <div class="mensaje">
+                <p align="center" style="font-size:25px">Correo no valido.</p>
+            </div>
+            <center><button id="accept" class="block" style="padding:5px;width:30%;" onclick="funcion2()">Aceptar</button></center>
+        </div>
+    </div>
 </body>
 </html>
 
 <script>
+var modal = document.getElementById('myModal');
+var span = document.getElementsByClassName("close")[0];
 function funcion1() {
     location.href="PHPFunciones/CerrarSesion.php";
+}
+function funcion2(){
+    modal.style.display = "none";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 </script>

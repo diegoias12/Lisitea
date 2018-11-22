@@ -26,6 +26,9 @@
 			$_SESSION['loggedin'] = true;
             header("Location: Inicio.php");
 		}
+    else {
+        echo 'Datos incorrectos';
+    }
 		mysqli_close($conn);
     }
 ?>
