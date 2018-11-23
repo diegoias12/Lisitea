@@ -26,6 +26,17 @@
 			$_SESSION['loggedin'] = true;
             header("Location: Inicio.php");
 		}
+    else {
+        echo '<div id="myModal" class="modal" style="display:block;">'
+            .     '<div class = "modal-content">'
+            .         '<span class="close">&times;</span>'
+            .          '<div class="mensaje">'
+            .              '<p align="center" style="font-size:25px">Datos incorrectos</p>'
+            .          '</div>'
+            .          '<center><button id="accept" class="block" style="padding:5px;width:30%;" onclick="funcion2()">Aceptar</button></center>'
+            .      '</div>'
+            .  '</div>';
+    }
 		mysqli_close($conn);
     }
 ?>
@@ -100,3 +111,23 @@
     </div>
 </body>
 </html>
+<script>
+var modal = document.getElementById('myModal');
+var span = document.getElementsByClassName("close")[0];
+function funcion1() {
+    location.href="PHPFunciones/CerrarSesion.php";
+}
+function funcion2(){
+    modal.style.display = "none";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>

@@ -22,7 +22,6 @@
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
     </div>
-    <!--
     <div id="Contenido">
         <!-- @@@@@@@@@ Programador @@@@@@@@ -->
         <!--
@@ -40,13 +39,11 @@
             Debajo de él:
                 Título (Materia)
         -->
-        <!--
         <h3>En curso</h3>
         <!-- @@@@@@@@@ BD @@@@@@@@@ -->
         <!--
             Aquellas planeaciones que no hayan sido validadas
         -->
-        <!--
         <div class="caja">
             <div class="caja-ancho">
                 <div class="encabezado">
@@ -70,7 +67,6 @@
         <!--
             Planeaciones validadas del periodo en curso
         -->
-        <!--
         <div class="caja">
             <div class="caja-ancho">
                 <div class="encabezado">
@@ -94,7 +90,6 @@
         <!--
             El resto de planeaciones hechas por el usuario
         -->
-        <!--
         <div class="caja">
             <div class="caja-ancho">
                 <div class="encabezado">
@@ -114,6 +109,5 @@
             </div>
         </div>
     </div>
-    -->
 </body>
 </html>
