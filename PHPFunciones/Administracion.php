@@ -1,5 +1,5 @@
 <?php
-function CrearTabla($tabla, $hijo)
+function CrearTabla($tabla, $padre)
 {
     require 'Conexion.php';
     echo '<table>';
@@ -9,22 +9,36 @@ function CrearTabla($tabla, $hijo)
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $conn->prepare('SELECT * FROM ' . $tabla);
 
+        $name = 'radioBtn_' . $tabla;
+        $PK = 'PK_id_' . substr($tabla, 4, strlen($tabla) - 4);
+        $posPK = -1;
+        $FK = 'FK_id_' . substr($padre, 4, strlen($padre) - 4);
+        $posFK = -1;
+
         // Nombre de las columnas
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $i = 0;
         echo
           '<tr>'
         . '    <td></td>';
-        $llaves = array();
         foreach($stmt->fetch() as $k=>$v)
         {
-            array_push($llaves, $k);
+            if($k == $FK)
+            {
+                $posFK = $i;
+            }
+            else if($k == $PK)
+            {
+                $posPK = $i;
+            }
             echo
               '<td style="width:150px;border:1px solid black;">'
             . '    <div class="label">'
             .          $k
             . '    </div>'
             . '</td>';
+            $i++;
         }
         echo
           '</tr>';
@@ -34,32 +48,24 @@ function CrearTabla($tabla, $hijo)
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $consulta = $stmt->fetchAll();
-        $name = 'radioBtn_' . $tabla;
         foreach($consulta as $k=>$v)
         {
             $i = 0;
             foreach ($v as $value) {
-                $strid = substr($llaves[$i++], 0, 3);
-                if($strid == 'PK_')
+                if($i == $posPK)
                 {
                     echo
                       '<tr>'
                     . '    <td>'
                     . '        <input type="radio" name="' . $name . '"'
-                    . '        onclick="MostrarDependencia(&quot;' . $hijo . '&quot;)"'
-                    . '        <?php'
-                    . '        if(isset($' . $name . ') &amp;&amp; $' . $name . '=="' . $value . '")'
-                    . '            echo "checked";'
-                    . '        ?&gt;'
-                    . '        value="' . $value . '"&gt;'
+                    . '        value="' . $value . '">'
                     . '    </td>';
                 }
                 echo
                   '        <td style="width:150px;border:1px solid black;">'
-                . '            <div class="label">'
-                .                  $value
-                . '            </div>'
+                . '            <div class="label">' . $value . '</div>'
                 . '        </td>';
+                $i++;
             }
             echo '</tr>';
         }
