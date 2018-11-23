@@ -44,13 +44,31 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 $mail->AltBody = 'Su contraseña es: ' . $password;
 
                 $mail->send();
-                  echo 'Message has been sent';
-;
+                  echo '<div id="myModal" class="modal" style="display:block;">'
+                      .     '<div class = "modal-content">'
+                      .         '<span class="close">&times;</span>'
+                      .          '<div class="mensaje">'
+                      .              '<p align="center" style="font-size:25px">La contrase&ntilde;a fue enviada al correo</p>'
+                      .          '</div>'
+                      .          '<center><button id="accept" class="block" style="padding:5px;width:30%;" onclick="funcion2()">Aceptar</button></center>'
+                      .      '</div>'
+                      .  '</div>';
             }
             catch (Exception $e)
             {
                 echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
             }
+        }
+        else {
+          echo '<div id="myModal" class="modal" style="display:block;">'
+              .     '<div class = "modal-content">'
+              .         '<span class="close">&times;</span>'
+              .          '<div class="mensaje">'
+              .              '<p align="center" style="font-size:25px">Datos incorrectos</p>'
+              .          '</div>'
+              .          '<center><button id="accept" class="block" style="padding:5px;width:30%;" onclick="funcion2()">Aceptar</button></center>'
+              .      '</div>'
+              .  '</div>';
         }
     }
     // Se muestra el mensaje de que el correo ha sido enviado sea o no email
@@ -98,15 +116,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 </form>
             <?php echo '<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'; ?>
             </div>
-        </div>
-    </div>
-    <div id="myModal" class="modal" style="display:block;">
-        <div class = "modal-content">
-            <span class="close">&times;</span>
-            <div class="mensaje">
-                <p align="center" style="font-size:25px">Correo no valido.</p>
-            </div>
-            <center><button id="accept" class="block" style="padding:5px;width:30%;" onclick="funcion2()">Aceptar</button></center>
         </div>
     </div>
 </body>
