@@ -22,98 +22,33 @@
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
     </div>
-    <!--
-    <div id="Contenido">
-        <!-- @@@@@@@@@ Programador @@@@@@@@ -->
-        <!--
-            El botón "Nuevo" debe crear una una ID para la nueva planeación
-            y todo lo que correspondiente a ella
-            Manda al modo "Edición"
-
-            Al dar clic en una planeación, mandarte al "Modo Vista"
-            O al modo "Edición" en casa de estar en "En curso"
-        -->
-        <!-- @@@@@@@@@ Diseño @@@@@@@@@ -->
-        <!--
-            Mostrar rectangulos verticales representado las planeaciones
-            (Podría mostrar la primer página)
-            Debajo de él:
-                Título (Materia)
-        -->
-        <!--
-        <h3>En curso</h3>
-        <!-- @@@@@@@@@ BD @@@@@@@@@ -->
-        <!--
-            Aquellas planeaciones que no hayan sido validadas
-        -->
-        <!--
-        <div class="caja">
-            <div class="caja-ancho">
-                <div class="encabezado">
-                    <div class="label">
-                        Abrir una Planeacion Estrategica
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="seccion">
-                        <div class="icono">
-                            <a href="CreacionPlan.php">
-                            <img src="Imagenes/Nuevodoc.png" alt="" style="width:118px;height:150px">
-                          </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h3>Revisadas</h3>
-        <!-- @@@@@@@@@ BD @@@@@@@@@ -->
-        <!--
-            Planeaciones validadas del periodo en curso
-        -->
-        <!--
-        <div class="caja">
-            <div class="caja-ancho">
-                <div class="encabezado">
-                    <div class="label">
-                        Abrir una Planeacion Estrategica
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="seccion">
-                        <div class="icono">
-                            <a href="CreacionPlan.php">
-                            <img src="Imagenes/Nuevodoc.png" alt="" style="width:118px;height:150px">
-                          </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h3>Historial</h3>
-        <!-- @@@@@@@@@ BD @@@@@@@@@ -->
-        <!--
-            El resto de planeaciones hechas por el usuario
-        -->
-        <!--
-        <div class="caja">
-            <div class="caja-ancho">
-                <div class="encabezado">
-                    <div class="label">
-                        Abrir una Planeacion Estrategica
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="seccion">
-                        <div class="icono">
-                            <a href="CreacionPlan.php">
-                            <img src="Imagenes/Nuevodoc.png" alt="" style="width:118px;height:150px">
-                          </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
+    <script>
+        var x = 1;
+        if(x==1)
+        {
+            document.getElementById('PagRevision').style.display = "block";
+            document.getElementById('PagRevision2').style.display = "block";
+        }
+        var x = 2;
+        if(x==2)
+        {
+            document.getElementById('PagAdministracion').style.display = "block";
+            document.getElementById('PagAdministracion2').style.display = "block";
+            document.getElementById('PagUsuarios').style.display = "block";
+            document.getElementById('PagUsuarios2').style.display = "block";
+        }
+        var x = 3;
+        if(x==3)
+        {
+            document.getElementById('PagInicioPE').style.display = "block";
+            document.getElementById('PagInicioPE2').style.display = "block";
+        }
+        var x = 4;
+        if(x==4)
+        {
+            document.getElementById('PagAdministracion').style.display = "block";
+            document.getElementById('PagAdministracion2').style.display = "block";
+        }
+    </script>
 </body>
 </html>
