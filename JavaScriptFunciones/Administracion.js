@@ -12,63 +12,61 @@ function myFun()
     */
 }
 
-function CrearTabla(strTabla)
+// Cuando la tabla "padre" selecciona una opcion
+// Se muestran sus hijos
+function MostrarSeccionListener(tabla, padre)
 {
-    if(strTabla == '' || $('#' + strTabla).length == 0)
+    $(document).ready(function(){
+        if(tabla == '' || padre == '' ||
+            $('#' + tabla + '.seccion').length == 0 || $('#' + tabla + ' div.panel').length == 0 ||
+            $('#' + padre).length == 0)
+        {
+            alert('Error: MostrarSeccionListener()');
+            return;
+        }
+        $('#' + padre).on('change', 'input[type="radio"]', function(){
+            $('#' + tabla + '.seccion').show();
+            $('#' + tabla + ' div.panel').hide();
+        });
+    });
+}
+
+// Despliega  div.panel y carga la tabla
+function ButtonAccordionListener()
+{
+    $(document).ready(function(){
+        $(':button.accordion').click(function() {
+            tabla = $(this).parent('div.seccion').attr('id');
+            padre = $(this).attr('data-padre');
+            relacion = $(this).attr('data-relacion');
+            padreId = $('#' + padre + ' input[type="radio"]:checked').val();
+            $(this).next('div.panel').toggle(0, function(){
+                CrearTabla(tabla, padre, padreId, relacion);
+            });
+        });
+    });
+}
+
+// Llama la funcion en PHP para cargar la tabla
+function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
+{
+    if(strTabla == '' || strPadre == '' ||
+        $('#' + strTabla + ' form.tabla').length == 0)
     {
-        alert('Error: CrearTabla() 1');
+        alert('Error: CrearTabla()');
         return;
     }
     $(document).ready(function(){
         $.ajax({
             url: 'PHPFunciones/CargarTabla.php',
             type: 'get',
-            data: {tabla: strTabla},
+            data: {tabla: strTabla, padre: strPadre, padreId: intPadreId, relacion: strRelacion},
             success: function(HtmlTabla){
                 $('#' + strTabla + ' form.tabla').html(HtmlTabla);
             }
         });
     });
 }
-
-function MostrarSeccion(tabla, padre)
-{
-    $(document).ready(function(){
-        $('#' + padre + ' input[type="radio"]').change(function(){
-            // Mostrar seccion
-            $('#' + tabla + '.seccion').show();
-            // Reiniciar radio buttons
-            //$('#' + tabla).has('input[type="radio"]').attr('checked', false);
-        });
-    });
-}
-
-function AcordeonListener(tabla)
-{
-    $(document).ready(function(){
-        $('#' + tabla + ' :button.accordion').click(function(){
-            $(this).next('div.panel').toggle(0);
-        });
-    });
-}
-
-function RadioBtnListener(tabla, padre)
-{
-    $(document).ready(function(){
-        $.when($.ajax(AcordeonListener(padre))).then(function(){
-            $.when($.ajax(CrearTabla(padre))).then(function(){
-                if(tabla == '' || $('#' + tabla + '.seccion').length == 0) {
-
-                }
-                else {
-                    MostrarSeccion(tabla, padre);
-                }
-            });
-        });
-    });
-}
-
-// **********
 
 function AnadirElemento(tabla)
 {
@@ -89,63 +87,4 @@ function AnadirElemento(tabla)
         row.last().after();
         */
     });
-}
-
-function RadioBtnListenerNM(tabla, padre, relacion)
-{
-    $(document).ready(function(){
-        if(tabla == '' || padre == '' || relacion == '' ||
-            $('#' + tabla).length == 0 || $('#' + padre).length == 0)
-        {
-            alert('Error: AddRadioBtnListenersNM()');
-            return;
-        }
-        $.when($.ajax(AcordeonListener(padre))).then(function(){
-            $.when($.ajax(CrearTabla(padre))).then(function(){
-                if(tabla == '' || $('#' + tabla + '.seccion').length == 0) {
-
-                }
-                else {
-                    MostrarSeccion(tabla, padre);
-                }
-            });
-        });
-    });
-}
-
-
-function GetTdIndex(tr, value)
-{
-    if(tr == '' ||
-        $('#' + tr).length == 0 || typeof value != "string")
-    {
-        alert('Error: GetTdIndex()');
-    }
-    tr = $('#' + tr + ' tr').first()[0];
-    for(var i = 0; i < tr.childElementCount; i++)
-    {
-        if(tr.children[i].innerText.trim() == value)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-
-function RemoveSubstr(str, substr)
-{
-    if(!(typeof str == "string" && typeof substr == "string"))
-    {
-        alert('Error: RemoveSubstr()');
-        return;
-    }
-    var indexA = str.indexOf(substr);
-    if(indexA == -1)
-    {
-        return str;
-    }
-    var indexB = indexA + substr.length;
-    var a = str.substr(0, indexA);
-    var b = str.substr(indexB, str.length - indexB);
-    return a + b;
 }
