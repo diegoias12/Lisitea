@@ -1,6 +1,10 @@
 body
 {
     background: #FFF;
+    background-image: url("../Imagenes/CECyTEM.png");
+    background-position:top;
+    background-size: 350px;
+    background-repeat: no-repeat;
 }
 
 #Contenido
