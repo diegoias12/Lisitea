@@ -1,8 +1,10 @@
-body{
+body
+{
     background-color: #FFFFFF;
 }
 
-.contenedor{
+.contenedor
+{
       background-color: #2b3137;
       background-position: center 10%;
       background-size: cover;
@@ -11,10 +13,11 @@ body{
       padding-bottom: 40px!important;
       margin-left: 40px;
 }
-.contenido{
+
+.contenido
+{
     background-color: #eee;
     color: #444;
-    cursor: pointer;
     padding: 18px;
     border: none;
     text-align: left;
@@ -24,10 +27,11 @@ body{
     margin-left: 10px;
     margin-right: 10px;
 }
-.accordion {
+
+.accordion
+{
     background-color: #ccc;
     color: #000;
-    cursor: pointer;
     padding: 18px;
     width: 100%;
     border: none;
@@ -36,31 +40,52 @@ body{
     font-size: 18px;
     transition: 0.4s;
 }
-.active, .accordion:hover {
-    background-color: #000;
+
+.active, .accordion:hover
+{
+    background-color: #B7B7B7;
     color: #FFF;
 }
 
-.panel {
+.panel
+{
     padding: 0px 18px;
     display: none;
     background-color: white;
     overflow: hidden;
     font-size: 18px;
 }
-.label{
+
+.label
+{
   padding: 10px;
   height: 30px;
   font-size: 18px;
 }
-.label:hover{
+
+.label:hover
+{
   background-color: #ccc;
 }
-.encabezado{
+
+.encabezado
+{
   text-align: center;
   font-size: 40px;
   width: 100%;
 }
-.espacio{
+
+.espacio
+{
   height: 10px;
+}
+
+img.accion
+{
+    width: 30px;
+    height: 30px;
+    float: right;
+    display: none;
+    cursor: pointer;
+    z-index: 1; 
 }

@@ -33,34 +33,57 @@
             </p>
 
             <!-- <button onclick="myFun()">Try it</button> -->
-            <script>ButtonAccordionListener();</script>
+            <script>AccordionListener();</script>
+            <script>ImgAccionListener();</script>
 
+            <!-- class="seccion" es para encontrar con facilidad el id del bloque -->
             <div id="tbl_especialidad" class="seccion">
-                <button class="accordion">
-                    tbl_especialidad
-                </button>
+                <!-- class="accordion" es la clase que fue creada originalmente
+                    para <button>tbl_nombre</button>, pero se movio de esta forma
+                    para facilitar la funcionalidad de img.accion -->
+                <div class="accordion">
+                    <span>tbl_especialidad</span>
+                    <!-- Estos botones son usados para modificar la
+                        informacion de la tabla -->
+                    <img src="Imagenes/Cancelar.png" class="accion">    <!-- 0 -->
+                    <img src="Imagenes/Anadir.png" class="accion">      <!-- 1 -->
+                    <img src="Imagenes/Eliminar.png" class="accion">    <!-- 2 -->
+                    <img src="Imagenes/Editar.png" class="accion">      <!-- 3 -->
+                    <img src="Imagenes/Todo.png" class="accion">        <!-- 4 -->
+                </div>
+                <!-- En esta area es mostrada la tabla de la BD -->
                 <div class="panel">
                     <td colspan="100%">
                         <form class="tabla"></form>
                     </td>
-                    <td><img onclick="AnadirElemento()" src="Imagenes/Anadir.png" height="20" width="20"></td>
                 </div>
+                <!-- Se crea un espacio un tanto elegante :v -->
                 <div class="espacio"></div>
             </div>
 
             <div id="tbl_modulo" class="seccion" style="display: none;">
+                <!-- Con estos listeners, las tablas serán mostradas cuando
+                    se seleccione alguno de los elementos de su "padre" -->
                 <script>MostrarSeccionListener('tbl_modulo', 'tbl_especialidad');</script>
-                <button class="accordion" data-padre="tbl_especialidad">
-                    tbl_modulo
-                </button>
+                <div class="accordion">
+                    <!-- Se manda informacion en el mismo boton -->
+                    <span data-padre="tbl_especialidad">tbl_modulo</span>
+                    <img src="Imagenes/Cancelar.png" class="accion">    <!-- 0 -->
+                    <img src="Imagenes/Anadir.png" class="accion">      <!-- 1 -->
+                    <img src="Imagenes/Eliminar.png" class="accion">    <!-- 2 -->
+                    <img src="Imagenes/Editar.png" class="accion">      <!-- 3 -->
+                    <img src="Imagenes/Todo.png" class="accion">
+                </div>
                 <div class="panel">
                     <td colspan="100%">
                         <form class="tabla"></form>
                     </td>
-                    <td><img src="Imagenes/Anadir.png" height="20" width="20"></td>
+                    <td><img src="Imagenes/Anadir.png" class="accion"></td>
                 </div>
                 <div class="espacio"></div>
             </div>
+
+            <!--
 
             <div id="tbl_submodulo" class="seccion" style="display: none;">
                 <script>MostrarSeccionListener('tbl_submodulo', 'tbl_modulo');</script>
@@ -71,7 +94,7 @@
                     <td colspan="100%">
                         <form class="tabla"></form>
                     </td>
-                    <td><img src="Imagenes/Anadir.png" height="20" width="20"></td>
+                    <td><img src="Imagenes/Anadir.png" class="accion"></td>
                 </div>
                 <div class="espacio"></div>
             </div>
@@ -85,7 +108,7 @@
                     <td colspan="100%">
                         <form class="tabla"></form>
                     </td>
-                    <td><img src="Imagenes/Anadir.png" height="20" width="20"></td>
+                    <td><img src="Imagenes/Anadir.png" class="accion"></td>
                 </div>
                 <div class="espacio"></div>
             </div>
@@ -97,7 +120,7 @@
                     <td colspan="100%">
                         <form class="tabla"></form>
                     </td>
-                    <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+                    <td><img src="Imagenes\Anadir.png" class="accion"></td>
                 </div>
                 <div class="espacio"></div>
             </div>
@@ -109,7 +132,7 @@
                     <td colspan="100%">
                         <form class="tabla"></form>
                     </td>
-                    <td><img src="Imagenes\Anadir.png" height="20" width="20"></td>
+                    <td><img src="Imagenes\Anadir.png" class="accion"></td>
                 </div>
                 <div class="espacio"></div>
             </div>
@@ -123,7 +146,7 @@
                     <td colspan="100%">
                         <form class="tabla"></form>
                     </td>
-                    <td><img src="Imagenes/Anadir.png" height="20" width="20"></td>
+                    <td><img src="Imagenes/Anadir.png" class="accion"></td>
                 </div>
                 <div class="espacio"></div>
             </div>
@@ -137,7 +160,7 @@
                     <td colspan="100%">
                         <form class="tabla"></form>
                     </td>
-                    <td><img src="Imagenes/Anadir.png" height="20" width="20"></td>
+                    <td><img src="Imagenes/Anadir.png" class="accion"></td>
                 </div>
                 <div class="espacio"></div>
             </div>
@@ -151,10 +174,12 @@
                     <td colspan="100%">
                         <form class="tabla"></form>
                     </td>
-                    <td><img src="Imagenes/Anadir.png" height="20" width="20"></td>
+                    <td><img src="Imagenes/Anadir.png" class="accion"></td>
                 </div>
                 <div class="espacio"></div>
             </div>
+
+            -->
 
         </div>
     </div>
