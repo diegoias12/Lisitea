@@ -72,6 +72,21 @@ function AccordionListener()
     });
 }
 
+function SqlInsert(sqlInsert)
+{
+    $.ajax({
+        url: 'PHPFunciones/InsertarElemento.php',
+        type: 'get',
+        data: {sqlInsert: sqlInsert},
+        success: function(valido) {
+            alert('IngresarElemento() - Insercion exitosa');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('IngresarElemento() - MySql Error');
+        }
+    });
+}
+
 // Llama la funcion en PHP para cargar la tabla
 function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
 {
@@ -124,25 +139,78 @@ function ImgAccionListener()
     });
 }
 
+// Cancela la adicion o edicion
 function ImgAccCancelar(imgAcc, id)
 {
     // Salir de modo de adicion
+    // Ocultar y mostrar imgAccion
     imgAcc.eq(0).hide(); // Cancelar
     if($('#' + id).has('input[type="radio"]:checked').length > 0) {
         imgAcc.eq(2).show(); // Eliminar
         imgAcc.eq(3).show(); // Editar
     }
+    // Mostrar las filas previamente ocultadas
     $('#' + id + ' tr').has('input[type="radio"]').show();
-    $('#' + id).find('.textBoxRow').remove();
+    // Eliminar los la fila txtBoxRow
+    $('#' + id).find('.txtBoxRow').remove();
 }
 
 // Genera los espacios donde se escribira la informacion
 function GenerarTr(veces)
 {
-    htmlCode = '<tr class="textBoxRow"><td></td>';
+    htmlCode = '<tr class="txtBoxRow"><td></td>';
     htmlCode += '<td><input type="text"></td>'.repeat(veces - 1);
     htmlCode += '</tr>';
     return htmlCode;
+}
+
+// Validar los datos ingresados
+function ValidarDatos(llaveTr, txtBoxTr, id)
+{
+    return true;
+}
+
+// Genera la cadena de insercion
+function GenerarSqlInsert(llave, txtBox)
+{
+    // (column1, column2, ..., columnk)
+    column = '(' + llave.first().text();
+    // (value1, value2, ..., valuek)
+    value = '("' + txtBox.first().val();
+    for(i = 1; i < llave.length; i++) {
+        column += ', ' + llave.eq(i).text();
+        value += '", "' + txtBox.eq(i).val();
+    }
+    column += ')';
+    value += '")';
+    sqlInsert = 'INSERT INTO ' + id + ' ' + column + ' VALUES ' + value;
+    return sqlInsert;
+}
+
+// Lee la informacion en los text box, valida, y crea la cadena
+// para hacer el insert en la BD
+function IngresarElemento(id)
+{
+    if($('#' + id).length == 0) {
+        alert('Error: IngresarElemento() - Id inexistente');
+        return '';
+    }
+    llave = $('#' + id + ' tr.llave td div.label');
+    txtBox = $('#' + id + ' tr.txtBoxRow td input');
+    if(llave.length != txtBox.length) {
+        alert('Error: IngresarElemento() - Distintos tamanos');
+        return '';
+    }
+    if(llave.length == 0) {
+        alert('Error: IngresarElemento() - Fila inexistente o sin elementos');
+        return '';
+    }
+    if(ValidarDatos(llave, txtBox, id)) {
+        SqlInsert(GenerarSqlInsert(llave, txtBox));
+    }
+    else {
+        alert('IngresarElemento() - Datos invalidos');
+    }
 }
 
 function ImgAccAnadir(imgAcc, id)
@@ -152,27 +220,48 @@ function ImgAccAnadir(imgAcc, id)
         imgAcc.eq(0).show(); // Cancelar
         imgAcc.eq(2).hide(); // Eliminar
         imgAcc.eq(3).hide(); // Editar
-        // Agregar textbox y ocultar los elementos
+        // Ocultar elementos
         $('#' + id + ' tr').has('input[type="radio"]').hide();
+        // Agregar textbox
         tr = $('#' + id + ' tr:first')[0];
         $(tr).after(GenerarTr(tr.childElementCount));
     }
     else {
+        // Verificar que la informacion ingresada sea correcta
+        // y mandar a la BD
+        IngresarElemento(id);
+        // Salir de modo de adicion
         ImgAccCancelar(imgAcc, id);
     }
 }
 
 function ImgAccEliminar(imgAcc, id)
 {
+    // Elimiar fila y su registro en la BD
+    // A la vez, elimina a sus hijos
 
 }
 
 function ImgAccEditar(imgAcc, id)
 {
+    // Cambiar las celdas por textbox, para que se puedan
+    // modificar los valores
 
 }
 
 function ImgAccTodo(imgAcc, id)
 {
-
+    // Icono unicamente mostrado en la relacion NM
+    // Enciende/Apaga todos los check box
+    checkBox = $('#' + id + ' input[type="checkbox"]');
+    if(checkBox.length > 0) {
+        // Aunque sea uno apagado, encender todos
+        if(checkBox.filter(':checked').length > 0) {
+            checkBox.prop('checked', true);
+        }
+        // Todos encendidos, apagar todo
+        else {
+            checkBox.prop('checked', false);
+        }
+    }
 }

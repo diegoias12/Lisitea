@@ -78,7 +78,6 @@
                     <td colspan="100%">
                         <form class="tabla"></form>
                     </td>
-                    <td><img src="Imagenes/Anadir.png" class="accion"></td>
                 </div>
                 <div class="espacio"></div>
             </div>

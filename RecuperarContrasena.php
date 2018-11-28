@@ -13,6 +13,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     if(!filter_var($email, FILTER_VALIDATE_EMAIL) === false)
     {
         include 'PHPInclude\Conexion.php';
+        $conn = mysqli_connect($host, $username, $password, $database);
+        if (!$conn)
+        {
+            die("Conexion Fallida: " . mysqli_connect_error());
+        }
         $sql = 'SELECT VCH_contrasenia '
              . 'FROM tbl_usuario '
              . 'WHERE VCH_correo_electronico = "' . $email . '"';

@@ -15,8 +15,12 @@
     {
         $email = $_POST['email'];
         $psw = $_POST['psw'];
-        require 'PHPInclude\Conexion.php';
-        //mysqli_query($conn, 'INSERT INTO tbl_usuario(VCH_correo_electronico, VCH_contrasenia) VALUES ("mail@mail.com","pass")');
+        require 'PHPInclude/Conexion.php';
+        $conn = mysqli_connect($host, $username, $password, $database);
+        if (!$conn)
+        {
+            die("Conexion Fallida: " . mysqli_connect_error());
+        }
         $sql = 'SELECT VCH_correo_electronico, VCH_contrasenia '
              . 'FROM tbl_usuario '
              . 'WHERE VCH_correo_electronico = "' . $email . '" AND VCH_contrasenia = "' . $psw . '"';

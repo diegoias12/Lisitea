@@ -5,11 +5,11 @@ if(!(isset($_GET['tabla'])))
     return;
 }
 $tabla = $_GET['tabla'];
-require 'Conexion.php';
+require '../PHPInclude/Conexion.php';
 
 try
 {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host=$host;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Nombre de las columnas
@@ -26,28 +26,29 @@ try
     $name = 'radioBtn_' . $tabla;
     echo
       '<table>'
-    . '   <tr>'
+    . '   <tr class="llave">'
     . '       <td></td>';
     if(isset($_GET['padre']))
     {
         $padre = $_GET['padre'];
         $fkIdPadre = 'FK_id_' . substr($padre, 4);
     }
-    //$i = 0;
+    $i = 0;
     foreach($consulta as $k=>$v)
     {
         //if(isset($_GET['padre']) && $k == $fkIdPadre)
         //{
         //    $padrePos = $i;
         //}
-        //else if($i != 0)
-        //{
+        //else
+        if($i != 0)
+        {
             echo
               '<td style="width:150px;border:1px solid black;">'
             . '    <div class="label">' . $k . '</div>'
             . '</td>';
-        //}
-        //$i++;
+        }
+        $i++;
     }
     echo
       '</tr>';
@@ -100,23 +101,23 @@ try
             //{
             //    // No mostrar
             //}
-            //else
-            //{
+            else
+            {
                 echo
                   '        <td style="width:150px;border:1px solid black;">'
                 . '            <div class="label">' . $value . '</div>'
                 . '        </td>';
-            //}
+            }
             $i++;
         }
         echo '</tr>';
     }
     // Fin
+    $conn = null;
+    echo '</table>';
 }
 catch(PDOException $e)
 {
     echo "Error: " . $e->getMessage();
 }
-$conn = null;
-echo "</table>";
 ?>
