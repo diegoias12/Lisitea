@@ -72,17 +72,25 @@ function AccordionListener()
     });
 }
 
+// Llama a la funcion de PHP para hacer la insercion
+// Regresa el numero de filas modificadas {0, 1}
 function SqlInsert(sqlInsert)
 {
-    $.ajax({
+    return $.ajax({
         url: 'PHPFunciones/InsertarElemento.php',
         type: 'get',
         data: {sqlInsert: sqlInsert},
+        async: false,
         success: function(valido) {
-            alert('IngresarElemento() - Insercion exitosa');
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert('IngresarElemento() - MySql Error');
+            console.log(valido);
+            if(valido == '1') {
+                alert('IngresarElemento() - Insercion exitosa');
+                return true;
+            }
+            else {
+                alert('Error: IngresarElemento.php()');
+                return false;
+            }
         }
     });
 }
@@ -193,23 +201,24 @@ function IngresarElemento(id)
 {
     if($('#' + id).length == 0) {
         alert('Error: IngresarElemento() - Id inexistente');
-        return '';
+        return false;
     }
     llave = $('#' + id + ' tr.llave td div.label');
     txtBox = $('#' + id + ' tr.txtBoxRow td input');
     if(llave.length != txtBox.length) {
         alert('Error: IngresarElemento() - Distintos tamanos');
-        return '';
+        return false;
     }
     if(llave.length == 0) {
         alert('Error: IngresarElemento() - Fila inexistente o sin elementos');
-        return '';
+        return false;
     }
     if(ValidarDatos(llave, txtBox, id)) {
-        SqlInsert(GenerarSqlInsert(llave, txtBox));
+        return SqlInsert(GenerarSqlInsert(llave, txtBox));
     }
     else {
         alert('IngresarElemento() - Datos invalidos');
+        return false;
     }
 }
 
@@ -229,9 +238,12 @@ function ImgAccAnadir(imgAcc, id)
     else {
         // Verificar que la informacion ingresada sea correcta
         // y mandar a la BD
-        IngresarElemento(id);
-        // Salir de modo de adicion
-        ImgAccCancelar(imgAcc, id);
+        if(IngresarElemento(id))
+        {
+            alert('Exito - Esconder Botones');
+            // Salir de modo de adicion
+            ImgAccCancelar(imgAcc, id);
+        }
     }
 }
 
