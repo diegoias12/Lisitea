@@ -27,7 +27,10 @@
         <?php require 'PHPInclude/Menu.php'; ?>
         <?php /*include 'PHPInclude\\Menu.php';*/ ?>
     </div>
-    <div id="contenido" class="contenedor">
+    <div id="Menu2">
+        <?php require 'PHPInclude/Menufijo.php';?>
+    </div>
+    <div id="Contenido" class="contenedor">
         <div class="contenido">
             <p class="encabezado">
                 INSTRUMENTO PARA LA PLANEACI&Oacute;N ESTRAT&Eacute;GICA
@@ -36,10 +39,10 @@
             <div class="panel">
                 <form>
                     <div class="label">
-                        <input type="radio" value="Disciplina" >Campo Disciplinar<br>
+                        <input type="radio" name="campo" value="Disciplina" >Campo Disciplinar<br>
                     </div>
                     <div class="label">
-                        <input type="radio" value="Profesional">Campo Profesional<br>
+                        <input type="radio" name="campo" value="Profesional">Campo Profesional<br>
                     </div>
                 </form>
             </div>
@@ -358,12 +361,6 @@
             </div>
         </div>
     </div>
-    <div>
-        <button type="button">Guardar</button>
-        <button type="button">Enviar</button>
-        <!-- <button type="button" onclick="CrearPdf()">PDF</button> -->
-    </div>
-
         <!-- @@@@@@@@@ Programador @@@@@@@@@ -->
         <!--
             Dar el formato a HTML y capturar en PHP

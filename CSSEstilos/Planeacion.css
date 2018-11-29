@@ -125,3 +125,48 @@ p
 {
   height: 10px;
 }
+.menufijo{
+    overflow: hidden;
+    background-color: #646464;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-left: 40px;
+}
+.menufijo a{
+    float: left;
+    display: block;
+    color: #F2F2F2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.menufijo a:hover{
+  background: #DDD;
+  color: black;
+}
+.input-container{
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+.input-field{
+    padding: 10px;
+    outline: none;
+}
+.input-field:focus {
+    border: 2px solid dodgerblue;
+}
+.btn {
+    background-color: dodgerblue;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    min-width: 200px;
+}
+.btn:hover {
+    opacity: .1;
+}

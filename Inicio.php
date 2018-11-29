@@ -22,14 +22,8 @@
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
     </div>
-    <div id="Contenido">
-        <button onclick="Funcion1()">Revisor</button>
-        <button onclick="Funcion2()">Administrador</button>
-        <button onclick="Funcion3()">Profesor</button>
-        <button onclick="Funcion4()">Capturista</button>
-        <button onclick="Funcion5()">Supervisor</button>
-    </div>
     <script>
+        /*
         function Funcion1(){
           document.getElementById('PagRevision').style.display = "block";
           document.getElementById('PagRevision2').style.display = "block";
@@ -79,14 +73,14 @@
           document.getElementById('PagAdministracion2').style.display = "none";
           document.getElementById('PagUsuarios').style.display = "none";
           document.getElementById('PagUsuarios').style.display = "none";
-        }
+        }*/
         //var x = 1
         if(x==1)
         {
             document.getElementById('PagRevision').style.display = "block";
             document.getElementById('PagRevision2').style.display = "block";
         }
-        //var x = 2;
+        var x = 2;
         if(x==2)
         {
             document.getElementById('PagAdministracion').style.display = "block";
@@ -107,6 +101,10 @@
             document.getElementById('PagAdministracion2').style.display = "block";
         }
     </script>
-
+    <!--En cso de requeriri un cambio de contraseña
+    <div id="Menu2">
+        <?php require 'PHPInclude/SolicitarCambioContraseña.php'; ?>
+    </div>
+    -->
 </body>
 </html>

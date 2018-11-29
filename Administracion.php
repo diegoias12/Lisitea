@@ -27,6 +27,7 @@
         <?php require "PHPInclude/Menu.php"; ?>
         <?php /*include 'PHPInclude\\Menu.php';*/ ?>
     </div>
+    
     <div id="Contenido" class="contenedor">
         <div class="contenido">
             <p class="encabezado">
