@@ -44,7 +44,7 @@ try
         if($i != 0)
         {
             echo
-              '<td style="width:150px;border:1px solid black;">'
+              '<td class="celda">'
             . '    <div class="label">' . $k . '</div>'
             . '</td>';
         }
@@ -104,9 +104,9 @@ try
             else
             {
                 echo
-                  '        <td style="width:150px;border:1px solid black;">'
-                . '            <div class="label">' . $value . '</div>'
-                . '        </td>';
+                  '<td class="celda">'
+                . '    <div class="label">' . $value . '</div>'
+                . '</td>';
             }
             $i++;
         }
