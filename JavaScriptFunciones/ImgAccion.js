@@ -1,4 +1,4 @@
-// Activa img.accion
+// Activa la funcionalidad de todos los imgAccion
 function ImgAccionListener()
 {
     $(document).ready(function(){
@@ -29,6 +29,9 @@ function ImgAccionListener()
                 case 'Todo':
                     ImgAccTodo(imgAcc, id);
                     break;
+                case 'CheckBox':
+                    ImgAccCheckBox(imgAcc, id);
+                    break;
             }
         });
     });
@@ -36,28 +39,38 @@ function ImgAccionListener()
 
 // ********************************************************
 
+// Funcionalidad de cancelar
+// Sale del modo adicion, borrado, edicion y checkBox
+// Reestableciendo todo a la tabla original
 function ImgAccCancelar(imgAcc, id)
 {
     // Salir de modo de adicion
     // Ocultar y mostrar imgAccion
-    imgAcc.eq(0).hide(); // Cancelar
+    imgAcc.hide();
+    imgAcc.eq(1).show(); // Anadir
     if($('#' + id).has('input[type="radio"]:checked').length > 0) {
         imgAcc.eq(2).show(); // Eliminar
         imgAcc.eq(3).show(); // Editar
     }
+    if(typeof $('#' + id + ' div.accordion span').attr('data-relacion') == 'string') {
+        imgAccion.eq(6).show(); // Checkbox
+    }
     // Mostrar las filas previamente ocultadas
     $('#' + id + ' tr').has('input[type="radio"]').show();
-    // Eliminar los la fila txtBoxRow
+    // Eliminar la fila txtBoxRow
     $('#' + id).find('.txtBoxRow').remove();
 }
 
+// Funcionalidad de anadir
+// Se muestran textBox donde se puede introducir la informacion
+// que se desea enviar a la BD
 function ImgAccAnadir(imgAcc, id)
 {
     if(imgAcc.eq(0).is(':hidden')) {
         // Entrar en modo de adicion
+        imgAcc.hide();
         imgAcc.eq(0).show(); // Cancelar
-        imgAcc.eq(2).hide(); // Eliminar
-        imgAcc.eq(3).hide(); // Editar
+        imgAcc.eq(1).show(); // Anadir
         // Ocultar elementos
         $('#' + id + ' tr').has('input[type="radio"]').hide();
         // Agregar textbox
@@ -94,16 +107,27 @@ function ImgAccAnadir(imgAcc, id)
     }
 }
 
+// Funcionalidad de eliminar
+// Cambia los radioButton por checkBox para poder seleccionar
+// los elementos que se quieren eliminar
 function ImgAccEliminar(imgAcc, id)
 {
-    // Elimiar fila y su registro en la BD
-    // A la vez, elimina a sus hijos
-
+    // Mostrar imgAccion
+    imgAcc.hide();
+    imgAcc.eq(0).show(); // Cancelar
+    imgAcc.eq(2).show(); // Eliminar
+    imgAcc.eq(5).show(); // Todo
 }
 
+// Funcionalidad de editar
+// La fila seleccionada cambia sus div.label por textBox
+// En los cuales se puede modificar la informacion y guardar
 function ImgAccEditar(imgAcc, id)
 {
-
+    // Mostrar imgAccion
+    imgAcc.hide();
+    imgAcc.eq(0).show(); // Cancelar
+    imgAcc.eq(4).show(); // Guardar
     // Cambiar las celdas por textbox, para que se puedan
     // modificar los valores
     tr = $('#' + id + ' div.panel form.tabla table tr').has('input[type="radio"]:checked');
@@ -112,11 +136,16 @@ function ImgAccEditar(imgAcc, id)
     });
 }
 
+// Funcionalidad de guardar
+// Al momento de editar o usar checkBox, se guardaran los cambios
+// y llama a ImgAccCancelar para reestablecer la tabla
 function ImgAccGuardar(imgAcc, id)
 {
 
 }
 
+// Funcionalidad de todo
+// Si hay checkBox, selecciona o deselecciona todos
 function ImgAccTodo(imgAcc, id)
 {
     // Icono unicamente mostrado en la relacion NM
@@ -134,9 +163,41 @@ function ImgAccTodo(imgAcc, id)
     }
 }
 
+// Funcionalidad de checkBox
+// Usado en las relaciones NM, facilita la insercion de relaciones entre
+// dos tablas, muestra todos los elementos y los radioBtn se cambian por
+// checkBox, se seleccionan los elementos que se quieren relacionar con
+// el id de la tabla padre
+function ImgAccCheckBox(imgAcc, id)
+{
+    // Mostrar imgAccion
+    imgAcc.hide();
+    imgAcc.eq(0).show(); // Cancelar
+    imgAcc.eq(4).show(); // Guardar
+    imgAcc.eq(5).show(); // Todo
+    // Guardar los Id's relacionados con el Id padre
+    idSet = new Set();
+    $('#' + id + ' div.panel form.tabla input[type="radio"]').each(function(){
+        idSet.add($(this).val());
+    });
+    // Mostrar toda la tabla
+    $.when($.ajax(CrearTabla(id))).then(function(){
+        // Cambiar radio por checkbox
+        $('#' + id + ' div.panel form.tabla input[type="radio"]').attr('type', 'checkbox');
+        // Marcar los que estan relacionado
+        $('#' + id + ' div.panel form.tabla input[type="checkbox"]').each(function(){
+            if(idSet.has($(this).val())) {
+                $(this).attr('checked', true);
+                idSet.delete($(this).val());
+            }
+        });
+    });
+}
+
 // **********************ImgAccAnadir**********************
 
-// Genera los espacios donde se escribira la informacion
+// Genera las celdas con input al momento de hacer una adicion
+// GenerarTr(int)
 function GenerarTr(veces)
 {
     htmlCode = '<tr class="txtBoxRow"><td></td>';
@@ -145,7 +206,7 @@ function GenerarTr(veces)
     return htmlCode;
 }
 
-// Encuentra el index
+// Encuentra el index de un elemento en una fila
 // FindValue(htmlTr, string)
 function FindValue(tr, val)
 {
@@ -159,6 +220,7 @@ function FindValue(tr, val)
 
 // Lee la informacion en los text box, valida, y crea la cadena
 // para hacer el insert en la BD
+// IngresarElemento(string)
 function IngresarElemento(id)
 {
     if($('#' + id).length == 0) {
@@ -175,7 +237,7 @@ function IngresarElemento(id)
         alert('Error: IngresarElemento() - Fila inexistente o sin elementos');
         return -1;
     }
-    if(ValidarDatos(llave, txtBox, id)) {
+    if(ValidarDatos(llave, txtBox)) {
         lastId = -1;
         SqlInsert(GenerarSqlInsert(llave, txtBox)).done(function(result){
             result = parseInt(result);
@@ -192,6 +254,8 @@ function IngresarElemento(id)
     }
 }
 
+// La fila que fue agregada en el modo adicion, se mete dentro de la tabla
+// InputToDivLabel(string, int)
 function InputToDivLabel(id, lastId)
 {
     tr = $('#' + id + ' tr.txtBoxRow');
@@ -202,13 +266,17 @@ function InputToDivLabel(id, lastId)
     tr.children().first().html('<input type="radio" name="radioBtn_' + id + '" value="' + lastId + '">');
 }
 
-// Validar los datos ingresados
-function ValidarDatos(llaveTr, txtBoxTr, id)
+// Validar los datos ingresados, ya sea el tipo de dato, o si acepta null
+// Se tiene la fila con los llaves (primer fila) y la fila que se genero
+// al momento de entrar en el modo insercion
+// ValidarDatos(htmlTr, htmlTr, string)
+function ValidarDatos(llaveTr, txtBoxTr)
 {
     return true;
 }
 
-// Genera la cadena de insercion
+// Genera codigo de MySql para hacer el Insert
+// GenerarSqlInsert(htmlTr, htmlTr)
 function GenerarSqlInsert(llave, txtBox)
 {
     // (column1, column2, ..., columnk)
@@ -226,7 +294,8 @@ function GenerarSqlInsert(llave, txtBox)
 }
 
 // Llama a la funcion de PHP para hacer la insercion
-// Regresa el numero de filas modificadas {0, 1}
+// Regresa el ultimo Id generado
+// SqlInsert(string)
 function SqlInsert(sqlInsert)
 {
     return $.ajax({

@@ -1,22 +1,9 @@
-function myFun()
-{
-    /*
-    alert(RemoveSubstr('tbl_modulo', 'tbl_'););
-    alert(RemoveSubstr('aabbcc', 'ab'););
-    alert(RemoveSubstr('abc', 'd'););
-    */
-    /*
-    alert(GetTdIndex('tbl_especialidad', 'FK_id'));
-    alert(GetTdIndex('tbl_modulo', 'FK_id_especialidad'));
-    alert(GetTdIndex('tbl_submodulo', 'FK_id_modulo'));
-    */
-}
-
-// Cuando la tabla "padre" selecciona una opcion
+// Cuando la tabla "padre" selecciona un radio button
 // Se muestran sus hijos
 function MostrarSeccionListener(tabla, padre)
 {
     $(document).ready(function(){
+        // Se verifica que secciones existan
         if(tabla == '' || padre == '' ||
             $('#' + tabla + '.seccion').length == 0 || $('#' + tabla + ' div.panel').length == 0 ||
             $('#' + padre).length == 0)
@@ -24,6 +11,8 @@ function MostrarSeccionListener(tabla, padre)
             alert('Error: MostrarSeccionListener()');
             return;
         }
+        // Se muestra la tabla hijo, unicamente .accordion
+        // Y se reinician el resto de tablas
         $('#' + padre).on('change', 'input[type="radio"]', function(){
             $('#' + tabla + '.seccion').show();
             $('#' + tabla + ' div.panel').hide();
@@ -34,11 +23,14 @@ function MostrarSeccionListener(tabla, padre)
 }
 
 // Escucha los radio button para mostrar img.accion
-function ImgAccionRadioBtnListener(divPanel, imgAccion)
+function ImgAccionRadioBtnListener(id, imgAccion)
 {
     $(document).ready(function(){
-        // Mostrar Anadir
         imgAccion.eq(1).show(); // Anadir
+        // Mostrar CheckBox si esta tabla cuenta con una relacion NM
+        if(typeof $('#' + id + ' div.accordion span').attr('data-relacion') == 'string') {
+            imgAccion.eq(6).show(); // Checkbox
+        }
         // Mostrar Editar y Eliminar al seleccionar un radio button
         $('form.tabla').on('change', 'table input[type="radio"]', function(){
             imgAccion.eq(2).show(); // Eliminar
@@ -47,25 +39,31 @@ function ImgAccionRadioBtnListener(divPanel, imgAccion)
     });
 }
 
-// Despliega  div.panel y carga la tabla
+// Despliega div.panel y carga la tabla
 function AccordionListener()
 {
     $(document).ready(function(){
         $('.accordion span').click(function() {
+            // Se recuperan todos los datos del mismo label
             tabla = $(this).closest('div.seccion').attr('id');
             padre = $(this).attr('data-padre');
             relacion = $(this).attr('data-relacion');
             padreId = $('#' + padre + ' input[type="radio"]:checked').val();
+            // A la vez, se toma el id de la seccion y se seleccionan sus imgAccion
             imgAccion = $(this).nextAll('img.accion');
             id = $(this).closest('div.seccion').attr('id');
+            // Si se detecta el cambio, se activa
             $('#' + id + ' div.panel').toggle(0, function(){
+                // Al ocultarse div.panel, tambien se esconden los imgAccion
+                // y el resto de tablas
                 if($(this).is(':hidden')) {
                     imgAccion.hide();
                     $('#' + id).nextAll('div.seccion').hide();
                 }
+                // Se carga la tabla y se agregan los listeners para mostrar los imgAccion
                 else {
                     $.when($.ajax(CrearTabla(tabla, padre, padreId, relacion))).then(function(){
-                        ImgAccionRadioBtnListener($(this), imgAccion);
+                        ImgAccionRadioBtnListener(id, imgAccion);
                     });
                 }
             });
@@ -76,8 +74,7 @@ function AccordionListener()
 // Llama la funcion en PHP para cargar la tabla
 function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
 {
-    if(strTabla == '' || strPadre == '' ||
-        $('#' + strTabla + ' form.tabla').length == 0)
+    if(strTabla == '' || $('#' + strTabla + ' form.tabla').length == 0)
     {
         alert('Error: CrearTabla()');
         return;
@@ -87,6 +84,7 @@ function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
             url: 'PHPFunciones/CargarTabla.php',
             type: 'get',
             data: {tabla: strTabla, padre: strPadre, padreId: intPadreId, relacion: strRelacion},
+            async: false,
             success: function(HtmlTabla){
                 $('#' + strTabla + ' form.tabla').html(HtmlTabla);
             }
