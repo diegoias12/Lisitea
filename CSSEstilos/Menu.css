@@ -70,3 +70,10 @@
     transition: margin-left .5s;
     padding: 20px;
 }
+
+.btn:hover
+{
+  background-color: black;
+  color: white;
+  font-size: 25px;
+}
