@@ -53,8 +53,8 @@
             <div class="panel">
               <form action="/action_page.php" style="min-width:500px;margin:auto">
                   <div class="input-container">
-                      <input class="input-field" type="text" >verga</button>
-                      <input class="input-field"  type="text" placeholder="Username" name="usrnm">
+                      <button type="button" class="btn">verga</button>
+                      <input class="input-field" type="text" placeholder="Username" name="usrnm">
                       <button type="button" class="btn">verga</button>
                       <input class="input-field" type="text" placeholder="Username" name="usrnm">
                   </div>
