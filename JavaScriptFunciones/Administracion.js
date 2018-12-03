@@ -81,8 +81,8 @@ function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
     }
     $(document).ready(function(){
         $.ajax({
-            url: 'PHPFunciones/CargarTabla.php',
-            type: 'get',
+            url: 'PHPFunciones/SqlCreateTable.php',
+            type: 'post',
             data: {tabla: strTabla, padre: strPadre, padreId: intPadreId, relacion: strRelacion},
             async: false,
             success: function(HtmlTabla){

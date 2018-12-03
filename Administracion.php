@@ -10,6 +10,7 @@
 
 <html>
 <head>
+    <link rel="icon" href="Imagenes/Lisitea.png">
     <?php /*require 'PHPInclude\\Head.php';*/ ?>
     <?php /*include 'PHPInclude\\Head.php';*/ ?>
     <title>Creacion - CECyTEM Tequixquiac</title>
@@ -27,7 +28,7 @@
         <?php require "PHPInclude/Menu.php"; ?>
         <?php /*include 'PHPInclude\\Menu.php';*/ ?>
     </div>
-    
+
     <div id="Contenido" class="contenedor">
         <div class="contenido">
             <p class="encabezado">

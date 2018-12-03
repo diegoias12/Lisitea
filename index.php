@@ -61,6 +61,7 @@
         <div class="contenedor">
             <div class="item">
                 <div class="informacion">
+                    <!-- Cambiar el nombre de la clase -->
                     <h1 class="texto1">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">
@@ -116,6 +117,9 @@
 </body>
 </html>
 <script>
+// ******************************
+// Cambiar nombre de funciones
+// ******************************
 var modal = document.getElementById('myModal');
 var span = document.getElementsByClassName("close")[0];
 function funcion1() {

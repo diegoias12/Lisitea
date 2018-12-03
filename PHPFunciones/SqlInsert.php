@@ -1,11 +1,10 @@
 <?php
 // Se verifica que la variable existe
-if(!(isset($_GET['sqlInsert'])))
+if(!(isset($_POST['sqlInsert'])))
 {
     echo 'Error: IngresarElemento() - InsertarElemento.php';
     return;
 }
-$sqlInsert = $_GET['sqlInsert'];
 require '../PHPInclude/Conexion.php';
 try
 {
@@ -13,7 +12,7 @@ try
     // Se hace el insert y devuelve el ultimo Id generado
     $conn = new PDO("mysql:host=$host;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $conn->exec($sqlInsert);
+    $conn->exec($_POST['sqlInsert']);
     $lastId = $conn->lastInsertId();
     echo $lastId;
 }
