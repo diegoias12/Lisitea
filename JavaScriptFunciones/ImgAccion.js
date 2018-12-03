@@ -45,7 +45,32 @@ function ImgAccionListener()
 // Reestableciendo todo a la tabla original
 function ImgAccCancelar()
 {
-    // Salir de modo de adicion
+    // Realizar la accion dependiendo del modo
+    //
+    // Modo insercion
+    if(imgAcc.eq(1).is(':visible')) { // Anadir
+        // Mostrar las filas previamente ocultadas
+        tabla.find('tr').has('input[type="radio"]').show();
+        // Eliminar la fila txtBoxRow
+        tabla.find('.txtBoxRow').remove();
+    }
+    // Modo checkBox
+    else if(imgAcc.eq(5).is(':visible')) { // Todo
+        // Marcar los id que se encuentren en idSet
+        tabla.find('input[type="checkbox"]').each(function(){
+            $(this).prop('checked', idSet.has($(this).val()));
+        });
+        // Se eliminan las filas que no esten marcadas
+        tabla.find('tr').has('input[type="checkbox"]:not(:checked)').remove();
+        // Los checkbox se regresan a radio
+        tabla.find('input[type="checkbox"]').attr('type', 'radio');
+        // Desmarcar los radio button
+        tabla.find('input[type="radio"]').prop('checked', false);
+    }
+    // Modo edicion
+    else {
+
+    }
     // Ocultar y mostrar imgAccion
     imgAcc.hide();
     imgAcc.eq(1).show(); // Anadir
@@ -56,10 +81,6 @@ function ImgAccCancelar()
     if(typeof $('#' + id + ' div.accordion span').attr('data-relacion') == 'string') {
         imgAccion.eq(6).show(); // Checkbox
     }
-    // Mostrar las filas previamente ocultadas
-    tabla.find('tr').has('input[type="radio"]').show();
-    // Eliminar la fila txtBoxRow
-    tabla.find('.txtBoxRow').remove();
 }
 
 // Funcionalidad de anadir
@@ -67,7 +88,7 @@ function ImgAccCancelar()
 // que se desea enviar a la BD
 function ImgAccAnadir()
 {
-    if(imgAcc.eq(0).is(':hidden')) {
+    if(imgAcc.eq(0).is(':hidden')) { // Cancelar
         // Entrar en modo de adicion
         imgAcc.hide();
         imgAcc.eq(0).show(); // Cancelar
@@ -109,15 +130,20 @@ function ImgAccAnadir()
 }
 
 // Funcionalidad de eliminar
-// Cambia los radioButton por checkBox para poder seleccionar
-// los elementos que se quieren eliminar
+// Elimina el elemento seleccionado
 function ImgAccEliminar()
 {
-    // Mostrar imgAccion
-    imgAcc.hide();
-    imgAcc.eq(0).show(); // Cancelar
-    imgAcc.eq(2).show(); // Eliminar
-    imgAcc.eq(5).show(); // Todo
+    SqlDelete(GenerarSqlDelete()).done(function(result){
+        // Eliminacion exitosa
+        if(result == 'true') {
+            tabla.find('tr').has('input[type="radio"]:checked').hide('slow', function(){
+                $(this).remove();
+            });
+        }
+        else {
+            alert('Error: ImgAccEliminar - MySql error');
+        }
+    });
 }
 
 // Funcionalidad de editar
@@ -144,28 +170,12 @@ function ImgAccGuardar()
 {
     // Guardar CheckBox
     if(imgAcc.eq(5).is(':visible')) { // Todo
-        // Para poder crear las nuevas relaciones se hara
-        // de una forma un tanto ineficiente por el momento
-        // Forma I
-        // Se borraran todos los elementos relacionados con
-        // el id del padre, y despues se agregaran las conexiones
-        // que estan marcadas, basicamente, borrar todo y agregar todo
-        //
-        // Esta forma sera cambiada por una que mejora el tiempo, pero
-        // requiere uso de memoria
-        // Forma II
-        // Sera almacenar en un set los id's que se encuentran marcados
-        // Al finalizar, se agregaran unicamente los id's que no se
-        // encuentren en el set, igualmente, solo se borraran
-        // los elementos que esten en el set
-        //
-        // Forma I
         padre = $('#' + id + ' div.accordion span').attr('data-padre');
         relacion = $('#' + id + ' div.accordion span').attr('data-relacion');
         padreId = $('#' + padre + ' div.panel form.tabla input[type="radio"]:checked').val();
-        //alert('SqlDelete: ' + GenerarSqlDelete());
+        //alert('SqlDelete: ' + GenerarSqlDeleteNM());
         //alert('SqlInsertNM: ' + GenerarSqlInsertNM());
-        SqlDelete(GenerarSqlDelete()).done(function(result){
+        SqlDelete(GenerarSqlDeleteNM()).done(function(result){
             // Eliminacion exitosa
             if(result == 'true') {
                 tabla = $('#' + id + ' div.panel form.tabla table');
@@ -176,18 +186,18 @@ function ImgAccGuardar()
                 // Los checkbox se regresan a radio
                 tabla.find('input[type="checkbox"]').attr('type', 'radio');
                 // Desmarcar los radio button
-                tabla.find('input[type="radio"]').attr('checked', false);
+                tabla.find('input[type="radio"]').prop('checked', false);
             }
             // Eliminacion fallida
             else {
                 alert('Error: ImgAccGuardar - MySql error');
+                ImgAccCancelar();
             }
             imgAcc.eq(4).hide(); // Guardar
             imgAcc.eq(5).hide(); // Todo
             imgAcc.eq(6).show(); // CheckBox
         });
     }
-    // Guardar Edicion
     else {
 
     }
@@ -241,10 +251,8 @@ function ImgAccCheckBox()
         tabla.find('input[type="checkbox"]').each(function(){
             if(idSet.has($(this).val())) {
                 $(this).attr('checked', true);
-                idSet.delete($(this).val());
             }
         });
-        idSet.clear();
     });
 }
 
@@ -365,14 +373,11 @@ function SqlInsert(strSqlInsert)
 // de muchos a muchos
 // Se requiere usar la tabla que crea las relaciones entre la tabla padre y
 // la tabla hijo, ademas del nombre y id seleccionado en la tabla padre
-function GenerarSqlDelete()
+function GenerarSqlDeleteNM()
 {
     // Se excluye 'tbl' del nombre del padre
     pfkPadre = 'PFK_id' + padre.substr(3);
-    sql
-    = 'DELETE FROM ' + relacion
-    + ' WHERE ' + pfkPadre + ' = ' + padreId;
-    return sql;
+    return 'DELETE FROM ' + relacion + ' WHERE ' + pfkPadre + ' = ' + padreId;
 }
 
 function SqlDelete(strSqlDelete)
@@ -404,4 +409,15 @@ function GenerarSqlInsertNM()
     }
     value += ')';
     return 'INSERT INTO ' + relacion + ' ' + column + ' VALUES ' + value;
+}
+
+// **********************ImgAccEliminar********************
+
+// Se genera la cadena para eliminar el elemento
+function GenerarSqlDelete()
+{
+    // Se excluye 'tbl' del nombre de la tabla
+    pkTabla = 'PK_id' + id.substr(3);
+    idChecked = tabla.find('input[type="radio"]:checked').val();
+    return 'DELETE FROM ' + id + ' WHERE ' + pkTabla + ' = ' + idChecked;
 }
