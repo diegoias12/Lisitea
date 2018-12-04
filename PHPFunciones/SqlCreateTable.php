@@ -92,7 +92,6 @@ try
     $consulta = $stmt->fetchAll();
     if($consulta == null)
     {
-        console.log('SqlCreateTable.php - Tabla sin contenido');
         return;
     }
     // Se crea toda la tabla con el stmt creado

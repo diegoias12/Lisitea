@@ -42,26 +42,34 @@ function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
         alert('Error: CrearTabla()');
         return;
     }
-    $(document).ready(function(){
-        $.ajax({
-            url: 'PHPFunciones/SqlCreateTable.php',
-            type: 'post',
-            data: {tabla: strTabla, padre: strPadre, padreId: intPadreId, relacion: strRelacion},
-            async: false,
-            success: function(HtmlTabla){
-                $('#' + strTabla + ' form.tabla').html(HtmlTabla);
-            }
-        });
+    $.ajax({
+        url: 'PHPFunciones/SqlCreateTable.php',
+        type: 'post',
+        data: {tabla: strTabla, padre: strPadre, padreId: intPadreId, relacion: strRelacion},
+        async: false,
+        success: function(htmlTabla){
+            $('#' + strTabla + ' form.tabla').html(htmlTabla);
+        }
     });
 }
 
 //
-function SqlSelect()
+function SqlSelectComboBox(tabla, llave)
 {
-    return $.ajax({
-        url: 'PHPFunciones/SqlSelect.php',
-        type: 'post',
-        data: {sqlSelect: strSqlSelect},
-        async: false
+    if(tabla == '' || llave == '')
+    {
+        return;
+    }
+    $(document).ready(function(){
+        $.ajax({
+            url: 'PHPFunciones/SqlSelectComboBox.php',
+            type: 'post',
+            data: {tabla: tabla, llave: llave},
+            async: false,
+            success: function(htmlCombo){
+                alert(htmlCombo);
+                $('#' + tabla + llave).html(htmlCombo);
+            }
+        });
     });
 }

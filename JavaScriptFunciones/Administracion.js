@@ -91,7 +91,6 @@ function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
         });
     });
 }
-//
 
 //Muestra la opcion seleccionada
 function Activa(intTipo)
