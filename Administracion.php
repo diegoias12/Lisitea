@@ -16,6 +16,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="CSSEstilos/General.css"/> -->
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Administracion.css"/>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Menu.css"/>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/MenuFijo.css"/>
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
     <script type="text/javascript" src="JavaScriptFunciones/Administracion.js"></script>
     <script type="text/javascript" src="JavaScriptFunciones/ImgAccion.js"></script>
@@ -23,11 +24,18 @@
 </head>
 
 <body>
-    <div id="Menu">
+    <!--Menu lateral-->
+    <div id = "Menu">
         <?php require "PHPInclude/Menu.php"; ?>
         <?php /*include 'PHPInclude\\Menu.php';*/ ?>
     </div>
-    
+    <!--Menu Fijo-->
+    <div class = "MenuFijo">
+        <p>Tipo de cat&aacute;logo<p>
+        <a href="#Disciplinar">Asignatura</a>
+        <a href="#Profesional">Profesional</a>
+        <a href="#General">General</a>
+    </div>
     <div id="Contenido" class="contenedor">
         <div class="contenido">
             <p class="encabezado">

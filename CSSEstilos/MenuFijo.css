@@ -1,0 +1,29 @@
+
+.MenuFijo{
+    overflow: hidden;
+    background-color: #313131;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.MenuFijo a{
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+}
+.MenuFijo a.active{
+    background-color: #4CAF50;
+    color: black;
+}
+.MenuFijo a:hover:not(.active){
+    background-color: #545454;
+    color: black;
+}
+@media screen and (max-width:400px)
+{
+    .MenuFijo a{
+        text-align: center;
+        float: none;
+    }
+}

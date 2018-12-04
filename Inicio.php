@@ -74,13 +74,13 @@
           document.getElementById('PagUsuarios').style.display = "none";
           document.getElementById('PagUsuarios').style.display = "none";
         }*/
-        //var x = 1
+        var x = 1
         if(x==1)
         {
-            document.getElementById('PagRevision').style.display = "block";
-            document.getElementById('PagRevision2').style.display = "block";
+            const list = document.getElementsByClassName("PagRevision");
+            list[0].style.display = "block";
         }
-        var x = 2;
+        //var x = 2;
         if(x==2)
         {
             document.getElementById('PagAdministracion').style.display = "block";
