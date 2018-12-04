@@ -81,8 +81,8 @@ function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
     }
     $(document).ready(function(){
         $.ajax({
-            url: 'PHPFunciones/CargarTabla.php',
-            type: 'get',
+            url: 'PHPFunciones/SqlCreateTable.php',
+            type: 'post',
             data: {tabla: strTabla, padre: strPadre, padreId: intPadreId, relacion: strRelacion},
             async: false,
             success: function(HtmlTabla){
@@ -92,3 +92,27 @@ function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
     });
 }
 //
+
+//Muestra la opcion seleccionada
+function Activa(intTipo)
+{
+    var dis = document.getElementById("Disciplina");
+    var prof = document.getElementById("Profesion");
+    var gene = document.getElementById("General");
+    dis.classList.toggle("Activar");
+    prof.classList.toggle("Activar");
+    gene.classList.toggle("Activar");
+    if(intTipo == 1)
+    {
+        dis.classList.toggle("Activar");
+    }
+    else if(intTipo == 2)
+    {
+        prof.classList.toggle("Activar");
+    }
+    else
+    {
+        gene.classList.toggle("Activar");
+    }
+    dis.classList
+}

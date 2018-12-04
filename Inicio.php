@@ -88,7 +88,7 @@
             document.getElementById('PagUsuarios').style.display = "block";
             document.getElementById('PagUsuarios2').style.display = "block";
         }
-        //var x = 3;
+        var x = 3;
         if(x==3)
         {
             document.getElementById('PagInicioPE').style.display = "block";

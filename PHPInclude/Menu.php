@@ -8,7 +8,7 @@ echo
 . ' <a href="Busqueda.php" ><img src="Imagenes/Buscar.png"></a>'
 . ' <a href="Revision.php" class="PagRevision" style="display:none"><img src="Imagenes/Revision.png"></a>'
 . ' <a href="Catalogos.php"><img src="Imagenes/Catalogo.jpg"></a>'
-. ' <a href="Administracion.php" class="PagAdministracion" style="display:none"><img src="Imagenes/BaseDatos.png"></a>'
+. ' <a href="AdministracionDisciplinar.php" class="PagAdministracion" style="display:none"><img src="Imagenes/BaseDatos.png"></a>'
 . ' <a href="MiPerfil.php"><img src="Imagenes/Perfil.png"></a>'
 . ' <a href="AdministrarUsuarios.php" class="PagUsuarios" style="display:none"><img src="Imagenes/NuevoUsuario.png"></a>'
 . ' <a href="PHPFunciones/CerrarSesion.php"><img src="Imagenes/LogOut.png"></a>'

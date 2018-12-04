@@ -53,23 +53,26 @@
             <div class="panel">
                 <table id="SeccionA" align="left">
                     <form action="PHPFunciones/Planeacion.php" method="post">
-                      <tr>
+                        <!-- Institucion -->
+                        <tr>
                           <td class="Requerimiento" width="20%">
                               <p style="margin-right: 8.75pt; text-align: right;"><span>Instituci&oacute;n:</span></p>
                           </td>
                           <td colspan="6">
                               <p><span>Colegio  de  Estudios  Cient&iacute;ficos  y  Tecnol&oacute;gicos  del  Estado  de  M&eacute;xico</span></p>
                           </td>
-                      </tr>
-                      <tr>
+                        </tr>
+                        <!-- Plantel -->
+                        <tr>
                           <td class="Requerimiento">
                               <p style="margin-right: 8.75pt; text-align: right;"><span>Plantel:</span></p>
                           </td>
                           <td colspan="6">
                               <p><span>Tequixquiac</span></p>
                           </td>
-                      </tr>
-                      <tr>
+                        </tr>
+                        <!-- CCT Docente -->
+                        <tr>
                           <td class="Requerimiento">
                               <p style="margin-right: 8.75pt; text-align: right;"><span>CCT:</span></p>
                           </td>
@@ -80,15 +83,18 @@
                               <p><span>Docente:</span></p>
                           </td>
                           <td width="40%" colspan="4">
-                              <?php // echo 'Nombre completo del docente' ?>
+                              <p>Jaime Vergara Prado</p>
                           </td>
-                      </tr>
-                      <tr>
+                        </tr>
+                        <!-- Asignatura Especialidad Semestre NoParcial NoPlaneacion -->
+                        <tr>
                           <td class="Requerimiento" rowspan="2">
                               <p style="margin-right: 9.7pt; text-align: right;"><span>Asignatura o M&oacute;dulo:</span></p>
                           </td>
                           <td>
-                              <?php // echo 'Elementos de ASIGNATURA' ?>
+                              <select>
+                                  <option>C&aacute;lculo integral</option>
+                              </select>
                           </td>
                           <td class="Requerimiento">
                               <p><span>Especialidad:</span></p>
@@ -102,8 +108,8 @@
                           <td class="Requerimiento" width="12%">
                               <p><span>N&uacute;mero de planeaci&oacute;n:</span></p>
                           </td>
-                      </tr>
-                      <tr>
+                        </tr>
+                        <tr>
                           <td>
                               <select>
                                   <?php // echo 'Elementos de ASIGNATURA' ?>
@@ -111,22 +117,27 @@
                           </td>
                           <td>
                               <select>
-                                  <?php // echo 'Elementos de ESPECIALIDAD' ?>
+                                  <option>Programaci&oacute;n Procesos de gesti&oacute;n administrativa</option>
                               </select>
                           </td>
                           <td>
                               <select>
-                                  <?php // echo 'Elementos de SEMESTRE' ?>
+                                  <option>5</option>
                               </select>
+                              2018-2019
                           </td>
                           <td colspan="2">
-
+                              <select>
+                                  <option>1</option>
+                              </select>
+                              parcial
                           </td>
                           <td>
-                              de
+                              1 de 4
                           </td>
-                      </tr>
-                      <tr>
+                        </tr>
+                        <!-- TituloPlaneacion  PE -->
+                        <tr>
                           <td class="Requerimiento">
                               <p style="margin-right: 9.7pt; text-align: right;"><span>T&iacute;tulo de la Planeaci&oacute;n Estrat&eacute;gica:</span></p>
                           </td>
@@ -139,7 +150,7 @@
                           <td width="20%" colspan="2">
                               <textarea name="tb%PE" maxlength="3" rows="1" cols="4"></textarea>
                           </td>
-                      </tr>
+                        </tr>
                     </form>
                 </table>
             </div>

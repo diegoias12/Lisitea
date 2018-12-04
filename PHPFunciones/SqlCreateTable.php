@@ -1,11 +1,11 @@
 <?php
 // Se verifica que la variable existe
-if(!(isset($_GET['tabla'])))
+if(!(isset($_POST['tabla'])))
 {
     echo 'Error: CargarTabla.php';
     return;
 }
-$tabla = $_GET['tabla'];
+$tabla = $_POST['tabla'];
 require '../PHPInclude/Conexion.php';
 
 try
@@ -29,9 +29,9 @@ try
       '<table>'
     . '   <tr class="llave">'
     . '       <td></td>';
-    if(isset($_GET['padre']))
+    if(isset($_POST['padre']))
     {
-        $padre = $_GET['padre'];
+        $padre = $_POST['padre'];
         $fkIdPadre = 'FK_id_' . substr($padre, 4);
     }
     $i = 0;
@@ -39,7 +39,7 @@ try
     // la cual es la PK
     foreach($consulta as $k=>$v)
     {
-        //if(isset($_GET['padre']) && $k == $fkIdPadre)
+        //if(isset($_POST['padre']) && $k == $fkIdPadre)
         //{
         //    $padrePos = $i;
         //}
@@ -60,22 +60,22 @@ try
     // con esto se pueden crear los filtros al momento de hacer el stmt
 
     // Si se cuenta con un padre, el stmt tendra un cambio
-    if(isset($_GET['padre']) && isset($_GET['padreId']))
+    if(isset($_POST['padre']) && isset($_POST['padreId']))
     {
         // Si se cuenta con una relacion, se necesita la tabla intermedia
         // para mostrar solo aquellos elementos que estan relacionados
         // con la Id del padre
-        if(isset($_GET['relacion']))
+        if(isset($_POST['relacion']))
         {
             $padreNom = substr($padre, 4);
-            $relacNom = substr($_GET['relacion'], 4);
+            $relacNom = substr($_POST['relacion'], 4);
             $tablaNom = substr($tabla, 4);
             $stmt = $conn->prepare(
               'SELECT c.*'
-            . ' FROM ' . $padre . ' a, ' . $_GET['relacion'] . ' b, ' . $tabla . ' c'
+            . ' FROM ' . $padre . ' a, ' . $_POST['relacion'] . ' b, ' . $tabla . ' c'
             . ' WHERE a.PK_id_' . $padreNom . ' = b.PFK_id_' . $padreNom
             . ' and c.PK_id_' . $tablaNom . ' = b.PFK_id_' . $tablaNom
-            . ' and a.PK_id_' . $padreNom . ' = ' . $_GET['padreId']);
+            . ' and a.PK_id_' . $padreNom . ' = ' . $_POST['padreId']);
         }
         // En caso de que solo se tenga padre y padreId, se hace el
         // filtro utilizando el id del padre
@@ -84,7 +84,7 @@ try
             $stmt = $conn->prepare(
               'SELECT *'
             . ' FROM ' . $tabla
-            . ' WHERE ' . $fkIdPadre . ' = "' . $_GET['padreId'] . '"');
+            . ' WHERE ' . $fkIdPadre . ' = "' . $_POST['padreId'] . '"');
         }
     }
     $stmt->execute();
@@ -109,7 +109,7 @@ try
                 . '        <input type="radio" name="' . $name . '" value="' . $value . '">'
                 . '    </td>';
             }
-            //elseif(isset($_GET['padre']) && $i == $padrePos)
+            //elseif(isset($_POST['padre']) && $i == $padrePos)
             //{
             //    // No mostrar
             //}

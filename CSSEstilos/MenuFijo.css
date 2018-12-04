@@ -1,29 +1,40 @@
-
 .MenuFijo{
     overflow: hidden;
     background-color: #313131;
-    position: fixed;
-    top: 0;
     width: 100%;
+    height: 100px;
 }
 .MenuFijo a{
     display: block;
     color: white;
     padding: 16px;
     text-decoration: none;
+    float: left;
 }
-.MenuFijo a.active{
+.Activar{
     background-color: #4CAF50;
-    color: black;
+}
+.Desactivar{
+    background-color: black;
 }
 .MenuFijo a:hover:not(.active){
     background-color: #545454;
-    color: black;
 }
+.MenuFijo p{
+    font-size: 20px;
+    padding: 5px;
+    color: White;
+    margin: 0;
+}
+
 @media screen and (max-width:400px)
 {
     .MenuFijo a{
         text-align: center;
         float: none;
+        width: 100%;
+    }
+    .MenuFijo{
+        height: auto;
     }
 }
