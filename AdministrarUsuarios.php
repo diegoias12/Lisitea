@@ -4,11 +4,13 @@
     <link rel="icon" href="Imagenes/Lisitea.png">
     <title>Contrase&ntilde;a - CECyTEM Tequixquiac</title>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Index.css"/>
+    <script type="text/javascript" src="JavaScriptFunciones/SqlSelectElement.js"></script>
     <script type="text/javascript" src="jQueryAjax/SqlQuery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
+    <script>CargarContenido();</script>
     <div class="header">
         <img src="Imagenes/GobEdoMex.png" style="height:100px;width:300px;float:left;">
         <img src="Imagenes/CECyTEM.png" style="height:100px;width:100px;float:right;">
@@ -62,8 +64,8 @@
                             </label>
                         </dt>
                         <dd style="margin:0;width:90%;">
-                            <select id="tbl_tipo_usuarioVCH_nombre" name="cargo" class="formato-input">
-                                <script>SqlSelectComboBox('tbl_tipo_usuario', 'VCH_nombre');</script>
+                            <select class="formato-input select-cb"
+                            data-tabla="tbl_tipo_usuario" data-llave="VCH_nombre">
                             </select>
                         </dd>
                     </dl>

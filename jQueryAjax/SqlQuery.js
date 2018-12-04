@@ -58,18 +58,31 @@ function SqlSelectComboBox(tabla, llave)
 {
     if(tabla == '' || llave == '')
     {
+        alert('Error: SqlSelectComboBox()');
         return;
     }
-    $(document).ready(function(){
-        $.ajax({
-            url: 'PHPFunciones/SqlSelectComboBox.php',
-            type: 'post',
-            data: {tabla: tabla, llave: llave},
-            async: false,
-            success: function(htmlCombo){
-                alert(htmlCombo);
-                $('#' + tabla + llave).html(htmlCombo);
-            }
-        });
+    return $.ajax({
+        url: 'PHPFunciones/SqlSelectComboBox.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave},
+        async: false
+    });
+}
+
+function SqlSelectElement(tabla, llave, id)
+{
+    if(tabla == '' || llave == '' || id == '')
+    {
+        alert('Error: SqlSelectElement()');
+        return;
+    }
+    return $.ajax({
+        url: '',
+        type: '',
+        data: {},
+        async: false,
+        success: function(htmlP){
+
+        }
     });
 }

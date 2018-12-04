@@ -21,10 +21,13 @@
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
     <script type="text/javascript" src="JavaScriptFunciones/Planeacion.js"></script>
     <script type="texte/javascript" src="JavaScriptFunciones/Catalogo.js"></script>
+    <script type="text/javascript" src="JavaScriptFunciones/SqlSelectElement.js"></script>
+    <script type="text/javascript" src="jQueryAjax/SqlQuery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
+    <script>CargarContenido();</script>
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
         <?php /*include 'PHPInclude\\Menu.php';*/ ?>
@@ -94,8 +97,9 @@
                               <p style="margin-right: 9.7pt; text-align: right;"><span>Asignatura o M&oacute;dulo:</span></p>
                           </td>
                           <td>
-                              <select>
-                                  <option>C&aacute;lculo integral</option>
+                              <select class="select-cb"
+                              data-tabla="" data-llave="">
+
                               </select>
                           </td>
                           <td class="Requerimiento">
