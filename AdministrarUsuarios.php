@@ -62,6 +62,7 @@
                           </label>
                       </dt>
                       <dd style="margin:0;width:90%;">
+                          <script>CrearComboBox(tbl_tipo_usuario, VCH_nombre);</script>
                           <select name="tipo" class="formato-imput">
                               <option value="a">Revisor</option>
                               <option value="a">Profesor</option>

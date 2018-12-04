@@ -2,16 +2,12 @@ body
 {
     background-color: #FFFFFF;
 }
-
 .contenedor
 {
       background-color: #2b3137;
-      background-position: center 10%;
-      background-size: cover;
       color: hsla(0, 0%, 100%, 0.6);
-      padding-top: 40px!important;
-      padding-bottom: 40px!important;
-      margin-left: 40px;
+      padding: 30px 10px;
+      margin: 10px;
 }
 
 .contenido

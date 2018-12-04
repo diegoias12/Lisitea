@@ -1,6 +1,7 @@
 body
 {
     background: #FFF;
+    overflow: scroll;
 }
 
 #Contenido
