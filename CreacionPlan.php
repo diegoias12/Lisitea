@@ -10,6 +10,7 @@
 
 <html>
 <head>
+    <link rel="icon" href="Imagenes/Lisitea.png">
     <?php /*require 'PHPInclude\\Head.php';*/ ?>
     <?php /*include 'PHPInclude\\Head.php';*/ ?>
     <title>Creacion - CECyTEM Tequixquiac</title>
@@ -20,6 +21,7 @@
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
     <script type="text/javascript" src="JavaScriptFunciones/Planeacion.js"></script>
     <script type="texte/javascript" src="JavaScriptFunciones/Catalogo.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -160,106 +162,106 @@
             <button class="accordion" onclick="Acordeon()">B) INTENCIONES FORMATIVAS</button>
             <div class="panel">
               <table id="SeccionB" align="left">
-              <tr>
-                  <td class="Requerimiento" colspan="100%">
-                      <p style="margin-left: 8.75pt; text-align: left;"><span>Prop&oacute;sito de la Planeaci&oacute;n Estrategia:</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td colspan="100%">
-                      <p><span>&nbsp;</span></p>
-                  </td>
-              </tr>
-              <tr style="page-break-inside: avoid;">
-                  <td class="Requerimiento" width="10%">
-                      <p><span>Eje:</span></p>
-                  </td>
-                  <td width="34%">
-                      <p><span>&nbsp;</span></p>
-                  </td>
-                  <td class="Requerimiento" width="14%" colspan="2">
-                      <p><span>Componentes:</span></p>
-                  </td>
-                  <td>
-                      <p><span>&nbsp;</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td class="Requerimiento" colspan="100%">
-                      <p><span>Contenido central:</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td colspan="100%">
-                      <p><span>&nbsp;</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td class="Requerimiento" width="50%" colspan="3">
-                      <p><span>Contenidos especificos:</span></p>
-                  </td>
-                  <td class="Requerimiento" width="50%" colspan="2">
-                      <p><span>Aprendizajes esperados:</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td width="50%" colspan="3">
-                      <p><span>&nbsp;</span></p>
-                  </td>
-                  <td width="50%" colspan="2">
-                      <p><span>&nbsp;</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td class="Requerimiento" colspan="100%">
-                      <p><span>Productos esperados:</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td colspan="100%">
-                      <p><span>&nbsp;</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td class="Requerimiento" colspan="100%">
-                      <p><span>Competencias gen&eacute;ricas y atributos:</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td colspan="100%">
-                      <p><span>&nbsp;</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td class="Requerimiento" colspan="100%">
-                      <p><span>Competencias disciplinares:</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td colspan="100%">
-                      <p><span>&nbsp;</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td class="Requerimiento" colspan="100%">
-                      <p><span>Competencias profesionales:</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td colspan="100%">
-                      <p><span>&nbsp;</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td class="Requerimiento" colspan="100%">
-                      <p><span>Habilidades socioemocionales:</span></p>
-                  </td>
-              </tr>
-              <tr>
-                  <td colspan="100%">
-                      <p><span>&nbsp;</span></p>
-                  </td>
-              </tr>
+                  <tr>
+                      <td class="Requerimiento" colspan="100%">
+                          <p style="margin-left: 8.75pt; text-align: left;"><span>Prop&oacute;sito de la Planeaci&oacute;n Estrategia:</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="100%">
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                  </tr>
+                  <tr style="page-break-inside: avoid;">
+                      <td class="Requerimiento" width="10%">
+                          <p><span>Eje:</span></p>
+                      </td>
+                      <td width="34%">
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                      <td class="Requerimiento" width="14%" colspan="2">
+                          <p><span>Componentes:</span></p>
+                      </td>
+                      <td>
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="Requerimiento" colspan="100%">
+                          <p><span>Contenido central:</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="100%">
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="Requerimiento" width="50%" colspan="3">
+                          <p><span>Contenidos especificos:</span></p>
+                      </td>
+                      <td class="Requerimiento" width="50%" colspan="2">
+                          <p><span>Aprendizajes esperados:</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td width="50%" colspan="3">
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                      <td width="50%" colspan="2">
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="Requerimiento" colspan="100%">
+                          <p><span>Productos esperados:</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="100%">
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="Requerimiento" colspan="100%">
+                          <p><span>Competencias gen&eacute;ricas y atributos:</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="100%">
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="Requerimiento" colspan="100%">
+                          <p><span>Competencias disciplinares:</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="100%">
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="Requerimiento" colspan="100%">
+                          <p><span>Competencias profesionales:</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="100%">
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="Requerimiento" colspan="100%">
+                          <p><span>Habilidades socioemocionales:</span></p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="100%">
+                          <p><span>&nbsp;</span></p>
+                      </td>
+                  </tr>
               </table>
             </div>
 

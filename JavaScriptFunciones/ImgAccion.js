@@ -385,19 +385,6 @@ function GenerarSqlInsert()
     return 'INSERT INTO ' + id + ' ' + column + ' VALUES ' + value;
 }
 
-// Llama a la funcion de PHP para hacer la insercion
-// Regresa el ultimo Id generado
-// SqlInsert(string)
-function SqlInsert(strSqlInsert)
-{
-    return $.ajax({
-        url: 'PHPFunciones/SqlInsert.php',
-        type: 'post',
-        data: {sqlInsert: strSqlInsert},
-        async: false
-    });
-}
-
 // **********************ImgAccGuardar*********************
 
 // Borra las relaciones entre una tabla padre y una tabla hijo
@@ -409,16 +396,6 @@ function GenerarSqlDeleteNM()
     // Se excluye 'tbl' del nombre del padre
     pfkPadre = 'PFK_id' + padre.substr(3);
     return 'DELETE FROM ' + relacion + ' WHERE ' + pfkPadre + ' = ' + padreId;
-}
-
-function SqlDelete(strSqlDelete)
-{
-    return $.ajax({
-        url: 'PHPFunciones/SqlDelete.php',
-        type: 'post',
-        data: {sqlDelete: strSqlDelete},
-        async: false
-    });
 }
 
 function GenerarSqlInsertNM()
@@ -473,15 +450,6 @@ function GenerarSqlUpdate()
     return 'UPDATE ' + id + ' SET ' + columnValue + ' WHERE ' + pkTabla + ' = ' + idChecked;
 }
 
-function SqlUpdate(strSqlUpdate)
-{
-    return $.ajax({
-        url: 'PHPFunciones/SqlUpdate.php',
-        type: 'post',
-        data: {sqlUpdate: strSqlUpdate},
-        async: false
-    });
-}
 
 function ReinicarEditar()
 {

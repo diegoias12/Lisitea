@@ -70,25 +70,3 @@ function AccordionListener()
         });
     });
 }
-
-// Llama la funcion en PHP para cargar la tabla
-function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
-{
-    if(strTabla == '' || $('#' + strTabla + ' form.tabla').length == 0)
-    {
-        alert('Error: CrearTabla()');
-        return;
-    }
-    $(document).ready(function(){
-        $.ajax({
-            url: 'PHPFunciones/SqlCreateTable.php',
-            type: 'post',
-            data: {tabla: strTabla, padre: strPadre, padreId: intPadreId, relacion: strRelacion},
-            async: false,
-            success: function(HtmlTabla){
-                $('#' + strTabla + ' form.tabla').html(HtmlTabla);
-            }
-        });
-    });
-}
-//

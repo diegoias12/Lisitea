@@ -17,7 +17,7 @@ try
     // Se genera una fila con los nombres de las llaves
     $stmt = $conn->prepare('SELECT * FROM ' . $tabla);
     $stmt->execute();
-    $result = $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
     $consulta = $stmt->fetch();
     if($consulta == null)
     {
@@ -88,18 +88,19 @@ try
         }
     }
     $stmt->execute();
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $consulta = $stmt->fetchAll();
     if($consulta == null)
     {
-        echo 'CargarTabla.php - Sin contenido (2)';
+        console.log('SqlCreateTable.php - Tabla sin contenido');
         return;
     }
     // Se crea toda la tabla con el stmt creado
     foreach($consulta as $k=>$v)
     {
         $i = 0;
-        foreach ($v as $value) {
+        foreach ($v as $value)
+        {
             // La PK no se muestra, su valor se almacena en los radioButton
             if($i == 0)
             {

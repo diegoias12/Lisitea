@@ -1,8 +1,11 @@
 <!doctype html>
 <html>
 <head>
+    <link rel="icon" href="Imagenes/Lisitea.png">
     <title>Contrase&ntilde;a - CECyTEM Tequixquiac</title>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Index.css"/>
+    <script type="text/javascript" src="JavaScriptFunciones/AdministrarUsuarios.js"></script>
+    <script type="text/javascript" src="jQueryAjax/SqlQuery.js"></script>
 </head>
 
 <body>
@@ -18,7 +21,7 @@
                     <dt class="imput-label">
                         <label class="formato-label1">
                             <font style="vertical-aling:inherit;">
-                            Nombre del usuario
+                            Nombre
                             </font>
                         </label>
                     </dt>
@@ -54,19 +57,23 @@
                       <dt class="imput-label">
                           <label class="formato-label1">
                               <font style="vertical-aling:inherit;">
-                              Tipo de usuario
+                              Cargo
                               </font>
                           </label>
                       </dt>
                       <dd style="margin:0;width:90%;">
                           <select name="tipo" class="formato-imput">
-                          <option value="a">Revisor</option>
-                          <option value="a">Profesor</option>
-                          <option value="a">Administrador</option>
-                          <option value="a">Capturista</option>
-                          <option value="a">Supervisor</option>
+                              <option value="a">Revisor</option>
+                              <option value="a">Profesor</option>
+                              <option value="a">Administrador</option>
+                              <option value="a">Capturista</option>
+                              <option value="a">Supervisor</option>
+                          </select>
                       </dd>
                   </dl>
+                  <p>
+                      <!-- Mostrar los elementos de una columna como comboBox -->
+                  </p>
                   <dl class="grupoconformato" style="margin-top:20px;">
                       <dd style="margin-top:70px;width:90%;">
                           <input type="submit" value="Aceptar" class="block">
