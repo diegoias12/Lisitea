@@ -68,7 +68,8 @@
 #Contenido
 {
     transition: margin-left .5s;
-    padding: 20px;
+    display: block;
+    margin-left: 40px;
 }
 
 .btn:hover

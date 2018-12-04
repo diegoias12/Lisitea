@@ -25,6 +25,19 @@
     </div>
     <div id="Contenido">
         <div>
+          <form>
+              <div style="display:flex;width:100%;heigth:200px;background-color:black;">
+                  Hola mundo
+                <button class = "block">
+                    Buscar
+                </button>
+              <select class = "block">
+                <option value="Valor">Victor</option>
+                <option value="Valor">Jesus</option>
+                <option value="Valor">Laura</option>
+              </select>
+            </div>
+          </form>
             <!-- @@@@@@@@@@@@@@@ Diseño @@@@@@@@@@@@  -->
             <!--
                 Label:              ComboBox
