@@ -2,11 +2,22 @@ function CargarContenido()
 {
     $(document).ready(function(){
         // <p> </p>
-
+        $('p.select-p').each(function(){
+            htmlP = $(this);
+            tabla = $(this).attr('data-tabla');
+            llave = $(this).attr('data-llave');
+            ObtenerVariablePHP(tabla, llave).done(function(id){
+                SqlSelectP(tabla, llave, id).done(function(result){
+                    htmlP.html(result);
+                });
+            });
+        });
         // <select> </select>
         $('select.select-cb').each(function(){
             htmlSelect = $(this);
-            SqlSelectComboBox($(this).attr('data-tabla'), $(this).attr('data-llave')).done(function(result){
+            tabla = $(this).attr('data-tabla');
+            llave = $(this).attr('data-llave');
+            SqlSelectComboBox(tabla, llave).done(function(result){
                 htmlSelect.html(result);
             });
         });

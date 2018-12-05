@@ -1,12 +1,6 @@
 <!doctype html>
 
-<?php
-    session_start();
-    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false)
-    {
-        header("Location: index.php");
-    }
-?>
+<?php require 'PHPInclude/NegarAcceso.php'; ?>
 
 <html>
 <head>
@@ -23,6 +17,7 @@
     <script type="texte/javascript" src="JavaScriptFunciones/Catalogo.js"></script>
     <script type="text/javascript" src="JavaScriptFunciones/SqlSelectElement.js"></script>
     <script type="text/javascript" src="jQueryAjax/SqlQuery.js"></script>
+    <script type="text/javascript" src="jQueryAjax/ObtenerValor.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
@@ -60,12 +55,12 @@
                     <form action="PHPFunciones/Planeacion.php" method="post">
                         <!-- Institucion -->
                         <tr>
-                          <td class="Requerimiento" width="20%">
+                            <td class="Requerimiento" width="20%">
                               <p style="margin-right: 8.75pt; text-align: right;"><span>Instituci&oacute;n:</span></p>
-                          </td>
-                          <td colspan="6">
-                              <p><span>Colegio  de  Estudios  Cient&iacute;ficos  y  Tecnol&oacute;gicos  del  Estado  de  M&eacute;xico</span></p>
-                          </td>
+                            </td>
+                            <td colspan="6">
+                                <p class="select-p" data-tabla="tbl_plantel" data-llave="VCH_institucion"></p>
+                            </td>
                         </tr>
                         <!-- Plantel -->
                         <tr>
@@ -82,13 +77,15 @@
                               <p style="margin-right: 8.75pt; text-align: right;"><span>CCT:</span></p>
                           </td>
                           <td width="25%">
-                              <p><span>15ETC0042H</span></p>
+                              <p class="select-p" data-tabla="tbl_plantel" data-llave="VCH_CCT"></p>
                           </td>
                           <td class="Requerimiento" width="15%">
                               <p><span>Docente:</span></p>
                           </td>
                           <td width="40%" colspan="4">
-                              <p>Jaime Vergara Prado</p>
+                              <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_nombre"></p>
+                              <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_ap_paterno"></p>
+                              <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_ap_materno"></p>
                           </td>
                         </tr>
                         <!-- Asignatura Especialidad Semestre NoParcial NoPlaneacion -->
@@ -97,9 +94,7 @@
                               <p style="margin-right: 9.7pt; text-align: right;"><span>Asignatura o M&oacute;dulo:</span></p>
                           </td>
                           <td>
-                              <select class="select-cb"
-                              data-tabla="" data-llave="">
-
+                              <select class="" data-tabla="" data-llave="">
                               </select>
                           </td>
                           <td class="Requerimiento">

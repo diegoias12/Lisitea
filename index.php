@@ -1,52 +1,10 @@
 <!doctype html>
 
-<?php
-    session_start();
-    /*
-        @@@@@@@@@@@@@@@@@@@ Diseño @@@@@@@@@@@@@@@@@@
-        Usar logos, crear un inicio de sesión amigable
-    */
-    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-    {
-        header('Location: Inicio.php');
-    }
-    $_SESSION['loggedin'] = false;
-    if(isset($_POST['email']) && isset($_POST['psw']))
-    {
-        $email = $_POST['email'];
-        $psw = $_POST['psw'];
-        require 'PHPInclude/Conexion.php';
-        $conn = mysqli_connect($host, $username, $password, $database);
-        if (!$conn)
-        {
-            die("Conexion Fallida: " . mysqli_connect_error());
-        }
-        $sql = 'SELECT VCH_correo_electronico, VCH_contrasenia '
-             . 'FROM tbl_usuario '
-             . 'WHERE VCH_correo_electronico = "' . $email . '" AND VCH_contrasenia = "' . $psw . '"';
-		$result = mysqli_query($conn, $sql);
-		if (mysqli_num_rows($result))
-		{
-			$_SESSION['loggedin'] = true;
-            header("Location: Inicio.php");
-		}
-    else {
-        echo '<div id="myModal" class="modal" style="display:block;">'
-            .     '<div class = "modal-content">'
-            .         '<span class="close">&times;</span>'
-            .          '<div class="mensaje">'
-            .              '<p align="center" style="font-size:25px">Datos incorrectos</p>'
-            .          '</div>'
-            .          '<center><button id="accept" class="block" style="padding:5px;width:30%;" onclick="funcion2()">Aceptar</button></center>'
-            .      '</div>'
-            .  '</div>';
-    }
-		mysqli_close($conn);
-    }
-?>
+<?php require 'PHPInclude/Login.php'; ?>
 
 <html>
 <head>
+    <link rel="icon" href="Imagenes/Lisitea.png">
     <title>Lisitea</title>
     <meta content="width=device-width, initial-sacale=1">
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Index.css"/>

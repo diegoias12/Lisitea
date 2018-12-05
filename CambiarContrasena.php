@@ -1,4 +1,7 @@
 <!doctype html>
+
+<?php require 'PHPInclude/NegarAcceso.php'; ?>
+
 <html>
 <head>
     <title>Contrase&ntilde;a - CECyTEM Tequixquiac</title>

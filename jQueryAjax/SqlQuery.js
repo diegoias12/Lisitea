@@ -37,8 +37,7 @@ function SqlInsert(strSqlInsert)
 // Crea los filtros de relacion padre-hijo y relacion NM
 function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
 {
-    if(strTabla == '' || $('#' + strTabla + ' form.tabla').length == 0)
-    {
+    if(strTabla == '' || $('#' + strTabla + ' form.tabla').length == 0) {
         alert('Error: CrearTabla()');
         return;
     }
@@ -56,8 +55,7 @@ function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
 //
 function SqlSelectComboBox(tabla, llave)
 {
-    if(tabla == '' || llave == '')
-    {
+    if(tabla == '' || llave == '') {
         alert('Error: SqlSelectComboBox()');
         return;
     }
@@ -69,20 +67,16 @@ function SqlSelectComboBox(tabla, llave)
     });
 }
 
-function SqlSelectElement(tabla, llave, id)
+function SqlSelectP(tabla, llave, id)
 {
-    if(tabla == '' || llave == '' || id == '')
-    {
-        alert('Error: SqlSelectElement()');
+    if(tabla == '' || llave == '' || id < 0) {
+        alert('Error: SqlQuery.js - SqlSelectP()');
         return;
     }
     return $.ajax({
-        url: '',
-        type: '',
-        data: {},
-        async: false,
-        success: function(htmlP){
-
-        }
+        url: 'PHPFunciones/SqlSelectP.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave, id: id},
+        async: false
     });
 }

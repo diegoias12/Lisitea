@@ -1,12 +1,6 @@
 <!doctype html>
 
-<?php
-    session_start();
-    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false)
-    {
-        header("Location: index.php");
-    }
-?>
+<?php require 'PHPInclude/NegarAcceso.php'; ?>
 
 <html>
 <head>
@@ -16,11 +10,15 @@
     <link rel="stylesheet" type="text/css" href="CSSEstilos/InicioPE.css"/>
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
     <script type="text/javascript" src="JavaScriptFunciones/Planeacion.js"></script>
+    <script type="text/javascript" src="JavaScriptFunciones/SqlSelectElement.js"></script>
 </head>
 
 <body>
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
+    </div>
+    <div id="Contenido">
+
     </div>
     <script>
         /*
@@ -101,9 +99,9 @@
             document.getElementById('PagAdministracion2').style.display = "block";
         }
     </script>
-    <!--En cso de requeriri un cambio de contraseña
+    <!-- En cso de requerir un cambio de contraseña
     <div id="Menu2">
-        <?php require 'PHPInclude/SolicitarCambioContraseña.php'; ?>
+        <?php //require 'PHPInclude/SolicitarCambioContraseña.php'; ?>
     </div>
     -->
 </body>

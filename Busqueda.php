@@ -1,5 +1,7 @@
 <!doctype html>
 
+<?php require 'PHPInclude/NegarAcceso.php'; ?>
+
 <?php
     session_start();
     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false)

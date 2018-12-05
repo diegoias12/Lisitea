@@ -1,4 +1,7 @@
 <!doctype html>
+
+<?php require 'PHPInclude/NegarAcceso.php'; ?>
+
 <html>
 <head>
     <link rel="icon" href="Imagenes/Lisitea.png">
