@@ -13,8 +13,7 @@ switch($tabla)
         echo 0;
         break;
     case 'tbl_usuario':
-        echo $_SESSION['usuario'];
-        //FiltrarUsuario($llave);
+        FiltrarUsuario($llave);
         break;
     default:
         echo -1;

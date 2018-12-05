@@ -29,7 +29,7 @@ try
       '<table>'
     . '   <tr class="llave">'
     . '       <td></td>';
-    if(isset($_POST['padre']))
+    if(isset($_POST['padre']) && $_POST['padre'] != '')
     {
         $padre = $_POST['padre'];
         $fkIdPadre = 'FK_id_' . substr($padre, 4);
@@ -39,7 +39,7 @@ try
     // la cual es la PK
     foreach($consulta as $k=>$v)
     {
-        //if(isset($_POST['padre']) && $k == $fkIdPadre)
+        //if(isset($_POST['padre']) && $_POST['padre'] != '' && $k == $fkIdPadre)
         //{
         //    $padrePos = $i;
         //}
@@ -60,12 +60,13 @@ try
     // con esto se pueden crear los filtros al momento de hacer el stmt
 
     // Si se cuenta con un padre, el stmt tendra un cambio
-    if(isset($_POST['padre']) && isset($_POST['padreId']))
+    if(isset($_POST['padre']) && $_POST['padre'] != ''
+    && isset($_POST['padreId']) && $_POST['padreId'] != '')
     {
         // Si se cuenta con una relacion, se necesita la tabla intermedia
         // para mostrar solo aquellos elementos que estan relacionados
         // con la Id del padre
-        if(isset($_POST['relacion']))
+        if(isset($_POST['relacion']) && $_POST['relacion'] != '')
         {
             $padreNom = substr($padre, 4);
             $relacNom = substr($_POST['relacion'], 4);
@@ -109,7 +110,7 @@ try
                 . '        <input type="radio" name="' . $name . '" value="' . $value . '">'
                 . '    </td>';
             }
-            //elseif(isset($_POST['padre']) && $i == $padrePos)
+            //elseif(isset($_POST['padre']) && $_POST['padre'] != '' && $i == $padrePos)
             //{
             //    // No mostrar
             //}
@@ -130,6 +131,6 @@ try
 }
 catch(PDOException $e)
 {
-    echo "Error: " . $e->getMessage();
+    echo "Error SqlCreateTable.php: " . $e->getMessage();
 }
 ?>
