@@ -17,7 +17,7 @@ function MostrarSeccionListener(tabla, padre)
             $('#' + tabla + '.seccion').show();
             $('#' + tabla + ' div.panel').hide();
             $('#' + tabla + ' img.accion').hide();
-            $('#' + tabla).nextAll('div.seccion').hide();
+            $('#' + tabla).nextUntil('.parar').hide();
         });
     });
 }
@@ -58,7 +58,7 @@ function AccordionListener()
                 // y el resto de tablas
                 if($(this).is(':hidden')) {
                     imgAccion.hide();
-                    $('#' + id).nextAll('div.seccion').hide();
+                    $('#' + id).nextUntil('.parar').hide();
                 }
                 // Se carga la tabla y se agregan los listeners para mostrar los imgAccion
                 else {
@@ -99,7 +99,6 @@ function Activa(intTipo)
     var prof = document.getElementById("Profesion");
     var gene = document.getElementById("Generales");
     $(document).ready(function(){
-        alert(intTipo);
         if(intTipo == 1)
         {
             dis.classList.toggle("Activar");
@@ -108,7 +107,7 @@ function Activa(intTipo)
         {
             prof.classList.toggle("Activar");
         }
-        else
+        else if(intTipo == 3)
         {
             gene.classList.toggle("Activar");
         }
