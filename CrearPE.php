@@ -32,7 +32,7 @@
             <p class="encabezado">
                 INSTRUMENTO PARA LA PLANEACI&Oacute;N ESTRAT&Eacute;GICA
             </p>
-            <button class="accordion" onclick="Acordeon()">TIPO DE CAMPO</button>
+            <button class="accordion">TIPO DE CAMPO</button>
             <div class="panel">
                 <form>
                     <div class="label">
@@ -46,7 +46,7 @@
             <p class="encabezado">
                 PLANEACI&Oacute;N ESTRATEGICA
             </p>
-            <button class="accordion" onclick="Acordeon()">DATOS DE IDENTIFICACI&Oacute;N</button>
+            <button class="accordion">DATOS DE IDENTIFICACI&Oacute;N</button>
             <div class="panel">
                 <table id="SeccionA" align="left">
                     <form action="PHPFunciones/Planeacion.php" method="post">
@@ -183,10 +183,9 @@
             <div class="espacio"></div>
 
             <!--Seccion B-->
-            <button class="accordion" onclick="Acordeon()">INTENCIONES FORMATIVAS</button>
+            <button class="accordion">INTENCIONES FORMATIVAS</button>
             <div class="panel">
                 <table id="SeccionB" align="left">
-                    <form action="PHPFunciones/Planeacion.php" method="post">
                         <tr>
                             <td class="Requerimiento" colspan="100%" style="text-align:center">
                                 Prop&oacute;sito de la Planeaci&oacute;n Estrategia:
@@ -202,20 +201,8 @@
                                 Eje:
                             </td>
                             <td colspan="2" class="combobox">
-                                <button class="btn-contenido" onclick="Abrir('Eje')">EL eje es</button>
+                                <button class="btn-contenido">EL eje es</button>
                             </td>
-                            <div id="myModal" class="modal" style="display:block">
-                                <div class="modal-contenido">
-                                    <div class="modal-header">
-                                        <span class="close">&times;</span>
-                                        <h2 id="TituloModal">Eje</h2>
-                                    </div>
-                                    <div class="modal-body">
-                                        <!--Todos lo ejes-->
-                                        <p>hola</p>
-                                    </div>
-                                  </div>
-                            </div>
                             <td class="Requerimiento">
                                 Componentes:
                             </td>
@@ -223,40 +210,9 @@
                                 <button class="btn-contenido">a</button>
                             </td>
                         </tr>
-                    </form>
                 </table>
             </div>
         </div>
     </div>
-    <script>
-        AgregarCodigo();
-    </script>
-    <script>
-        function Acordeon()
-        {
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-
-            for (i = 0; i < acc.length; i++)
-            {
-                acc[i].onclick= function() {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.display === "block")
-                    {
-                        panel.style.display = "none";
-                    }
-                    else
-                    {
-                        panel.style.display = "block";
-                    }
-                };
-            }
-        }
-        function Abrir(titulo)
-        {
-            document.getElementById("TituloModal").innerHTML = titulo;
-        }
-    </script>
   </body>
   </html>

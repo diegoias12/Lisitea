@@ -33,6 +33,7 @@ function IniciarCreacionPlan()
     CargarContenido();
     AgregarCodigo();
     Acordeon();
+    TextBoxListener();
 }
 
 // CargarContenido()
@@ -287,4 +288,30 @@ function Acordeon()
             };
         }
     });
+}
+
+// TextBoxListener
+function TextBoxListener()
+{
+  $(document).ready(function(){
+    $('.btn-contenido').click(function(){
+      $('#Contenido').append(GenerarModal());
+    });
+  });
+}
+
+function GenerarModal(id)
+{
+  return
+  '<div id="myModal" class="modal" style="display:block";>'
++ '    <div class="modal-contenido">'
++ '        <div class="modal-header">'
++ '            <span class="close">&times;</span>'
++ '            <h2 id="TituloModal">Eje</h2>'
++ '        </div>'
++ '        <div class="modal-body">'
++
++ '        </div>'
++ '      </div>'
++ '</div>';
 }
