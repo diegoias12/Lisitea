@@ -12,16 +12,15 @@
     <link rel="stylesheet" type="text/css" href="CSSEstilos/VentanaEmergente.css"/>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/MenuFijo.css"/>
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
-    <script type="text/javascript" src="JavaScriptFunciones/Planeacion.js"></script>
     <script type="texte/javascript" src="JavaScriptFunciones/Catalogo.js"></script>
-    <script type="text/javascript" src="JavaScriptFunciones/SqlSelectElement.js"></script>
+    <script type="text/javascript" src="JavaScriptFunciones/IniciarPagina.js"></script>
     <script type="text/javascript" src="jQueryAjax/SqlQuery.js"></script>
     <script type="text/javascript" src="jQueryAjax/ObtenerValor.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <script>CargarContenido();</script>
+    <script>IniciarCreacionPlan();</script>
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
         <?php /*include 'PHPInclude\\Menu.php';*/ ?>
@@ -63,7 +62,7 @@
                         <!--Fila - Plantel-->
                         <tr>
                             <td class="Requerimiento">
-                                Plantel:                          </td>
+                                Plantel:
                             </td>
                             <td colspan="6">
                                 <p class="select-p" data-tabla="tbl_plantel" data-llave="VCH_plantel"></p>
@@ -99,7 +98,7 @@
                             </td>
                             <td class="combobox">
                                 <select class="select-cb"
-                                data-tabla="tbl_campo_disciplinar" data-llave="VCH_nombre" style="width:138px;height:50px">
+                                data-tabla="tbl_campo_disciplinar" data-llave="VCH_nombre" style="width:138px;height:50px;font-size:16px">
                                 </select>
                             </td>
                             <!-- Especialidad -->
@@ -129,20 +128,24 @@
                               </select>
                           </td>
                           <!-- Contenido - tbl_especialidad VCH_nombre -->
-                          <td class="combobox">
-                              <select class="select-cb"
-                              data-tabla="tbl_especialidad" data-llave="VCH_nombre">
-                              </select>
+                          <td class="select-ch" colspan="2"
+                          data-tabla="tbl_especialidad"
+                          data-llave="VCH_nombre">
                           </td>
-                          <!-- Contenido - tbl_datos_identificacion VCH_semestre -->
-                          <td class="select-p" style="">
-                              Automatico
+                          <!-- Contenido - tbl_asignatura TINT_semestre -->
+                          <td>
+                              <p
+                              data-tabla="tbl_asignatura"
+                              data-llave="TINT_semestre">
+                              2018-2019
+                              </p>
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_parcial -->
-                          <td colspan="2">
+                          <td>
                               <select>
-                                  <option>1</option>
-                                  <option>5</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
                               </select>
                               parcial
                           </td>

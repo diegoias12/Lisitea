@@ -109,7 +109,7 @@
                           <td>
                               <select class="select-cb"
                               data-tabla="tbl_campo_disciplinar"
-                              data-llave="VCH_nombre">
+                              data-llave="VCH_nombre" style="font-size:17px">
                               </select>
                           </td>
                           <!-- Especialidad -->
@@ -155,7 +155,8 @@
                           <td colspan="2">
                               <select>
                                   <option>1</option>
-                                  <option>5</option>
+                                  <option>2</option>
+                                  <option>3</option>
                               </select>
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_planeacion -->
