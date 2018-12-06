@@ -100,6 +100,7 @@
                           <!-- Contenido - tbl_campo_disciplinar VCH_nombre -->
                           <td>
                               <select class="select-cb"
+                              id="cbCampoDisciplinar"
                               data-tabla="tbl_campo_disciplinar"
                               data-llave="VCH_nombre">
                               </select>
@@ -126,9 +127,10 @@
                           <!-- Contenido - tbl_asignatura VCH_nombre -->
                           <td>
                               <select class="select-cb"
+                              id="cbAsignatura"
                               data-tabla="tbl_asignatura"
                               data-llave="VCH_nombre"
-                              disabled>
+                              data-padre="cbCampoDisciplinar">
                               </select>
                           </td>
                           <!-- Contenido - tbl_especialidad VCH_nombre -->
@@ -139,8 +141,10 @@
                           <!-- Contenido - tbl_asignatura TINT_semestre -->
                           <td>
                               <p class="select-p"
+                              id="cbAsignaturaSemestre"
                               data-tabla="tbl_asignatura"
-                              data-llave="TINT_semestre">
+                              data-llave="TINT_semestre"
+                              data-padre="cbAsignatura">
                               </p>
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_parcial -->
@@ -170,13 +174,13 @@
                               <p style="margin-right: 9.7pt; text-align: right;"><span>T&iacute;tulo de la Planeaci&oacute;n Estrat&eacute;gica:</span></p>
                           </td>
                           <td colspan="2">
-                              <textarea name="tbTituloPlaneacion" maxlength="100"></textarea>
+
                           </td>
                           <td class="Requerimiento" width="20%" colspan="2">
                               <p><span>% de la PE en la evaluaci&oacute;n formativa del parcial</span></p>
                           </td>
                           <td width="20%" colspan="2">
-                              <textarea name="tb%PE" maxlength="3" rows="1" cols="4"></textarea>
+
                           </td>
                         </tr>
                     </form>
@@ -188,6 +192,7 @@
             <button class="accordion" onclick="Acordeon()">B) INTENCIONES FORMATIVAS</button>
             <div class="panel">
               <table id="SeccionB" align="left">
+                  <!-- Proposito de la Planeacion Estrategia -->
                   <tr>
                       <td class="Requerimiento" colspan="100%">
                           <p style="margin-left: 8.75pt; text-align: left;"><span>Prop&oacute;sito de la Planeaci&oacute;n Estrategia:</span></p>
@@ -198,30 +203,44 @@
                           <p><span>&nbsp;</span></p>
                       </td>
                   </tr>
+                  <!-- Eje / Componentes -->
                   <tr style="page-break-inside: avoid;">
                       <td class="Requerimiento" width="10%">
                           <p><span>Eje:</span></p>
                       </td>
-                      <td width="34%">
-                          <p><span>&nbsp;</span></p>
+                      <td width="34%"
+                      class="select-rb"
+                      id="rbEje"
+                      data-tabla="tbl_eje"
+                      data-llave="VCH_descripcion">
                       </td>
                       <td class="Requerimiento" width="14%" colspan="2">
                           <p><span>Componentes:</span></p>
                       </td>
-                      <td>
-                          <p><span>&nbsp;</span></p>
+                      <td
+                      class="select-rb"
+                      id="rbComponente"
+                      data-tabla="tbl_componente"
+                      data-llave="VCH_descripcion"
+                      data-padre="rbEje">
                       </td>
                   </tr>
+                  <!-- Contenido central -->
                   <tr>
                       <td class="Requerimiento" colspan="100%">
                           <p><span>Contenido central:</span></p>
                       </td>
                   </tr>
                   <tr>
-                      <td colspan="100%">
-                          <p><span>&nbsp;</span></p>
+                      <td colspan="100%"
+                      class="select-rb"
+                      id="rbContenidoCentral"
+                      data-tabla="tbl_contenido_central"
+                      data-llave="VCH_descripcion"
+                      data-padre="rbComponente">
                       </td>
                   </tr>
+                  <!-- Contenidos especificos / Aprendizajes esperados -->
                   <tr>
                       <td class="Requerimiento" width="50%" colspan="3">
                           <p><span>Contenidos especificos:</span></p>
@@ -231,13 +250,19 @@
                       </td>
                   </tr>
                   <tr>
-                      <td width="50%" colspan="3">
-                          <p><span>&nbsp;</span></p>
+                      <td width="50%" colspan="3"
+                      class="select-rb"
+                      id="rbContenidoEspecifico"
+                      data-tabla="tbl_contenido_especifico"
+                      data-llave="VCH_descripcion"
+                      data-padre="rbContenidoCentral"
+                      data-relacion="tbl_contenido_contenido">
                       </td>
                       <td width="50%" colspan="2">
                           <p><span>&nbsp;</span></p>
                       </td>
                   </tr>
+                  <!-- Productos esperados -->
                   <tr>
                       <td class="Requerimiento" colspan="100%">
                           <p><span>Productos esperados:</span></p>
@@ -248,6 +273,7 @@
                           <p><span>&nbsp;</span></p>
                       </td>
                   </tr>
+                  <!-- Competencias genericas y atributos -->
                   <tr>
                       <td class="Requerimiento" colspan="100%">
                           <p><span>Competencias gen&eacute;ricas y atributos:</span></p>
@@ -258,6 +284,7 @@
                           <p><span>&nbsp;</span></p>
                       </td>
                   </tr>
+                  <!-- Competencias disciplinares -->
                   <tr>
                       <td class="Requerimiento" colspan="100%">
                           <p><span>Competencias disciplinares:</span></p>
@@ -268,6 +295,7 @@
                           <p><span>&nbsp;</span></p>
                       </td>
                   </tr>
+                  <!-- Competencias profesionales -->
                   <tr>
                       <td class="Requerimiento" colspan="100%">
                           <p><span>Competencias profesionales:</span></p>
@@ -278,6 +306,7 @@
                           <p><span>&nbsp;</span></p>
                       </td>
                   </tr>
+                  <!-- Habilidades socioemocionales -->
                   <tr>
                       <td class="Requerimiento" colspan="100%">
                           <p><span>Habilidades socioemocionales:</span></p>

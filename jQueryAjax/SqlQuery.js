@@ -66,6 +66,20 @@ function SqlSelectComboBox(tabla, llave)
     });
 }
 
+function SqlSelectComboBoxId(tabla, llave, padre, padreId)
+{
+    if(tabla == '' || llave == '' || padre == '' || padreId < 0) {
+        alert('Error: SqlQuery.js - SqlSelectComboBoxId()');
+        return;
+    }
+    return $.ajax({
+        url: 'PHPFunciones/SqlSelectComboBoxId.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave, padre: padre, padreId: padreId},
+        async: false
+    });
+}
+
 function SqlSelectCheckBox(tabla, llave)
 {
     if(tabla == '' || llave == '') {
@@ -80,14 +94,28 @@ function SqlSelectCheckBox(tabla, llave)
     });
 }
 
-function SqlSelectComboBoxId(tabla, llave, padre, padreId)
+function SqlSelectRadioButton(tabla, llave)
 {
-    if(tabla == '' || llave == '' || padre == '' || padreId < 0) {
-        alert('Error: SqlQuery.js - SqlSelectComboBoxId()');
+    if(tabla == '' || llave == '') {
+        alert('Error: SqlQuery.js - SqlSelectRadioButton()');
         return;
     }
     return $.ajax({
-        url: 'PHPFunciones/SqlSelectComboBoxId.php',
+        url: 'PHPFunciones/SqlSelectRadioButton.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave},
+        async: false
+    });
+}
+
+function SqlSelectRadioButtonId(tabla, llave, padre, padreId)
+{
+    if(tabla == '' || llave == '' || padre == '' || padreId < 0) {
+        alert('Error: SqlQuery.js - SqlSelectRadioButtonId()');
+        return;
+    }
+    return $.ajax({
+        url: 'PHPFunciones/SqlSelectRadioButtonId.php',
         type: 'post',
         data: {tabla: tabla, llave: llave, padre: padre, padreId: padreId},
         async: false
