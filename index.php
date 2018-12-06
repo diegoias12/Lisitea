@@ -8,6 +8,9 @@
     <title>Lisitea</title>
     <meta content="width=device-width, initial-sacale=1">
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Index.css"/>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/FormatoDatos.css"/>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/General.css"/>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/VentanaEmergente.css"/>
 </head>
 
 <body>
@@ -36,21 +39,21 @@
                 <div class="iniciar">
                     <div class="formato">
                         <form method="post" action="index.php">
-                            <dl class="grupoconformato">
-                                <dt class="imput-label">
-                                    <label class="formato-label1">
+                            <dl class="Seccion">
+                                <dt class="DatoSolicitado">
+                                    <label class="LabelDatoSolicitado">
                                         <font style="vertical-aling:inherit;">
                                         Email
                                         </font>
                                     </label>
                                 </dt>
                                 <dd style="margin:0;width:90%;">
-                                    <input name="email" type="email" maxlength="40" placeholder="Correo electr&oacute;nico" class="formato-imput">
+                                    <input name="email" type="email" maxlength="40" placeholder="Correo electr&oacute;nico" class="DatoIngresado">
                                 </dd>
                             </dl>
-                            <dl class="grupoconformato">
-                                <dt class="imput-label">
-                                    <label class="formato-label1">
+                            <dl class="Seccion">
+                                <dt class="DatoSolicitado">
+                                    <label class="LabelDatoSolicitado">
                                         <font style="vertical-align:inherit;">
                                         Constraseña
                                         <a class="recuperar" href="RecuperarContrasena.php">&iquest;Olvidaste tu contrase&ntilde;a?</a>
@@ -58,7 +61,7 @@
                                     </label>
                                 </dt>
                                 <dd style="margin:0;width:90%;">
-                                    <input name="psw" type="text" maxlength="10" placeholder="Contrase&ntilde;a" class="formato-imput">
+                                    <input name="psw" type="text" maxlength="10" placeholder="Contrase&ntilde;a" class="DatoIngresado">
                                 </dd>
                             </dl>
                             <button class="block" type="submit" value="Iniciar sesi&oacute;n">
