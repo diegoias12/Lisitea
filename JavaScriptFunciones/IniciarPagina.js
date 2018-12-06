@@ -36,6 +36,8 @@ function IniciarCreacionPlan()
     CheckboxListener();
 }
 
+// CargarContenido()
+
 function CargarContenido()
 {
     $(document).ready(function(){
@@ -45,9 +47,14 @@ function CargarContenido()
             tabla = $(this).attr('data-tabla');
             llave = $(this).attr('data-llave');
             ObtenerVariablePHP(tabla, llave).done(function(id){
-                SqlSelectP(tabla, llave, id).done(function(result){
-                    htmlP.html(result);
-                });
+                if(id >= 0) {
+                    SqlSelectP(tabla, llave, id).done(function(result){
+                        htmlP.html(result);
+                    });
+                }
+                else {
+                    htmlP.html('');
+                }
             });
         });
         // <select> </select>
@@ -68,8 +75,25 @@ function CargarContenido()
                 htmlForm.html(result);
             });
         });
+        // <select> </select>
+        $('.combo-num').each(function(){
+            start = $(this).attr('data-start');
+            end = $(this).attr('data-end');
+            $(this).html(CrearComboBoxNum(start, end));
+        });
     });
 }
+
+function CrearComboBoxNum(start, end)
+{
+    htmlCB = '<option value="-1"></option>';
+    for(; start < end; start++) {
+        htmlCB += '<option value="' + start + '">' + start + '</option>';
+    }
+    return htmlCB;
+}
+
+// AgregarCodigo
 
 function AgregarCodigo()
 {
@@ -111,14 +135,13 @@ function AgregarCodigo()
     });
 }
 
-var espacioVacio
-= '<td>'
-+   '<p><span>&nbsp;</span></p>'
-+ '</td>';
-
 function AgregarEspaciosVacios(clase, cantidad)
 {
     areaLlenado = '';
+    espacioVacio
+    = '<td>'
+    +   '<p><span>&nbsp;</span></p>'
+    + '</td>';
     for(i = 0; i < cantidad; i++)
     {
         areaLlenado += espacioVacio;
@@ -129,6 +152,8 @@ function AgregarEspaciosVacios(clase, cantidad)
         llenado[i].innerHTML = areaLlenado;
     }
 }
+
+// Acordeon
 
 function Acordeon()
 {
@@ -151,6 +176,8 @@ function Acordeon()
         }
     });
 }
+
+// CheckboxListener
 
 function CheckboxListener()
 {
@@ -176,9 +203,14 @@ function CheckboxListener()
             tabla = semestre.attr('data-tabla');
             llave = semestre.attr('data-llave');
             id = $(this).val();
-            SqlSelectP(tabla, llave, id).done(function(result){
-                semestre.html(result);
-            });
+            if(id >= 0) {
+                SqlSelectP(tabla, llave, id).done(function(result){
+                    semestre.html(result);
+                });
+            }
+            else {
+                semestre.html('');
+            }
         });
     });
 }

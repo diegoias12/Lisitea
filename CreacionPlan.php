@@ -25,14 +25,6 @@
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
     </div>
-<<<<<<< HEAD
-    <div id="Menu2">
-        <?php require 'PHPInclude/MenuPlaneacion.php';?>
-=======
-    <div id="MenuFijo">
-        <?php require 'PHPInclude/MenuFijo.php';?>
->>>>>>> 3a7c72cdfcc8fdd3d18ef8f9a2c7c1b4a293e542
-    </div>
     <div id="Contenido" class="contenedor">
         <div class="contenido">
             <p class="encabezado">
@@ -94,9 +86,9 @@
                           </td>
                           <!-- Contenido - tbl_usuario VCH_nombre VCH_ap_paterno VCH_ap_materno -->
                           <td width="40%" colspan="4">
-                              <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_nombre"></p>
-                              <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_ap_paterno"></p>
-                              <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_ap_materno"></p>
+                              <div class="select-p" data-tabla="tbl_usuario" data-llave="VCH_nombre"></div>
+                              <div class="select-p" data-tabla="tbl_usuario" data-llave="VCH_ap_paterno"></div>
+                              <div class="select-p" data-tabla="tbl_usuario" data-llave="VCH_ap_materno"></div>
                           </td>
                         </tr>
                         <!-- Fila - Asignatura Especialidad Semestre NoParcial NoPlaneacion -->
@@ -146,22 +138,37 @@
                           </td>
                           <!-- Contenido - tbl_asignatura TINT_semestre -->
                           <td>
-                              <p
+                              <p class="select-p"
                               data-tabla="tbl_asignatura"
                               data-llave="TINT_semestre">
                               </p>
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_parcial -->
                           <td colspan="2">
+<<<<<<< HEAD
                               <select>
                                   <option>1</option>
                                   <option>2</option>
                                   <option>3</option>
+=======
+                              <select class="combo-num"
+                              data-start="1"
+                              data-end="4">
+>>>>>>> 2a703c27107581049d7a03e1ba65c3d979c33f65
                               </select>
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_planeacion -->
                           <td>
-
+                              <select class="combo-num"
+                              data-start="1"
+                              data-end="5">
+                              </select>
+                              de
+                              <!-- Agregar listener para que el numero sea mayor -->
+                              <select class="combo-num"
+                              data-start="1"
+                              data-end="5">
+                              </select>
                           </td>
                         </tr>
                         <!-- TituloPlaneacion  PE -->
