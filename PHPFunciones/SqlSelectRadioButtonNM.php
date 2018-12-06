@@ -4,7 +4,7 @@ if(!(isset($_POST['tabla']) && isset($_POST['llave'])
 && isset($_POST['padre']) && isset($_POST['padreId'])
 && isset($_POST['relacion'])))
 {
-    echo 'Error: SqlSelectRadioButtonId.php';
+    echo 'Error: SqlSelectRadioButtonNM.php';
     return;
 }
 require '../PHPInclude/Conexion.php';
@@ -24,10 +24,10 @@ try
     $tablaNom = substr($tabla, 3);
     $sql =
       'SELECT c.*'
-    . ' FROM ' . $padre . ' a, ' . $_POST['relacion'] . ' b, ' . $tabla . ' c'
+    . ' FROM ' . $padre . ' a, ' . $relacion . ' b, ' . $tabla . ' c'
     . ' WHERE a.PK_id' . $padreNom . ' = b.PFK_id' . $padreNom
     . ' and c.PK_id' . $tablaNom . ' = b.PFK_id' . $tablaNom
-    . ' and a.PK_id' . $padreNom . ' = ' . $_POST['padreId']);
+    . ' and a.PK_id' . $padreNom . ' = ' . $padreId;
     $consulta = $conn->query($sql)->fetchAll();
     if($consulta == null)
     {
@@ -35,6 +35,7 @@ try
     }
     // <input type="checkbox" name="" value=""> txt <br>
     $name = 'radio' . substr($tabla, 3);
+    $pk = 'PK_id' . substr($tabla, 3);
     foreach($consulta as $row) {
         echo '<input type="radio" name="' . $name . '" value="' . $row[$pk] . '">'
         . $row[$llave] . '<br>';
@@ -42,7 +43,7 @@ try
 }
 catch (PDOException $e)
 {
-    echo "Error: SqlSelectRadioButtonId.php - " . $e->getMessage();
+    echo "Error: SqlSelectRadioButtonNM.php - " . $e->getMessage();
 }
 $conn = null;
 ?>
