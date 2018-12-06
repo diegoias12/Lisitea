@@ -36,6 +36,8 @@ function IniciarCreacionPlan()
     CheckboxListener();
 }
 
+// CargarContenido()
+
 function CargarContenido()
 {
     $(document).ready(function(){
@@ -68,8 +70,25 @@ function CargarContenido()
                 htmlForm.html(result);
             });
         });
+        // <select> </select>
+        $('.combo-num').each(function(){
+            start = $(this).attr('data-start');
+            end = $(this).attr('data-end');
+            $(this).html(CrearComboBoxNum(start, end));
+        });
     });
 }
+
+function CrearComboBoxNum(start, end)
+{
+    htmlCB = '<option value="-1"></option>';
+    for(; start < end; start++) {
+        htmlCB += '<option value="' + start + '">' + start + '</option>';
+    }
+    return htmlCB;
+}
+
+// AgregarCodigo
 
 function AgregarCodigo()
 {
@@ -111,14 +130,13 @@ function AgregarCodigo()
     });
 }
 
-var espacioVacio
-= '<td>'
-+   '<p><span>&nbsp;</span></p>'
-+ '</td>';
-
 function AgregarEspaciosVacios(clase, cantidad)
 {
     areaLlenado = '';
+    espacioVacio
+    = '<td>'
+    +   '<p><span>&nbsp;</span></p>'
+    + '</td>';
     for(i = 0; i < cantidad; i++)
     {
         areaLlenado += espacioVacio;
@@ -129,6 +147,8 @@ function AgregarEspaciosVacios(clase, cantidad)
         llenado[i].innerHTML = areaLlenado;
     }
 }
+
+// Acordeon
 
 function Acordeon()
 {
@@ -151,6 +171,8 @@ function Acordeon()
         }
     });
 }
+
+// CheckboxListener
 
 function CheckboxListener()
 {
