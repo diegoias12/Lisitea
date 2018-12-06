@@ -33,7 +33,6 @@ function IniciarCreacionPlan()
     CargarContenido();
     AgregarCodigo();
     Acordeon();
-    CheckboxListener();
 }
 
 // CargarContenido()
@@ -44,42 +43,155 @@ function CargarContenido()
         // <p> </p>
         $('.select-p').each(function(){
             htmlP = $(this);
+            nombre = $(this).attr('id');
             tabla = $(this).attr('data-tabla');
             llave = $(this).attr('data-llave');
-            ObtenerVariablePHP(tabla, llave).done(function(id){
-                if(id >= 0) {
-                    SqlSelectP(tabla, llave, id).done(function(result){
-                        htmlP.html(result);
-                    });
-                }
-                else {
-                    htmlP.html('');
-                }
-            });
+            padre = $(this).attr('data-padre');
+            if(typeof padre !== 'undefined') {
+                PListener(nombre, llave, padre);
+            }
+            else {
+                ObtenerVariablePHP(tabla, llave).done(function(id){
+                    if(id >= 0) {
+                        SqlSelectP(tabla, llave, id).done(function(result){
+                            htmlP.html(result);
+                        });
+                    }
+                    else {
+                        htmlP.html('');
+                    }
+                });
+            }
         });
         // <select> </select>
         $('.select-cb').each(function(){
             htmlSelect = $(this);
+            nombre = $(this).attr('id');
             tabla = $(this).attr('data-tabla');
             llave = $(this).attr('data-llave');
-            SqlSelectComboBox(tabla, llave).done(function(result){
-                htmlSelect.html(result);
-            });
+            padre = $(this).attr('data-padre');
+            relacion = $(this).attr('data-relacion');
+            if(typeof padre !== 'undefined' || typeof relacion !== 'undefined') {
+                $(this).prop('disabled', true);
+            }
+            if(typeof relacion !== 'undefined') {
+                //
+            }
+            else if(typeof padre !== 'undefined') {
+                ComboBoxListener(nombre, llave, padre);
+            }
+            else {
+                SqlSelectComboBox(tabla, llave).done(function(result){
+                    htmlSelect.html(result);
+                });
+            }
         });
         // <input type="checkbox">
         $('.select-ch').each(function(){
             htmlForm = $(this);
+            nombre = $(this).attr('id');
             tabla = $(this).attr('data-tabla');
             llave = $(this).attr('data-llave');
-            SqlSelectCheckBox(tabla, llave).done(function(result){
-                htmlForm.html(result);
-            });
+            padre = $(this).attr('data-padre');
+            if(typeof padre !== 'undefined') {
+                //
+            }
+            else {
+                SqlSelectCheckBox(tabla, llave).done(function(result){
+                    htmlForm.html(result);
+                });
+            }
+        });
+        // <input type="radio">
+        $('.select-rb').each(function(){
+            htmlForm = $(this);
+            nombre = $(this).attr('id');
+            padre = $(this).attr('data-padre');
+            relacion = $(this).attr('data-relacion');
+            if(typeof relacion !== 'undefined') {
+                RadioButtonListenerNM(nombre);
+            }
+            else if(typeof padre !== 'undefined') {
+                RadioButtonListener(nombre);
+            }
+            else {
+                tabla = $(this).attr('data-tabla');
+                llave = $(this).attr('data-llave');
+                SqlSelectRadioButton(tabla, llave).done(function(result){
+                    htmlForm.html(result);
+                });
+            }
         });
         // <select> </select>
         $('.combo-num').each(function(){
             start = $(this).attr('data-start');
             end = $(this).attr('data-end');
             $(this).html(CrearComboBoxNum(start, end));
+        });
+    });
+}
+
+function ComboBoxListener(nombre, llave, padre)
+{
+    $(document).ready(function(){
+        $('#' + padre).change(function(){
+            $('#' + nombre).prop('disabled', false);
+            tabla = $('#' + nombre).attr('data-tabla');
+            padre = $(this).attr('data-tabla');
+            padreId = $(this).val();
+            SqlSelectComboBoxId(tabla, llave, padre, padreId).done(function(result){
+                $('#' + nombre).html(result);
+            });
+        });
+    });
+}
+
+function RadioButtonListener(nombre)
+{
+    $(document).ready(function(){
+        $('#' + $('#' + nombre).attr('data-padre')).change(function(){
+            tabla = $('#' + nombre).attr('data-tabla');
+            llave = $('#' + nombre).attr('data-llave');
+            padre = $(this).attr('data-tabla');
+            padreId = $(this).find('input[type="radio"]:checked').val()
+            SqlSelectRadioButtonId(tabla, llave, padre, padreId).done(function(result){
+                $('#' + nombre).html(result);
+            });
+        });
+    });
+}
+
+function RadioButtonListenerNM(nombre)
+{
+    $(document).ready(function(){
+        $('#' + $('#' + nombre).attr('data-padre')).change(function(){
+            tabla = $('#' + nombre).attr('data-tabla');
+            llave = $('#' + nombre).attr('data-llave');
+            padre = $(this).attr('data-tabla');
+            padreId = $(this).find('input[type="radio"]:checked').val()
+            relacion = $('#' + nombre).attr('data-relacion');
+            SqlSelectRadioButtonNM(tabla, llave, padre, padreId, relacion).done(function(result){
+                $('#' + nombre).html(result);
+            });
+        });
+    });
+}
+
+function PListener(nombre, llave, padre)
+{
+    $(document).ready(function(){
+        $('#' + padre).change(function(){
+            htmlSelect = $('#' + nombre);
+            id = $(this).val();
+            tabla = $(this).attr('data-tabla');
+            if(id >= 0) {
+                SqlSelectP(tabla, llave, id).done(function(result){
+                    htmlSelect.html(result);
+                });
+            }
+            else {
+                htmlSelect.html('');
+            }
         });
     });
 }
@@ -174,43 +286,5 @@ function Acordeon()
                 }
             };
         }
-    });
-}
-
-// CheckboxListener
-
-function CheckboxListener()
-{
-    $(document).ready(function(){
-        cbAsignatura = $('select[data-tabla="tbl_asignatura"][data-llave="VCH_nombre"]');
-        semestre = $('[data-tabla="tbl_asignatura"][data-llave="TINT_semestre"]');
-        $('select[data-tabla="tbl_campo_disciplinar"][data-llave="VCH_nombre"]').change(function(){
-            semestre.html('');
-            cbAsignatura.prop('disabled', false);
-            tabla = cbAsignatura.attr('data-tabla');
-            llave = cbAsignatura.attr('data-llave');
-            padre = $(this).attr('data-tabla');
-            padreId = $(this).val();
-            if(padreId == -1) {
-                cbAsignatura.html('<option value="-1"></option>');
-                return;
-            }
-            SqlSelectComboBoxId(tabla, llave, padre, padreId).done(function(result){
-                cbAsignatura.html(result);
-            });
-        });
-        cbAsignatura.change(function(){
-            tabla = semestre.attr('data-tabla');
-            llave = semestre.attr('data-llave');
-            id = $(this).val();
-            if(id >= 0) {
-                SqlSelectP(tabla, llave, id).done(function(result){
-                    semestre.html(result);
-                });
-            }
-            else {
-                semestre.html('');
-            }
-        });
     });
 }
