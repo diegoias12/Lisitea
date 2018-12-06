@@ -52,6 +52,8 @@ function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
     });
 }
 
+// ComboBox
+
 function SqlSelectComboBox(tabla, llave)
 {
     if(tabla == '' || llave == '') {
@@ -80,6 +82,26 @@ function SqlSelectComboBoxId(tabla, llave, padre, padreId)
     });
 }
 
+function SqlSelectComboBoxNM(tabla, llave, padre, padreId, relacion)
+{
+    if(tabla == '' || llave == ''
+    || padre == '' || padreId < 0
+    || relacion == '') {
+        alert('Error: SqlQuery.js - SqlSelectComboBoxId()');
+        return;
+    }
+    return $.ajax({
+        url: 'PHPFunciones/SqlSelectComboBoxNM.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave,
+            padre: padre, padreId: padreId,
+            relacion: relacion},
+        async: false
+    });
+}
+
+// CheckBox
+
 function SqlSelectCheckBox(tabla, llave)
 {
     if(tabla == '' || llave == '') {
@@ -93,6 +115,41 @@ function SqlSelectCheckBox(tabla, llave)
         async: false
     });
 }
+
+function SqlSelectCheckBoxId(tabla, llave, padre, padreId)
+{
+    if(tabla == '' || llave == ''
+    || padre == '' || padreId < 0) {
+        alert('Error: SqlQuery.js - SqlSelectCheckBoxId()');
+        return;
+    }
+    return $.ajax({
+        url: 'PHPFunciones/SqlSelectCheckBoxId.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave, padre: padre, padreId: padreId},
+        async: false
+    });
+}
+
+function SqlSelectCheckBoxNM(tabla, llave, padre, padreId, relacion)
+{
+    if(tabla == '' || llave == ''
+    || padre == '' || padreId < 0
+    || relacion == '') {
+        alert('Error: SqlQuery.js - SqlSelectCheckBoxId()');
+        return;
+    }
+    return $.ajax({
+        url: 'PHPFunciones/SqlSelectCheckBoxNM.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave,
+            padre: padre, padreId: padreId,
+            relacion: relacion},
+        async: false
+    });
+}
+
+// RadioButton
 
 function SqlSelectRadioButton(tabla, llave)
 {
@@ -140,6 +197,8 @@ function SqlSelectRadioButtonNM(tabla, llave, padre, padreId, relacion)
         async: false
     });
 }
+
+// P
 
 function SqlSelectP(tabla, llave, id)
 {

@@ -35,7 +35,7 @@ function IniciarCreacionPlan()
     Acordeon();
 }
 
-// CargarContenido()
+//  **** CargarContenido() ****
 
 function CargarContenido()
 {
@@ -67,20 +67,19 @@ function CargarContenido()
         $('.select-cb').each(function(){
             htmlSelect = $(this);
             nombre = $(this).attr('id');
-            tabla = $(this).attr('data-tabla');
-            llave = $(this).attr('data-llave');
             padre = $(this).attr('data-padre');
             relacion = $(this).attr('data-relacion');
-            if(typeof padre !== 'undefined' || typeof relacion !== 'undefined') {
-                $(this).prop('disabled', true);
-            }
             if(typeof relacion !== 'undefined') {
-                //
+                $(this).prop('disabled', true);
+                ComboBoxListenerNM(nombre);
             }
             else if(typeof padre !== 'undefined') {
-                ComboBoxListener(nombre, llave, padre);
+                $(this).prop('disabled', true);
+                ComboBoxListener(nombre);
             }
             else {
+                tabla = $(this).attr('data-tabla');
+                llave = $(this).attr('data-llave');
                 SqlSelectComboBox(tabla, llave).done(function(result){
                     htmlSelect.html(result);
                 });
@@ -90,13 +89,17 @@ function CargarContenido()
         $('.select-ch').each(function(){
             htmlForm = $(this);
             nombre = $(this).attr('id');
-            tabla = $(this).attr('data-tabla');
-            llave = $(this).attr('data-llave');
             padre = $(this).attr('data-padre');
-            if(typeof padre !== 'undefined') {
-                //
+            relacion = $(this).attr('data-relacion');
+            if(typeof relacion !== 'undefined') {
+                CheckBoxListenerNM(nombre);
+            }
+            else if(typeof padre !== 'undefined') {
+                CheckBoxListener(nombre);
             }
             else {
+                tabla = $(this).attr('data-tabla');
+                llave = $(this).attr('data-llave');
                 SqlSelectCheckBox(tabla, llave).done(function(result){
                     htmlForm.html(result);
                 });
@@ -131,56 +134,6 @@ function CargarContenido()
     });
 }
 
-// ComboBox
-
-function ComboBoxListener(nombre, llave, padre)
-{
-    $(document).ready(function(){
-        $('#' + padre).change(function(){
-            $('#' + nombre).prop('disabled', false);
-            tabla = $('#' + nombre).attr('data-tabla');
-            padre = $(this).attr('data-tabla');
-            padreId = $(this).val();
-            SqlSelectComboBoxId(tabla, llave, padre, padreId).done(function(result){
-                $('#' + nombre).html(result);
-            });
-        });
-    });
-}
-
-// RadioButton
-
-function RadioButtonListener(nombre)
-{
-    $(document).ready(function(){
-        $('#' + $('#' + nombre).attr('data-padre')).change(function(){
-            tabla = $('#' + nombre).attr('data-tabla');
-            llave = $('#' + nombre).attr('data-llave');
-            padre = $(this).attr('data-tabla');
-            padreId = $(this).find('input[type="radio"]:checked').val()
-            SqlSelectRadioButtonId(tabla, llave, padre, padreId).done(function(result){
-                $('#' + nombre).html(result);
-            });
-        });
-    });
-}
-
-function RadioButtonListenerNM(nombre)
-{
-    $(document).ready(function(){
-        $('#' + $('#' + nombre).attr('data-padre')).change(function(){
-            tabla = $('#' + nombre).attr('data-tabla');
-            llave = $('#' + nombre).attr('data-llave');
-            padre = $(this).attr('data-tabla');
-            padreId = $(this).find('input[type="radio"]:checked').val()
-            relacion = $('#' + nombre).attr('data-relacion');
-            SqlSelectRadioButtonNM(tabla, llave, padre, padreId, relacion).done(function(result){
-                $('#' + nombre).html(result);
-            });
-        });
-    });
-}
-
 // P
 
 function PListener(nombre, llave, padre)
@@ -202,6 +155,109 @@ function PListener(nombre, llave, padre)
     });
 }
 
+// ComboBox
+
+function ComboBoxListener(nombre)
+{
+    $(document).ready(function(){
+        $('#' + $('#' + nombre).attr('data-padre')).change(function(){
+            $('#' + nombre).prop('disabled', false);
+            tabla = $('#' + nombre).attr('data-tabla');
+            llave = $('#' + nombre).attr('data-llave');
+            padre = $(this).attr('data-tabla');
+            padreId = $(this).find('input:checked').val();
+            SqlSelectComboBoxId(tabla, llave, padre, padreId).done(function(result){
+                $('#' + nombre).html(result);
+            });
+        });
+    });
+}
+
+function ComboBoxListenerNM(nombre)
+{
+    $(document).ready(function(){
+        $('#' + $('#' + nombre).attr('data-padre')).change(function(){
+            $('#' + nombre).prop('disabled', false);
+            tabla = $('#' + nombre).attr('data-tabla');
+            llave = $('#' + nombre).attr('data-llave');
+            padre = $(this).attr('data-tabla');
+            padreId = $(this).find('input:checked').val()
+            relacion = $('#' + nombre).attr('data-relacion');
+            SqlSelectComboBoxNM(tabla, llave, padre, padreId, relacion).done(function(result){
+                $('#' + nombre).html(result);
+            });
+        });
+    });
+}
+
+// CheckBox
+
+function CheckBoxListener(nombre)
+{
+    $(document).ready(function(){
+        $('#' + $('#' + nombre).attr('data-padre')).change(function(){
+            $('#' + nombre).prop('disabled', false);
+            tabla = $('#' + nombre).attr('data-tabla');
+            llave = $('#' + nombre).attr('data-llave');
+            padre = $(this).attr('data-tabla');
+            padreId = $(this).find('input:checked').val();
+            SqlSelectCheckBoxId(tabla, llave, padre, padreId).done(function(result){
+                $('#' + nombre).html(result);
+            });
+        });
+    });
+}
+
+function CheckBoxListenerNM(nombre)
+{
+    $(document).ready(function(){
+        $('#' + $('#' + nombre).attr('data-padre')).change(function(){
+            $('#' + nombre).prop('disabled', false);
+            tabla = $('#' + nombre).attr('data-tabla');
+            llave = $('#' + nombre).attr('data-llave');
+            padre = $(this).attr('data-tabla');
+            padreId = $(this).find('input:checked').val()
+            relacion = $('#' + nombre).attr('data-relacion');
+            SqlSelectCheckBoxNM(tabla, llave, padre, padreId, relacion).done(function(result){
+                $('#' + nombre).html(result);
+            });
+        });
+    });
+}
+
+// RadioButton
+
+function RadioButtonListener(nombre)
+{
+    $(document).ready(function(){
+        $('#' + $('#' + nombre).attr('data-padre')).change(function(){
+            tabla = $('#' + nombre).attr('data-tabla');
+            llave = $('#' + nombre).attr('data-llave');
+            padre = $(this).attr('data-tabla');
+            padreId = $(this).find('input:checked').val();
+            SqlSelectRadioButtonId(tabla, llave, padre, padreId).done(function(result){
+                $('#' + nombre).html(result);
+            });
+        });
+    });
+}
+
+function RadioButtonListenerNM(nombre)
+{
+    $(document).ready(function(){
+        $('#' + $('#' + nombre).attr('data-padre')).change(function(){
+            tabla = $('#' + nombre).attr('data-tabla');
+            llave = $('#' + nombre).attr('data-llave');
+            padre = $(this).attr('data-tabla');
+            padreId = $(this).find('input:checked').val()
+            relacion = $('#' + nombre).attr('data-relacion');
+            SqlSelectRadioButtonNM(tabla, llave, padre, padreId, relacion).done(function(result){
+                $('#' + nombre).html(result);
+            });
+        });
+    });
+}
+
 // Num
 
 function CrearComboBoxNum(start, end)
@@ -213,7 +269,7 @@ function CrearComboBoxNum(start, end)
     return htmlCB;
 }
 
-// AgregarCodigo
+// **** AgregarCodigo ****
 
 function AgregarCodigo()
 {
@@ -273,7 +329,7 @@ function AgregarEspaciosVacios(clase, cantidad)
     }
 }
 
-// Acordeon
+// **** Acordeon ****
 
 function Acordeon()
 {

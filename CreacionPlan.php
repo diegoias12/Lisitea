@@ -251,15 +251,20 @@
                   </tr>
                   <tr>
                       <td width="50%" colspan="3"
-                      class="select-rb"
+                      class="select-ch"
                       id="rbContenidoEspecifico"
                       data-tabla="tbl_contenido_especifico"
                       data-llave="VCH_descripcion"
                       data-padre="rbContenidoCentral"
                       data-relacion="tbl_contenido_contenido">
                       </td>
-                      <td width="50%" colspan="2">
-                          <p><span>&nbsp;</span></p>
+                      <td width="50%" colspan="2"
+                      class="select-ch"
+                      id="rbAprendizajeEsperado"
+                      data-tabla="tbl_aprendizaje_esperado"
+                      data-llave="VCH_descripcion"
+                      data-padre="rbContenidoEspecifico"
+                      data-relacion="tbl_contenido_aprendizaje">
                       </td>
                   </tr>
                   <!-- Productos esperados -->
@@ -269,8 +274,13 @@
                       </td>
                   </tr>
                   <tr>
-                      <td colspan="100%">
-                          <p><span>&nbsp;</span></p>
+                      <td colspan="100%"
+                      class="select-ch"
+                      id="chProductoEsperado"
+                      data-tabla="tbl_producto_esperado"
+                      data-llave="VCH_descripcion"
+                      data-padre="rbAprendizajeEsperado"
+                      data-relacion="tbl_aprendizaje_producto">
                       </td>
                   </tr>
                   <!-- Competencias genericas y atributos -->
