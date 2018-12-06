@@ -138,7 +138,7 @@
                           </td>
                           <!-- Contenido - tbl_asignatura TINT_semestre -->
                           <td>
-                              <p
+                              <p class="select-p"
                               data-tabla="tbl_asignatura"
                               data-llave="TINT_semestre">
                               </p>
@@ -147,7 +147,7 @@
                           <td colspan="2">
                               <select class="combo-num"
                               data-start="1"
-                              data-end="5">
+                              data-end="4">
                               </select>
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_planeacion -->

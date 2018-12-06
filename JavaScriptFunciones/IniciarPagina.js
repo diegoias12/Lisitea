@@ -47,9 +47,14 @@ function CargarContenido()
             tabla = $(this).attr('data-tabla');
             llave = $(this).attr('data-llave');
             ObtenerVariablePHP(tabla, llave).done(function(id){
-                SqlSelectP(tabla, llave, id).done(function(result){
-                    htmlP.html(result);
-                });
+                if(id >= 0) {
+                    SqlSelectP(tabla, llave, id).done(function(result){
+                        htmlP.html(result);
+                    });
+                }
+                else {
+                    htmlP.html('');
+                }
             });
         });
         // <select> </select>
@@ -198,9 +203,14 @@ function CheckboxListener()
             tabla = semestre.attr('data-tabla');
             llave = semestre.attr('data-llave');
             id = $(this).val();
-            SqlSelectP(tabla, llave, id).done(function(result){
-                semestre.html(result);
-            });
+            if(id >= 0) {
+                SqlSelectP(tabla, llave, id).done(function(result){
+                    semestre.html(result);
+                });
+            }
+            else {
+                semestre.html('');
+            }
         });
     });
 }
