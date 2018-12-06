@@ -110,7 +110,8 @@ function SqlSelectRadioButton(tabla, llave)
 
 function SqlSelectRadioButtonId(tabla, llave, padre, padreId)
 {
-    if(tabla == '' || llave == '' || padre == '' || padreId < 0) {
+    if(tabla == '' || llave == ''
+    || padre == '' || padreId < 0) {
         alert('Error: SqlQuery.js - SqlSelectRadioButtonId()');
         return;
     }
@@ -118,6 +119,24 @@ function SqlSelectRadioButtonId(tabla, llave, padre, padreId)
         url: 'PHPFunciones/SqlSelectRadioButtonId.php',
         type: 'post',
         data: {tabla: tabla, llave: llave, padre: padre, padreId: padreId},
+        async: false
+    });
+}
+
+function SqlSelectRadioButtonNM(tabla, llave, padre, padreId, relacion)
+{
+    if(tabla == '' || llave == ''
+    || padre == '' || padreId < 0
+    || relacion == '') {
+        alert('Error: SqlQuery.js - SqlSelectRadioButtonId()');
+        return;
+    }
+    return $.ajax({
+        url: 'PHPFunciones/SqlSelectRadioButtonNM.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave,
+            padre: padre, padreId: padreId,
+            relacion: relacion},
         async: false
     });
 }

@@ -131,6 +131,8 @@ function CargarContenido()
     });
 }
 
+// ComboBox
+
 function ComboBoxListener(nombre, llave, padre)
 {
     $(document).ready(function(){
@@ -145,6 +147,8 @@ function ComboBoxListener(nombre, llave, padre)
         });
     });
 }
+
+// RadioButton
 
 function RadioButtonListener(nombre)
 {
@@ -177,6 +181,8 @@ function RadioButtonListenerNM(nombre)
     });
 }
 
+// P
+
 function PListener(nombre, llave, padre)
 {
     $(document).ready(function(){
@@ -195,6 +201,8 @@ function PListener(nombre, llave, padre)
         });
     });
 }
+
+// Num
 
 function CrearComboBoxNum(start, end)
 {
