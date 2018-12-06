@@ -167,13 +167,60 @@
                                 T&iacute;tulo de la Planeaci&oacute;n Estrat&eacute;gica:
                             </td>
                             <td class="combobox" colspan="3">
-                                <textarea name="tbTituloPlaneacion" style="width:363px;height:50px;border:none"></textarea>
+                                <textarea name="tbTituloPlaneacion" style="width:408px;height:50px;border:none"></textarea>
                             </td>
                             <td class="Requerimiento" style="font-size:12px;" colspan="2">
                                 % de la PE en la evaluaci&oacute;n formativa del parcial
                             </td>
                             <td class="combobox">
                                 <textarea name="tb%PE" style="width:148px;height:59px;border:none"></textarea>
+                            </td>
+                        </tr>
+                    </form>
+                </table>
+            </div>
+
+            <div class="espacio"></div>
+
+            <!--Seccion B-->
+            <button class="accordion" onclick="Acordeon()">INTENCIONES FORMATIVAS</button>
+            <div class="panel">
+                <table id="SeccionB" align="left">
+                    <form action="PHPFunciones/Planeacion.php" method="post">
+                        <tr>
+                            <td class="Requerimiento" colspan="100%" style="text-align:center">
+                                Prop&oacute;sito de la Planeaci&oacute;n Estrategia:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="100%" class="combobox">
+                                <textarea name="tbPropositoPlaneacion" style="width:994px;height:50px;border:none"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="Requerimiento">
+                                Eje:
+                            </td>
+                            <td colspan="2" class="combobox">
+                                <button class="btn-contenido" onclick="Abrir('Eje')">EL eje es</button>
+                            </td>
+                            <div id="myModal" class="modal" style="display:block">
+                                <div class="modal-contenido">
+                                    <div class="modal-header">
+                                        <span class="close">&times;</span>
+                                        <h2 id="TituloModal">Eje</h2>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!--Todos lo ejes-->
+                                        <p>hola</p>
+                                    </div>
+                                  </div>
+                            </div>
+                            <td class="Requerimiento">
+                                Componentes:
+                            </td>
+                            <td colspan="2" class="combobox">
+                                <button class="btn-contenido">a</button>
                             </td>
                         </tr>
                     </form>
@@ -205,6 +252,10 @@
                     }
                 };
             }
+        }
+        function Abrir(titulo)
+        {
+            document.getElementById("TituloModal").innerHTML = titulo;
         }
     </script>
   </body>

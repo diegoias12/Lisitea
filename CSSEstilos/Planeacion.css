@@ -26,6 +26,10 @@ p
     font-size: 10px;
 }
 
+.MenuFijo{
+    position: fixed;
+    top: 0;
+}
 .Requerimiento
 {
     background: #BFBFBF;
@@ -59,7 +63,7 @@ p
   background-size: cover;
   color: #FFFFFF;
   padding: 40px;
-  margin-top: 20px;
+  margin-top: 80px;
   margin-right: 20px;
   margin-left: 0;
   width: 1100px;
@@ -190,4 +194,55 @@ p
 .select-cb{
     font-size: 18px;
     height: auto;
+}
+.btn-contenido{
+    background-color: white;
+    border: none;
+    width: 358px;
+    min-height: 50px;
+    padding: 0;
+    font-size: 12px;
+    text-align: left;
+}
+.btn-contenido:hover{
+    background-color: #999;
+}
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,4);
+}
+.modal-contenido{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+}
+.close{
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover, .close:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-header{
+    padding: 2px 16px;
+    background-color: #BFBFBF;
+}
+.modal-body{
+    padding: 2px 16px;
 }
