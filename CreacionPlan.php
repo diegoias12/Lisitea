@@ -28,7 +28,7 @@
         <?php /*include 'PHPInclude\\Menu.php';*/ ?>
     </div>
     <div id="Menu2">
-        <?php require 'PHPInclude/Menufijo.php';?>
+        <?php require 'PHPInclude/MenuPlaneacion.php';?>
     </div>
     <div id="Contenido" class="contenedor">
         <div class="contenido">

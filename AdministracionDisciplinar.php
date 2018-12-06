@@ -27,7 +27,7 @@
     </div>
     <div id="Contenido">
         <?php require "PHPInclude/MenuAdministracion.php"; ?>
-        <script>Activa(5);</script>
+        <script>Activa(1);</script>
         <div class="contenedor">
               <div class="contenido">
                   <p class="encabezado">

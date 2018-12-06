@@ -6,25 +6,29 @@
 <head>
     <?php /*require 'PHPInclude\\Head.php';*/ ?>
     <?php /*include 'PHPInclude\\Head.php';*/ ?>
-    <title>Creacion - CECyTEM Tequixquiac</title>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/General.css"/>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Menu.css"/>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Planeacion.css"/>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/VentanaEmergente.css"/>
+    <link rel="stylesheet" type="text/css" href="CSSEstilos/MenuFijo.css"/>
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
     <script type="text/javascript" src="JavaScriptFunciones/Planeacion.js"></script>
     <script type="texte/javascript" src="JavaScriptFunciones/Catalogo.js"></script>
+    <script type="text/javascript" src="JavaScriptFunciones/SqlSelectElement.js"></script>
+    <script type="text/javascript" src="jQueryAjax/SqlQuery.js"></script>
+    <script type="text/javascript" src="jQueryAjax/ObtenerValor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
+    <script>CargarContenido();</script>
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
         <?php /*include 'PHPInclude\\Menu.php';*/ ?>
     </div>
-    <div id="Menu2">
-        <?php require 'PHPInclude/Menufijo.php';?>
-    </div>
-    <div id="Contenido" class="contenedor" style="margin-top:50px;">
+    <div id="Contenido">
+        <?php require 'PHPInclude/MenuPlaneacion.php';?>
+        <div class="contenedor">
         <div class="contenido">
             <p class="encabezado">
                 INSTRUMENTO PARA LA PLANEACI&Oacute;N ESTRAT&Eacute;GICA
@@ -43,26 +47,30 @@
             <p class="encabezado">
                 PLANEACI&Oacute;N ESTRATEGICA
             </p>
-            <button class="accordion" onclick="Acordeon()">Datos De identificaci&oacute;n</button>
+            <button class="accordion" onclick="Acordeon()">DATOS DE IDENTIFICACI&Oacute;N</button>
             <div class="panel">
-              <form action="/action_page.php" style="min-width:500px;margin:auto">
-                  <div class="input-container">
-                      <button type="button" class="btn">verga</button>
-                      <input class="input-field" type="text" placeholder="Username" name="usrnm">
-                      <button type="button" class="btn">verga</button>
-                      <input class="input-field" type="text" placeholder="Username" name="usrnm">
-                  </div>
-                  <div class="input-container">
-                      <button type="button" class="btn">verga</button>
-                      <input class="input-field" type="text" placeholder="Email" name="email">
-                  </div>
-                  <div class="input-container">
-                      <button type="button" class="btn">verga</button>
-                      <input class="input-field" type="password" placeholder="Password" name="psw">
-                  </div>
-                  <button type="submit" class="btn">Register</button>
-              </form>
-          </div>
+                <table id="SeccionA" align="left">
+                    <form action="PHPFunciones/Planeacion.php" method="post">
+                        <!--Institucion-->
+                        <tr>
+                            <td class="Requerimiento">
+                                Instituci&oacute;n:
+                            </td>
+                            <td colspan="6">
+                                <p class="select-p" data-tabla="tbl_plantel" data-llave="VCH_institucion"></p>
+                            </td>
+                        </tr>
+                        <!--Panel-->
+                        <tr>
+                          <td class="Requerimiento">
+                              Plantel:                          </td>
+                          <td colspan="6">
+                              <p><span>Tequixquiac</span></p>
+                          </td>
+                        </tr>
+                    </form>
+                </table>
+            </div>
         </div>
     </div>
     <script>
