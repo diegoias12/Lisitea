@@ -51,7 +51,7 @@
             <div class="panel">
                 <table id="SeccionA" align="left">
                     <form action="PHPFunciones/Planeacion.php" method="post">
-                        <!--Institucion-->
+                        <!--Fila - Institucion-->
                         <tr>
                             <td class="Requerimiento">
                                 Instituci&oacute;n:
@@ -60,12 +60,95 @@
                                 <p class="select-p" data-tabla="tbl_plantel" data-llave="VCH_institucion"></p>
                             </td>
                         </tr>
-                        <!--Panel-->
+                        <!--Fila - Plantel-->
                         <tr>
-                          <td class="Requerimiento">
-                              Plantel:                          </td>
-                          <td colspan="6">
-                              <p><span>Tequixquiac</span></p>
+                            <td class="Requerimiento">
+                                Plantel:                          </td>
+                            </td>
+                            <td colspan="6">
+                                <p class="select-p" data-tabla="tbl_plantel" data-llave="VCH_plantel"></p>
+                            </td>
+                        </tr>
+                        <!--Fila - CCT - Docente -->
+                        <tr>
+                            <!--CCT-->
+                            <td class="Requerimiento">
+                                CCT:
+                            </td>
+                            <td width="130px">
+                                <p class="select-p" data-tabla="tbl_plantel" data-llave="VCH_CCT"></p>
+                            </td>
+                            <td class="Requerimiento" colspan="2">
+                                Docente:
+                            </td>
+                            <td width="140px">
+                                <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_nombre"></p>
+                            </td>
+                            <td width="140px">
+                                <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_ap_paterno"></p>
+                            </td>
+                            <td width="140px">
+                                <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_ap_materno"></p>
+                            </td>
+                        </tr>
+                        <!-- Fila - Asignatura Especialidad Semestre NoParcial NoPlaneacion -->
+                        <tr>
+                            <!-- Asignatura -->
+                            <td class="Requerimiento" rowspan="2">
+                                Asignatura
+                            </td>
+                            <td class="combobox">
+                                <select class="select-cb"
+                                data-tabla="tbl_campo_disciplinar" data-llave="VCH_nombre" style="width:138px;height:50px">
+                                </select>
+                            </td>
+                            <!-- Especialidad -->
+                            <td class="Requerimiento" colspan="2" >
+                                Especialidad:
+                            </td>
+                            <!-- Semestre -->
+                            <td class="Requerimiento">
+                                Semestre:
+                            </td>
+                            <!-- NoParcial -->
+                            <td class="Requerimiento" style="font-size:12px">
+                                N&uacute;mero de parcial donde aplicar&aacute;:
+                            </td>
+                            <!-- NoPlaneacion -->
+                            <td class="Requerimiento" style="font-size:12px">
+                                N&uacute;mero de planeaci&oacute;n:
+                            </td>
+                        </tr>
+                        <!-- Fila -->
+                        <tr>
+                          <!-- Contenido - tbl_asignatura VCH_nombre -->
+                          <td class="combobox">
+                              <select class="select-cb"
+                                  data-tabla="tbl_asignatura" data-llave="VCH_nombre"
+                                  disabled style=" width:138px;height:41px;">
+                              </select>
+                          </td>
+                          <!-- Contenido - tbl_especialidad VCH_nombre -->
+                          <td class="combobox">
+                              <select class="select-cb"
+                              data-tabla="tbl_especialidad" data-llave="VCH_nombre">
+                              </select>
+                          </td>
+                          <!-- Contenido - tbl_datos_identificacion VCH_semestre -->
+                          <td class="select-p" style="">
+                              Automatico
+                          </td>
+                          <!-- Contenido - tbl_datos_identificacion VCH_numero_parcial -->
+                          <td colspan="2">
+                              <select>
+                                  <option>1</option>
+                                  <option>5</option>
+                              </select>
+                              parcial
+                          </td>
+                          <!-- Contenido - tbl_datos_identificacion VCH_numero_planeacion -->
+                          <td>
+
                           </td>
                         </tr>
                     </form>

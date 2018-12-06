@@ -105,9 +105,9 @@ p
     background-color: #FFF;
     overflow: hidden;
     font-size: 18px;
-    height: 200px;
+    height: auto;
     width: 1000px;
-    overflow: auto;
+    overflow:auto;
 }
 
 .label
@@ -182,4 +182,12 @@ p
 .select-p{
     font-size:18px;
     margin: 0;
+}
+.combobox{
+    padding: 0;
+    margin: 0;
+}
+.select-cb{
+    font-size: 18px;
+    height: auto;
 }
