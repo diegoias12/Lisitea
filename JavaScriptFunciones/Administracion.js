@@ -97,20 +97,20 @@ function Activa(intTipo)
 {
     var dis = document.getElementById("Disciplina");
     var prof = document.getElementById("Profesion");
-    var gene = document.getElementById("General");
-    dis.classList.toggle("Activar");
-    prof.classList.toggle("Activar");
-    gene.classList.toggle("Activar");
-    if(intTipo == 1)
-    {
-        dis.classList.toggle("Activar");
-    }
-    else if(intTipo == 2)
-    {
-        prof.classList.toggle("Activar");
-    }
-    else
-    {
-        gene.classList.toggle("Activar");
-    }
+    var gene = document.getElementById("Generales");
+    $(document).ready(function(){
+        alert(intTipo);
+        if(intTipo == 1)
+        {
+            dis.classList.toggle("Activar");
+        }
+        else if(intTipo == 2)
+        {
+            prof.classList.toggle("Activar");
+        }
+        else
+        {
+            gene.classList.toggle("Activar");
+        }
+    });
 }

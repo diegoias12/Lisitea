@@ -30,6 +30,10 @@
     </div>
     <div id="Contenido">
         <?php require "PHPInclude/MenuAdministracion.php"; ?>
+<<<<<<< HEAD
+        <script>Activa(1);</script>
+=======
+>>>>>>> 3a7c72cdfcc8fdd3d18ef8f9a2c7c1b4a293e542
         <div class="contenedor">
             <div class="contenido">
             <p class="encabezado">

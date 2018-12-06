@@ -25,8 +25,13 @@
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
     </div>
+<<<<<<< HEAD
+    <div id="Menu2">
+        <?php require 'PHPInclude/MenuPlaneacion.php';?>
+=======
     <div id="MenuFijo">
         <?php require 'PHPInclude/MenuFijo.php';?>
+>>>>>>> 3a7c72cdfcc8fdd3d18ef8f9a2c7c1b4a293e542
     </div>
     <div id="Contenido" class="contenedor">
         <div class="contenido">
