@@ -135,12 +135,11 @@
                               </select>
                           </td>
                           <!-- Contenido - tbl_especialidad VCH_nombre -->
-                          <td>
-                              <select class="select-cb"
-                              data-tabla="tbl_especialidad" data-llave="VCH_nombre">
-                              </select>
+                          <td class="select-ch"
+                          data-tabla="tbl_especialidad"
+                          data-llave="VCH_nombre">
                           </td>
-                          <!-- Contenido - tbl_datos_identificacion VCH_semestre -->
+                          <!-- Contenido - tbl_asignatura TINT_semestre -->
                           <td>
                               <p
                               data-tabla="tbl_asignatura"
@@ -153,7 +152,6 @@
                                   <option>1</option>
                                   <option>5</option>
                               </select>
-                              parcial
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_planeacion -->
                           <td>

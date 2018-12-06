@@ -52,7 +52,6 @@ function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
     });
 }
 
-//
 function SqlSelectComboBox(tabla, llave)
 {
     if(tabla == '' || llave == '') {
@@ -61,6 +60,20 @@ function SqlSelectComboBox(tabla, llave)
     }
     return $.ajax({
         url: 'PHPFunciones/SqlSelectComboBox.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave},
+        async: false
+    });
+}
+
+function SqlSelectCheckBox(tabla, llave)
+{
+    if(tabla == '' || llave == '') {
+        alert('Error: SqlQuery.js - SqlSelectCheckBox()');
+        return;
+    }
+    return $.ajax({
+        url: 'PHPFunciones/SqlSelectCheckBox.php',
         type: 'post',
         data: {tabla: tabla, llave: llave},
         async: false

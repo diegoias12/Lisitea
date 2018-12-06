@@ -59,6 +59,15 @@ function CargarContenido()
                 htmlSelect.html(result);
             });
         });
+        // <input type="checkbox">
+        $('.select-ch').each(function(){
+            htmlForm = $(this);
+            tabla = $(this).attr('data-tabla');
+            llave = $(this).attr('data-llave');
+            SqlSelectCheckBox(tabla, llave).done(function(result){
+                htmlForm.html(result);
+            });
+        });
     });
 }
 
