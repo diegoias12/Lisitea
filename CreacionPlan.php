@@ -34,10 +34,10 @@
             <div class="panel">
                 <form>
                     <div class="label">
-                        <input type="radio" name="campo" value="Disciplina" >Campo Disciplinar<br>
+                        <input type="radio" name="campo" value="2" >Campo Disciplinar<br>
                     </div>
                     <div class="label">
-                        <input type="radio" name="campo" value="Profesional">Campo Profesional<br>
+                        <input type="radio" name="campo" value="3">Campo Profesional<br>
                     </div>
                 </form>
             </div>
@@ -342,8 +342,11 @@
               </tr>
               <tbody class="Apartados"></tbody>
               <tr class="LlenadoC"></tr>
-              <tr class="LlenadoC"></tr>
-              <tr class="LlenadoC"></tr>
+              <tr>
+                <td colspan="100%">
+                  <img src="Imagenes/Anadir.png" style="width: 30px; height: 30px; float: right;" />
+                </td>
+              </tr>
               <tr>
                   <td class="Requerimiento" colspan="100%">
                       <p>Desarrollo</p>
@@ -351,16 +354,17 @@
               </tr>
               <tbody class="Apartados"></tbody>
               <tr class="LlenadoC"></tr>
-              <tr class="LlenadoC"></tr>
-              <tr class="LlenadoC"></tr>
+              <tr>
+                <td colspan="100%">
+                  <img src="Imagenes/Anadir.png" style="width: 30px; height: 30px; float: right;" />
+                </td>
+              </tr>
               <tr>
                   <td class="Requerimiento" colspan="100%">
                       <p>Cierre</p>
                   </td>
               </tr>
               <tbody class="Apartados"></tbody>
-              <tr class="LlenadoC"></tr>
-              <tr class="LlenadoC"></tr>
               <tr class="LlenadoC"></tr>
               </table>
             </div>
