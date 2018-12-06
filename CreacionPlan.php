@@ -145,16 +145,9 @@
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_parcial -->
                           <td colspan="2">
-<<<<<<< HEAD
-                              <select>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-=======
                               <select class="combo-num"
                               data-start="1"
                               data-end="4">
->>>>>>> 2a703c27107581049d7a03e1ba65c3d979c33f65
                               </select>
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_planeacion -->

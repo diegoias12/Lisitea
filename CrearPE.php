@@ -122,9 +122,9 @@
                         <tr>
                           <!-- Contenido - tbl_asignatura VCH_nombre -->
                           <td class="combobox">
-                              <select class="select-cb"
+                              <select class="select-cb" style="height:62px;width:138px;"
                                   data-tabla="tbl_asignatura" data-llave="VCH_nombre"
-                                  disabled style=" width:138px;height:41px;">
+                                  disabled>
                               </select>
                           </td>
                           <!-- Contenido - tbl_especialidad VCH_nombre -->
@@ -134,25 +134,47 @@
                           </td>
                           <!-- Contenido - tbl_asignatura TINT_semestre -->
                           <td>
-                              <p
+                              <p class="select-p"
                               data-tabla="tbl_asignatura"
                               data-llave="TINT_semestre">
-                              2018-2019
                               </p>
+                              2018-2019
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_parcial -->
                           <td>
-                              <select>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
+                              <select class="combo-num"
+                              data-start="1"
+                              data-end="4">
                               </select>
-                              parcial
+                              ° parcial
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_planeacion -->
                           <td>
-
+                              <select class="combo-num"
+                              data-start="1"
+                              data-end="7">
+                              </select>
+                              de
+                              <!-- Agregar listener para que el numero sea mayor -->
+                              <select class="combo-num"
+                              data-start="1"
+                              data-end="7">
+                              </select>
                           </td>
+                        </tr>
+                        <tr>
+                            <td class="Requerimiento" style="font-size:12px;">
+                                T&iacute;tulo de la Planeaci&oacute;n Estrat&eacute;gica:
+                            </td>
+                            <td class="combobox" colspan="3">
+                                <textarea name="tbTituloPlaneacion" style="width:363px;height:50px;border:none"></textarea>
+                            </td>
+                            <td class="Requerimiento" style="font-size:12px;" colspan="2">
+                                % de la PE en la evaluaci&oacute;n formativa del parcial
+                            </td>
+                            <td class="combobox">
+                                <textarea name="tb%PE" style="width:148px;height:59px;border:none"></textarea>
+                            </td>
                         </tr>
                     </form>
                 </table>
