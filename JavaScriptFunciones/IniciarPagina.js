@@ -156,7 +156,9 @@ function CheckboxListener()
 {
     $(document).ready(function(){
         cbAsignatura = $('select[data-tabla="tbl_asignatura"][data-llave="VCH_nombre"]');
+        semestre = $('[data-tabla="tbl_asignatura"][data-llave="TINT_semestre"]');
         $('select[data-tabla="tbl_campo_disciplinar"][data-llave="VCH_nombre"]').change(function(){
+            semestre.html('');
             cbAsignatura.prop('disabled', false);
             tabla = cbAsignatura.attr('data-tabla');
             llave = cbAsignatura.attr('data-llave');
@@ -171,7 +173,6 @@ function CheckboxListener()
             });
         });
         cbAsignatura.change(function(){
-            semestre = $('[data-tabla="tbl_asignatura"][data-llave="TINT_semestre"]');
             tabla = semestre.attr('data-tabla');
             llave = semestre.attr('data-llave');
             id = $(this).val();
