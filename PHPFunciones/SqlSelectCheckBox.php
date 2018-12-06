@@ -21,9 +21,11 @@ try
     {
         return;
     }
-    echo '<option value="-1"></option>';
+    // <input type="checkbox" name="" value=""> txt <br>
+    $name = 'check' . substr($tabla, 3);
     foreach($consulta as $row) {
-        echo '<option value="' . $row[$pk] . '">' . $row[$llave] . '</option>';
+        echo '<input type="checkbox" name="' . $name . '" value="' . $row[$pk] . '">'
+        . $row[$llave] . '<br>';
     }
 }
 catch (PDOException $e)

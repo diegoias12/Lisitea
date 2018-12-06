@@ -52,17 +52,44 @@ function CrearTabla(strTabla, strPadre, intPadreId, strRelacion)
     });
 }
 
-//
 function SqlSelectComboBox(tabla, llave)
 {
     if(tabla == '' || llave == '') {
-        alert('Error: SqlSelectComboBox()');
+        alert('Error: SqlQuery.js - SqlSelectComboBox()');
         return;
     }
     return $.ajax({
         url: 'PHPFunciones/SqlSelectComboBox.php',
         type: 'post',
         data: {tabla: tabla, llave: llave},
+        async: false
+    });
+}
+
+function SqlSelectCheckBox(tabla, llave)
+{
+    if(tabla == '' || llave == '') {
+        alert('Error: SqlQuery.js - SqlSelectCheckBox()');
+        return;
+    }
+    return $.ajax({
+        url: 'PHPFunciones/SqlSelectCheckBox.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave},
+        async: false
+    });
+}
+
+function SqlSelectComboBoxId(tabla, llave, padre, padreId)
+{
+    if(tabla == '' || llave == '' || padre == '' || padreId < 0) {
+        alert('Error: SqlQuery.js - SqlSelectComboBoxId()');
+        return;
+    }
+    return $.ajax({
+        url: 'PHPFunciones/SqlSelectComboBoxId.php',
+        type: 'post',
+        data: {tabla: tabla, llave: llave, padre: padre, padreId: padreId},
         async: false
     });
 }

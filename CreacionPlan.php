@@ -13,16 +13,15 @@
     <link rel="stylesheet" type="text/css" href="CSSEstilos/Planeacion.css"/>
     <link rel="stylesheet" type="text/css" href="CSSEstilos/VentanaEmergente.css"/>
     <script type="text/javascript" src="JavaScriptFunciones/Menu.js"></script>
-    <script type="text/javascript" src="JavaScriptFunciones/Planeacion.js"></script>
     <script type="texte/javascript" src="JavaScriptFunciones/Catalogo.js"></script>
-    <script type="text/javascript" src="JavaScriptFunciones/SqlSelectElement.js"></script>
+    <script type="text/javascript" src="JavaScriptFunciones/IniciarPagina.js"></script>
     <script type="text/javascript" src="jQueryAjax/SqlQuery.js"></script>
     <script type="text/javascript" src="jQueryAjax/ObtenerValor.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <script>CargarContenido();</script>
+    <script>IniciarCreacionPlan();</script>
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
     </div>
@@ -109,7 +108,8 @@
                           <!-- Contenido - tbl_campo_disciplinar VCH_nombre -->
                           <td>
                               <select class="select-cb"
-                              data-tabla="tbl_campo_disciplinar" data-llave="VCH_nombre">
+                              data-tabla="tbl_campo_disciplinar"
+                              data-llave="VCH_nombre">
                               </select>
                           </td>
                           <!-- Especialidad -->
@@ -134,19 +134,22 @@
                           <!-- Contenido - tbl_asignatura VCH_nombre -->
                           <td>
                               <select class="select-cb"
-                              data-tabla="tbl_asignatura" data-llave="VCH_nombre"
+                              data-tabla="tbl_asignatura"
+                              data-llave="VCH_nombre"
                               disabled>
                               </select>
                           </td>
                           <!-- Contenido - tbl_especialidad VCH_nombre -->
-                          <td>
-                              <select class="select-cb"
-                              data-tabla="tbl_especialidad" data-llave="VCH_nombre">
-                              </select>
+                          <td class="select-ch"
+                          data-tabla="tbl_especialidad"
+                          data-llave="VCH_nombre">
                           </td>
-                          <!-- Contenido - tbl_datos_identificacion VCH_semestre -->
+                          <!-- Contenido - tbl_asignatura TINT_semestre -->
                           <td>
-                              <p>Automatico Segun Asignatura</p>
+                              <p
+                              data-tabla="tbl_asignatura"
+                              data-llave="TINT_semestre">
+                              </p>
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_parcial -->
                           <td colspan="2">
@@ -154,7 +157,6 @@
                                   <option>1</option>
                                   <option>5</option>
                               </select>
-                              parcial
                           </td>
                           <!-- Contenido - tbl_datos_identificacion VCH_numero_planeacion -->
                           <td>
@@ -397,31 +399,6 @@
             </div>
         </div>
     </div>
-    <script>
-        AgregarCodigo();
-    </script>
-    <script>
-        function Acordeon()
-        {
-            var acc = document.getElementsByClassName("accordion");
-            var i;
 
-            for (i = 0; i < acc.length; i++)
-            {
-                acc[i].onclick= function() {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.display === "block")
-                    {
-                        panel.style.display = "none";
-                    }
-                    else
-                    {
-                        panel.style.display = "block";
-                    }
-                };
-            }
-        }
-    </script>
 </body>
 </html>
