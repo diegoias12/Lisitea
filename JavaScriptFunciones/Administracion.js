@@ -48,7 +48,7 @@ function AccordionListener()
             tabla = $(this).closest('div.seccion').attr('id');
             padre = $(this).attr('data-padre');
             relacion = $(this).attr('data-relacion');
-            padreId = $('#' + padre + ' input[type="radio"]:checked').val();
+            padreId = (padre != '') ? $('#' + padre + ' input[type="radio"]:checked').val() : '';
             // A la vez, se toma el id de la seccion y se seleccionan sus imgAccion
             imgAccion = $(this).nextAll('img.accion');
             id = $(this).closest('div.seccion').attr('id');

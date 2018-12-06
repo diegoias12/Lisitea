@@ -134,7 +134,7 @@ p
 {
   height: 10px;
 }
-.menufijo{
+.menuFijo{
     overflow: hidden;
     background-color: #646464;
     position: fixed;
@@ -142,7 +142,7 @@ p
     width: 100%;
     margin-left: 40px;
 }
-.menufijo a{
+.menuFijo a{
     float: left;
     display: block;
     color: #F2F2F2;
@@ -151,7 +151,7 @@ p
     text-decoration: none;
     font-size: 17px;
 }
-.menufijo a:hover{
+.menuFijo a:hover{
   background: #DDD;
   color: black;
 }

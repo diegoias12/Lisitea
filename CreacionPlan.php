@@ -25,10 +25,14 @@
     <script>CargarContenido();</script>
     <div id="Menu">
         <?php require 'PHPInclude/Menu.php'; ?>
-        <?php /*include 'PHPInclude\\Menu.php';*/ ?>
     </div>
+<<<<<<< HEAD
     <div id="Menu2">
         <?php require 'PHPInclude/MenuPlaneacion.php';?>
+=======
+    <div id="MenuFijo">
+        <?php require 'PHPInclude/MenuFijo.php';?>
+>>>>>>> 3a7c72cdfcc8fdd3d18ef8f9a2c7c1b4a293e542
     </div>
     <div id="Contenido" class="contenedor">
         <div class="contenido">
@@ -53,88 +57,108 @@
             <div class="panel">
                 <table id="SeccionA" align="left">
                     <form action="PHPFunciones/Planeacion.php" method="post">
-                        <!-- Institucion -->
+                        <!-- Fila - Institucion -->
                         <tr>
+                            <!-- Institucion -->
                             <td class="Requerimiento" width="20%">
                               <p style="margin-right: 8.75pt; text-align: right;"><span>Instituci&oacute;n:</span></p>
                             </td>
+                            <!-- Contenido tbl_plantel VCH_institucion -->
                             <td colspan="6">
                                 <p class="select-p" data-tabla="tbl_plantel" data-llave="VCH_institucion"></p>
                             </td>
                         </tr>
-                        <!-- Plantel -->
+                        <!-- Fila - Plantel -->
                         <tr>
+                          <!-- Plantel -->
                           <td class="Requerimiento">
                               <p style="margin-right: 8.75pt; text-align: right;"><span>Plantel:</span></p>
                           </td>
+                          <!-- Contenido - tbl_plantel VCH_institucion -->
                           <td colspan="6">
                               <p><span>Tequixquiac</span></p>
                           </td>
                         </tr>
-                        <!-- CCT Docente -->
+                        <!-- Fila - CCT Docente -->
                         <tr>
+                          <!-- CCT -->
                           <td class="Requerimiento">
                               <p style="margin-right: 8.75pt; text-align: right;"><span>CCT:</span></p>
                           </td>
+                          <!-- Contenido - tbl_plantel VCH_CCT -->
                           <td width="25%">
                               <p class="select-p" data-tabla="tbl_plantel" data-llave="VCH_CCT"></p>
                           </td>
+                          <!-- Docente -->
                           <td class="Requerimiento" width="15%">
                               <p><span>Docente:</span></p>
                           </td>
+                          <!-- Contenido - tbl_usuario VCH_nombre VCH_ap_paterno VCH_ap_materno -->
                           <td width="40%" colspan="4">
                               <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_nombre"></p>
                               <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_ap_paterno"></p>
                               <p class="select-p" data-tabla="tbl_usuario" data-llave="VCH_ap_materno"></p>
                           </td>
                         </tr>
-                        <!-- Asignatura Especialidad Semestre NoParcial NoPlaneacion -->
+                        <!-- Fila - Asignatura Especialidad Semestre NoParcial NoPlaneacion -->
                         <tr>
+                          <!-- Asignatura -->
                           <td class="Requerimiento" rowspan="2">
                               <p style="margin-right: 9.7pt; text-align: right;"><span>Asignatura o M&oacute;dulo:</span></p>
                           </td>
+                          <!-- Contenido - tbl_campo_disciplinar VCH_nombre -->
                           <td>
-                              <select class="" data-tabla="" data-llave="">
+                              <select class="select-cb"
+                              data-tabla="tbl_campo_disciplinar" data-llave="VCH_nombre">
                               </select>
                           </td>
+                          <!-- Especialidad -->
                           <td class="Requerimiento">
                               <p><span>Especialidad:</span></p>
                           </td>
+                          <!-- Semestre -->
                           <td class="Requerimiento" width="14%">
                               <p><span>Semestre:</span></p>
                           </td>
+                          <!-- NoParcial -->
                           <td class="Requerimiento" width="14%" colspan="2">
                               <p><span>N&uacute;mero de parcial donde aplicar&aacute;:</span></p>
                           </td>
+                          <!-- NoPlaneacion -->
                           <td class="Requerimiento" width="12%">
                               <p><span>N&uacute;mero de planeaci&oacute;n:</span></p>
                           </td>
                         </tr>
+                        <!-- Fila -->
                         <tr>
+                          <!-- Contenido - tbl_asignatura VCH_nombre -->
                           <td>
-                              <select>
-                                  <?php // echo 'Elementos de ASIGNATURA' ?>
+                              <select class="select-cb"
+                              data-tabla="tbl_asignatura" data-llave="VCH_nombre"
+                              disabled>
                               </select>
                           </td>
+                          <!-- Contenido - tbl_especialidad VCH_nombre -->
                           <td>
-                              <select>
-                                  <option>Programaci&oacute;n Procesos de gesti&oacute;n administrativa</option>
+                              <select class="select-cb"
+                              data-tabla="tbl_especialidad" data-llave="VCH_nombre">
                               </select>
                           </td>
+                          <!-- Contenido - tbl_datos_identificacion VCH_semestre -->
                           <td>
-                              <select>
-                                  <option>5</option>
-                              </select>
-                              2018-2019
+                              <p>Automatico Segun Asignatura</p>
                           </td>
+                          <!-- Contenido - tbl_datos_identificacion VCH_numero_parcial -->
                           <td colspan="2">
                               <select>
                                   <option>1</option>
+                                  <option>5</option>
                               </select>
                               parcial
                           </td>
+                          <!-- Contenido - tbl_datos_identificacion VCH_numero_planeacion -->
                           <td>
-                              1 de 4
+
                           </td>
                         </tr>
                         <!-- TituloPlaneacion  PE -->
@@ -373,24 +397,6 @@
             </div>
         </div>
     </div>
-        <!-- @@@@@@@@@ Programador @@@@@@@@@ -->
-        <!--
-            Dar el formato a HTML y capturar en PHP
-
-            Capturar las queries
-        -->
-        <!-- @@@@@@@@@ Diseño @@@@@@@@@ -->
-        <!--
-            Ayudar con la altura de las filas
-
-            Añadir nuevas filas en C, D y E
-
-            Convertir secciones a acordeones o diseñar alguna forma de navagación rápida
-        -->
-        <!-- @@@@@@@@@ BD @@@@@@@@@ -->
-        <!--
-            Crear todas las queries para llenar la planeación
-        -->
     <script>
         AgregarCodigo();
     </script>
